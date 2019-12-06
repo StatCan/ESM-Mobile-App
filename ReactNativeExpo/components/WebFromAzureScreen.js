@@ -20,23 +20,30 @@ export default class App extends Component<Props> {
       </View>
     );
   }
+   componentDidMount(){
+      setTimeout(
+      () => this.webView.postMessage(global.userToken),
+      2000);
+      console.log("message sent out");
+    }
   render() {
     return (
 <View style={{flex:1, marginTop:16}}>
   <WebView
-   style={styles.webview}
-   source={{uri: 'https://webforrntest.azurewebsites.net/'}}
-   javaScriptEnabled={true}
-   domStorageEnabled={true}
-   startInLoadingState={false}
-   scalesPageToFit={true}
-    startInLoadingState={true}
-    renderLoading={() => {
+      ref={(view) => this.webView = view}
+        style={styles.webview}
+        source={{uri: 'https://webforrntest.azurewebsites.net/'}}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        startInLoadingState={false}
+        scalesPageToFit={true}
+        startInLoadingState={true}
+        renderLoading={() => {
                 return this.displaySpinner();
               }}
-    onMessage={event => {
-       if(event.nativeEvent.data=="Hello React Native!")
-          this.props.navigation.navigate('Home')
+        onMessage={event => {
+             if(event.nativeEvent.data=="Hello React Native!")
+                this.props.navigation.navigate('Home')
 
         }}
    />

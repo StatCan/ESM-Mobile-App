@@ -1,2 +1,3 @@
 global.name='AAA';
-global.department='bbb'
+global.department='bbb';
+global.userToken='';

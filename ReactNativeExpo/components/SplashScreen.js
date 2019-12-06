@@ -14,8 +14,10 @@ export default class SplashScreen extends Component {
        resources.culture=culture;
        if(userToken==null)
             this.props.navigation.navigate('Initial');
-       else
+       else{
+            global.userToken=userToken;
             this.props.navigation.navigate('Login',{userToken:userToken});
+       }
   };
   render() {
     return (

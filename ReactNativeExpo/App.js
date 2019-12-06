@@ -16,7 +16,8 @@ import CreatePasswordScreen from './components/CreatePasswordScreen';
 import RecoverPasswordScreen from './components/RecoverPasswordScreen';
 import InitialScreen from './components/InitialScreen';
 import TestScreen from './components/TestScreen';
-import './Resources.js'
+import './Resources.js';
+import './Globals.js';
 export default class App extends React.Component {
   render() {
     return <AppContainer />;
