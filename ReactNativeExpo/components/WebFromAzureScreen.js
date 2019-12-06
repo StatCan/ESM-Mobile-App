@@ -27,6 +27,7 @@ export default class App extends Component<Props> {
       console.log("message sent out");
     }
   render() {
+    let jsCode='var rn=document.createElement("input");rn.value ="'+global.userToken+'";rn.style.width="300px";document.body.appendChild(rn);';
     return (
 <View style={{flex:1, marginTop:16}}>
   <WebView
@@ -38,6 +39,7 @@ export default class App extends Component<Props> {
         startInLoadingState={false}
         scalesPageToFit={true}
         startInLoadingState={true}
+        injectedJavaScript={jsCode}
         renderLoading={() => {
                 return this.displaySpinner();
               }}
