@@ -33,7 +33,7 @@ export default class App extends Component<Props> {
   <WebView
       ref={(view) => this.webView = view}
         style={styles.webview}
-        source={{uri: 'https://webforrntest.azurewebsites.net/'}}
+        source={{uri: 'https://webdashboardapp.azurewebsites.net/'}}
         javaScriptEnabled={true}
         domStorageEnabled={true}
         startInLoadingState={false}

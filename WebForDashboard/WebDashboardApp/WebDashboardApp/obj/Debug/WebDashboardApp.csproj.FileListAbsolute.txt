@@ -74,3 +74,5 @@ C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\obj\Debug\WebDashboardApp.csproj.CopyComplete
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\obj\Debug\WebDashboardApp.dll
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\obj\Debug\WebDashboardApp.pdb
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\bin\Stc.Graphics.dll
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\bin\Stc.Graphics.pdb
