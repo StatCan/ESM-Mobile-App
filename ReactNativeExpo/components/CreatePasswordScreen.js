@@ -7,25 +7,33 @@ import Constants from 'expo-constants';
 interface State{userName:string;password:string;}
 
 export default class CreatePasswordScreen extends Component {
-  state = { password:'',confirmPassword:'',question:'',answer:''};
-  onPressButton=()=>{
+    displaySpinner() {
+      return (
+      <View>
+         <ActivityIndicator />
+      </View>
+    );
+  }
+    state = { password:'',confirmPassword:'',question:'',answer:''};
+    onPressButton=()=>{
     if(this.state.password!=''&&this.state.confirmPassword!=''&&this.state.answer!=''&&this.state.password==this.state.confirmPassword){
          var userToken=Constants.deviceId;
             var culture=resources.culture;console.log(culture);
             AsyncStorage.setItem('EsmUserToken',userToken);
             AsyncStorage.setItem('EsmCulture',culture);
+            global.userToken=userToken;
             this.props.navigation.navigate('Home',{userToken:userToken});
     }else{
         alert("You must provide matched password and secrity question and answer !");
     }
 
   }
-   updateQuestion = (question) => {
+    updateQuestion = (question) => {
 
       this.setState({ question:question})
    }
-  render() {
-    return (
+    render() {
+      return (
       <View style={styles.container}>
         <Text style={{fontSize:30}}>{resources.getString(0)}</Text>
         <TextInput

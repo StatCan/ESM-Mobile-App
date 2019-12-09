@@ -13,14 +13,14 @@ const deviceWidth = Dimensions.get('window').width;
 
 type Props = {};
 export default class App extends Component<Props> {
-displaySpinner() {
+    displaySpinner() {
     return (
       <View>
          <ActivityIndicator />
       </View>
     );
   }
-  render() {
+    render() {
     return (
 <View style={{flex:1, marginTop:16}}>
   <WebView

@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,Button,
-  Dimensions
+  Dimensions,Image
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { WebView,ActivityIndicator } from 'react-native';
@@ -30,7 +30,8 @@ export default class App extends Component<Props> {
     let jsCode='var rn=document.createElement("input");rn.value ="'+global.userToken+'";rn.style.width="300px";document.body.appendChild(rn);';
     return (
 <View style={{flex:1, marginTop:16}}>
-  <WebView
+ <Image source={require('./StatCanLogo.png')} style={styles.logo}/>
+ <WebView
       ref={(view) => this.webView = view}
         style={styles.webview}
         source={{uri: 'https://webdashboardapp.azurewebsites.net/'}}
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
   webview: {
     flex: 1,
     width: deviceWidth,
-    height: deviceHeight-40
-  }
+    height: deviceHeight-40,marginTop:10
+  },
+   logo:{width: 300,height:40},
 });

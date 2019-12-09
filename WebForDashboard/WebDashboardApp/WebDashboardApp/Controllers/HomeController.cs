@@ -46,6 +46,23 @@ namespace WebDashboardApp.Controllers
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
+        public ActionResult GetSecurityQuestions(int index)
+        {
+            var dataE = new[] {
+                "What is your name ?",
+                "What is your age ?",
+                "What is your movie ?",
+                "What is your tv ?",
+            };
+            var dataF = new[] {
+                "What is your name fr ?",
+                "What is your age fr ?",
+                "What is your movie fr ?",
+                "What is your tv fr ?",
+            };
+            if(index==1)return Json(dataF, JsonRequestBehavior.AllowGet);
+            else return Json(dataE, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
