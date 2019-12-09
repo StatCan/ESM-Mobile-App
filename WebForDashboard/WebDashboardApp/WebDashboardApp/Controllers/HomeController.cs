@@ -46,7 +46,7 @@ namespace WebDashboardApp.Controllers
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetSecurityQuestions(int index)
+        public ActionResult GetSecurityQuestions(string culture)
         {
             var dataE = new[] {
                 "What is your name ?",
@@ -60,8 +60,8 @@ namespace WebDashboardApp.Controllers
                 "What is your movie fr ?",
                 "What is your tv fr ?",
             };
-            if(index==1)return Json(dataF, JsonRequestBehavior.AllowGet);
-            else return Json(dataE, JsonRequestBehavior.AllowGet);
+            if(culture =="en")return Json(dataE, JsonRequestBehavior.AllowGet);
+            else return Json(dataF, JsonRequestBehavior.AllowGet);
         }
         public ActionResult About()
         {

@@ -1,6 +1,6 @@
 //CreatePassword.js
 import React, { Component } from 'react';
-import { Button, View, Text,TextInput,Image,AsyncStorage,Picker,StyleSheet } from 'react-native';
+import { Button, View, Text,TextInput,Image,AsyncStorage,Picker,StyleSheet,ActivityIndicator } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Constants from 'expo-constants';
@@ -14,7 +14,7 @@ export default class CreatePasswordScreen extends Component {
       </View>
     );
   }
-    state = { password:'',confirmPassword:'',question:'',answer:''};
+    state = { password:'',confirmPassword:'',question:'',answer:'',isLoading: true,questions:''};
     onPressButton=()=>{
     if(this.state.password!=''&&this.state.confirmPassword!=''&&this.state.answer!=''&&this.state.password==this.state.confirmPassword){
          var userToken=Constants.deviceId;
@@ -32,7 +32,37 @@ export default class CreatePasswordScreen extends Component {
 
       this.setState({ question:question})
    }
+    componentDidMount(){
+        let url='https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=en';
+        if(resources.culture!='en')url='https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=fr';
+        return fetch(url)
+          .then((response) => response.json())
+          .then((responseJson) => {
+             console.log(responseJson);
+            this.setState({
+              isLoading: false,
+              questions: responseJson,
+            }, function(){
+
+            });
+
+          })
+          .catch((error) =>{
+            console.error(error);
+          });
+      }
     render() {
+
+    if(this.state.isLoading){
+      return(
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
+      let questionIems = this.state.questions.map( (s, i) => {
+                  return <Picker.Item key={i} value={s} label={s} />
+              });
       return (
       <View style={styles.container}>
         <Text style={{fontSize:30}}>{resources.getString(0)}</Text>
@@ -51,9 +81,7 @@ export default class CreatePasswordScreen extends Component {
                           secureTextEntry
                         />
         <Picker selectedValue = {this.state.question} onValueChange = {this.updateQuestion}>
-            <Picker.Item label = "What is the name of your pet ?" value = "Question1" />
-            <Picker.Item label = "Whar is you favourite sport ?" value = "Question2" />
-            <Picker.Item label = "Where you born ?" value = "Question3" />
+                    {questionIems}
         </Picker>
         <TextInput
                                   style={styles.input}
