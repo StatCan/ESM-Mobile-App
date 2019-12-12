@@ -61,7 +61,7 @@ export default class CreatePasswordScreen extends Component {
       )
     }
       let questionIems = this.state.questions.map( (s, i) => {
-                  return <Picker.Item key={i} value={s} label={s} />
+                  return <Picker.Item style={{marginLeft:60}} key={i} value={s} label={s} />
               });
       return (
       <View style={styles.container}>
@@ -81,7 +81,7 @@ export default class CreatePasswordScreen extends Component {
                           secureTextEntry
                         />
         <Picker selectedValue = {this.state.question} onValueChange = {this.updateQuestion}>
-                    {questionIems}
+            {questionIems}
         </Picker>
         <TextInput
                                   style={styles.input}
@@ -102,5 +102,8 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',padding:10
   },
-  input:{height: 40,borderWidth:1,marginBottom:4,padding:4,borderColor:'lightgray'}
+  input:{height: 40,borderWidth:1,marginBottom:4,padding:4,borderColor:'lightgray'},
+   pickerView:{
+      marginLeft:40,
+    },
 });

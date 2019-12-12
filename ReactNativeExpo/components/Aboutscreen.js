@@ -1,13 +1,14 @@
 // Aboutscreen.js
 import React, { Component } from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text,Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 export default class Aboutscreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-       <Text style={{fontSize:30}}>Contact us:</Text>
+         <Image source={{uri: 'https://webdashboardapp.azurewebsites.net/Home/GetMoodCountImage'}} style={{width:300,height:240}} />
+         <Text style={{fontSize:30}}>Contact us:</Text>
         <Text>Statistics Canada</Text>
         <Text>Jean Talon Building, 4th floor</Text>
         <Text>170 Tunney's Pasture Driveway</Text>

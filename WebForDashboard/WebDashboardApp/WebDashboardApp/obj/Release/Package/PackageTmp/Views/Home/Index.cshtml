@@ -13,7 +13,8 @@
 <div class="col-sm-12" align="right" style="max-width:300px;">
     <button class="btn btn-primary" onclick="btnClick()">Back</button>
 </div>
-
+<br /><br />
+<label>User Agent:</label>@ViewBag.UserAgentStr<br /><br />
 <script>
     document.addEventListener("message", function () {
         document.getElementById("info").innerHTML += message.data;

@@ -14,6 +14,7 @@ namespace WebDashboardApp.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.UserAgentStr = HttpContext.Request.UserAgent;
             return View();
         }
         public ActionResult GetMoodCountImage()

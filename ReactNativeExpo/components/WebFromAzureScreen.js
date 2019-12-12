@@ -33,6 +33,7 @@ export default class App extends Component<Props> {
  <Image source={require('./StatCanLogo.png')} style={styles.logo}/>
  <WebView
       ref={(view) => this.webView = view}
+         userAgent={global.userToken}
         style={styles.webview}
         source={{uri: 'https://webdashboardapp.azurewebsites.net/'}}
         javaScriptEnabled={true}
