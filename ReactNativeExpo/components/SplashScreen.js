@@ -10,12 +10,17 @@ export default class SplashScreen extends Component {
   bootstrap=async()=>{
        const userToken=await AsyncStorage.getItem('EsmUserToken');
        const culture=await AsyncStorage.getItem('EsmCulture');
-       console.log(culture);
+       const password=await AsyncStorage.getItem('EsmPassword');
+       const question=await AsyncStorage.getItem('EsmQuestion');
+       const answer=await AsyncStorage.getItem('EsmAnswer');
+     //  const stores = await AsyncStorage.multiGet(["EsmUserToken", "EsmCulture", "EsmPassword", "EsmQuestion", "EsmAnswer"]);
+     //  console.log(stores);
        resources.culture=culture;
        if(userToken==null)
             this.props.navigation.navigate('Initial');
        else{
             global.userToken=userToken;
+            global.password=password;global.question=question;global.answer=answer;
             this.props.navigation.navigate('Login',{userToken:userToken});
        }
   };

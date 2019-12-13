@@ -14,13 +14,16 @@ export default class CreatePasswordScreen extends Component {
       </View>
     );
   }
-    state = { password:'',confirmPassword:'',question:'',answer:'',isLoading: true,questions:''};
+    state = { password:'',confirmPassword:'',question:'???',answer:'',isLoading: true,questions:''};
     onPressButton=()=>{
-    if(this.state.password!=''&&this.state.confirmPassword!=''&&this.state.answer!=''&&this.state.password==this.state.confirmPassword){
+    if(this.state.password!=''&&this.state.confirmPassword!=''&&this.state.answer!=''&&this.state.password==this.state.confirmPassword &&this.state.qusetion!='???'){
          var userToken=Constants.deviceId;
             var culture=resources.culture;console.log(culture);
             AsyncStorage.setItem('EsmUserToken',userToken);
             AsyncStorage.setItem('EsmCulture',culture);
+            AsyncStorage.setItem('EsmPassword',this.state.password);
+            AsyncStorage.setItem('EsmQuestion',this.state.question);
+            AsyncStorage.setItem('EsmAnswer',this.state.answer);
             global.userToken=userToken;
             this.props.navigation.navigate('Home',{userToken:userToken});
     }else{
@@ -28,20 +31,18 @@ export default class CreatePasswordScreen extends Component {
     }
 
   }
-    updateQuestion = (question) => {
-
-      this.setState({ question:question})
-   }
+    updateQuestion = (question) => {this.setState({ question:question})}
     componentDidMount(){
         let url='https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=en';
         if(resources.culture!='en')url='https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=fr';
         return fetch(url)
           .then((response) => response.json())
           .then((responseJson) => {
-             console.log(responseJson);
+             console.log(responseJson);console.log(responseJson[0]);
             this.setState({
               isLoading: false,
               questions: responseJson,
+              question:responseJson[0]
             }, function(){
 
             });
@@ -52,48 +53,43 @@ export default class CreatePasswordScreen extends Component {
           });
       }
     render() {
-
-    if(this.state.isLoading){
+      if(this.state.isLoading){
       return(
         <View style={{flex: 1, padding: 20}}>
           <ActivityIndicator/>
         </View>
       )
     }
-      let questionIems = this.state.questions.map( (s, i) => {
-                  return <Picker.Item style={{marginLeft:60}} key={i} value={s} label={s} />
-              });
+      let questionIems = this.state.questions.map( (s, i) => {return <Picker.Item style={{marginLeft:60}} key={i} value={s} label={s} /> });
       return (
       <View style={styles.container}>
         <Text style={{fontSize:30}}>{resources.getString(0)}</Text>
         <TextInput
-                          style={styles.input}
-                          placeholder={resources.getString(1)}
-                          onChangeText={(text) => this.setState({password:text})}
-                          value={this.state.password}
-                          secureTextEntry
-                        />
+              style={styles.input}
+              placeholder={resources.getString(1)}
+              onChangeText={(text) => this.setState({password:text})}
+              value={this.state.password}
+              secureTextEntry
+         />
         <TextInput
-                          style={styles.input}
-                          placeholder={resources.getString(2)}
-                          onChangeText={(text) => this.setState({confirmPassword:text})}
-                          value={this.state.confirmPassword}
-                          secureTextEntry
-                        />
-        <Picker selectedValue = {this.state.question} onValueChange = {this.updateQuestion}>
-            {questionIems}
-        </Picker>
-        <TextInput
-                                  style={styles.input}
-                                  placeholder={resources.getString(3)}
-                                  onChangeText={(text) => this.setState({answer:text})}
-                                  value={this.state.answer}
-                                />
+              style={styles.input}
+              placeholder={resources.getString(2)}
+              onChangeText={(text) => this.setState({confirmPassword:text})}
+              value={this.state.confirmPassword}
+              secureTextEntry
+        />
+         {!this.props.navigation.state.params.reset? <View><Picker selectedValue = {this.state.question} onValueChange = {this.updateQuestion}>
+                 {questionIems}
+              </Picker>
+              <TextInput
+                 style={styles.input}
+                 placeholder={resources.getString(3)}
+                 onChangeText={(text) => this.setState({answer:text})}
+                 value={this.state.answer} />
+               </View> : <View></View>}
            <Button
-                     title={resources.getString(4)}
-                     onPress={this.onPressButton}
-           />
-
+                title={resources.getString(4)}
+                onPress={this.onPressButton} />
       </View>
     )
   }

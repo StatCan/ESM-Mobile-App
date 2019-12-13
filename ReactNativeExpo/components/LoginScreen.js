@@ -23,7 +23,10 @@ export default class LoginScreen extends Component {
            <Button
                      title={resources.getString(5)}
                      disabled={this.state.password==''?true:false}
-                     onPress={() => this.props.navigation.navigate('Home')}
+                     onPress={() =>{
+                        if(this.state.password==global.password)this.props.navigation.navigate('Home');
+                        else alert("Wrong password");
+                     } }
            />
             <Text style={{margin:30}} onPress={()=>this.props.navigation.navigate('RecoverPassword')}>Forget Password</Text>
             <Text style={{margin:30}} onPress={()=>{AsyncStorage.removeItem('EsmUserToken');AsyncStorage.removeItem('EsmCulture')} }>Delete DeviceId(Test only)</Text>

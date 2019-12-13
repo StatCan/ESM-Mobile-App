@@ -25,7 +25,7 @@ export default class App extends Component<Props> {
 <View style={{flex:1, marginTop:16}}>
   <WebView
    style={styles.webview}
-   source={{uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/EQ41_DISB/'}}
+   source={{uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/'}}
    javaScriptEnabled={true}
    domStorageEnabled={true}
    startInLoadingState={false}

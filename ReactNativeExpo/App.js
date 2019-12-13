@@ -15,6 +15,7 @@ import TermScreen from './components/TermScreen';
 import CreatePasswordScreen from './components/CreatePasswordScreen';
 import RecoverPasswordScreen from './components/RecoverPasswordScreen';
 import InitialScreen from './components/InitialScreen';
+import ContactUsScreen from './components/ContactUsScreen';
 import TestScreen from './components/TestScreen';
 import './Resources.js';
 import './Globals.js';
@@ -32,11 +33,12 @@ const AppNavigator = createStackNavigator({
    About:{screen:Aboutscreen},
    CreatePassword:{screen:CreatePasswordScreen},
    RecoverPassword:{screen:RecoverPasswordScreen},
-  Home: {screen: Homescreen},
-  WebFromAzure: {screen: WebFromAzureScreen},
+   Home: {screen: Homescreen},
+   WebFromAzure: {screen: WebFromAzureScreen},
    LocalNotification:{screen:LocalNotificationScreen},
    CurrentEQ:{screen:CurrentEQScreen},
    Test:{screen:TestScreen},
+   ContactUs:{screen:ContactUsScreen},
 }
 );
 
