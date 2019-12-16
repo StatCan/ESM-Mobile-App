@@ -37,8 +37,8 @@ const AppNavigator = createStackNavigator({
    WebFromAzure: {screen: WebFromAzureScreen},
    LocalNotification:{screen:LocalNotificationScreen},
    CurrentEQ:{screen:CurrentEQScreen},
-   Test:{screen:TestScreen},
    ContactUs:{screen:ContactUsScreen},
+   Test:{screen:TestScreen},
 }
 );
 

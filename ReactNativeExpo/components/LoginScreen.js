@@ -24,7 +24,7 @@ export default class LoginScreen extends Component {
                      title={resources.getString(5)}
                      disabled={this.state.password==''?true:false}
                      onPress={() =>{
-                        if(this.state.password==global.password)this.props.navigation.navigate('Home');
+                        if(this.state.password==global.password){ global.timeStamp=Date.now();console.log(global.timeStamp);this.props.navigation.navigate('Home');}
                         else alert("Wrong password");
                      } }
            />

@@ -25,6 +25,7 @@ export default class CreatePasswordScreen extends Component {
             AsyncStorage.setItem('EsmQuestion',this.state.question);
             AsyncStorage.setItem('EsmAnswer',this.state.answer);
             global.userToken=userToken;
+            global.timeStamp=Date.now();console.log(global.timeStamp);
             this.props.navigation.navigate('Home',{userToken:userToken});
     }else{
         alert("You must provide matched password and secrity question and answer !");
