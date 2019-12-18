@@ -11,8 +11,11 @@ export default class SurveyResultScreen extends Component {
           <Image source={require('./StatCanLogo.png')} style={styles.logo}/>
           <ScrollView style={styles.scrollView}>
                    <Text style={{fontSize:30,marginBottom:20}}>Survey Result:</Text>
+                   <Text style={styles.label}>Activity Count:</Text>
                    <Image source={{uri: 'https://webdashboardapp.azurewebsites.net/Home/GetActivityCountImage'}} style={styles.image} />
+                   <Text style={styles.label}>Mood Count:</Text>
                    <Image source={{uri: 'https://webdashboardapp.azurewebsites.net/Home/GetMoodCountImage'}} style={styles.image} />
+                   <Text style={styles.label}>Weekly Mood Comparation:</Text>
                    <Image source={{uri: 'https://webdashboardapp.azurewebsites.net/Home/GetMoodWeeklyImage'}} style={styles.image} />
           </ScrollView>
           <Button title="Back" style={{marginTop:20}} onPress={() => this.props.navigation.navigate('Home')}/>
@@ -26,5 +29,6 @@ const styles = StyleSheet.create({
       },
    logo:{width: 300,height:40},
    scrollView:{marginHorizontal:0,marginTop:10},
-   image:{width:300,height:240,alignSelf:'center'}
+   image:{width:300,height:240,alignSelf:'center'},
+   label:{fontSize:20,alignSelf:'center',marginBottom:10}
 });
