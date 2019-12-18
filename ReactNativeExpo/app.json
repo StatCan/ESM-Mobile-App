@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ReactNavigationDemo",
-    "slug": "ReactNavigationDemo",
+    "name": "EsmDemo",
+    "slug": "EsmDemo",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -24,7 +24,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.StatPilot.Esm"
+    },
+    "android": {
+      "package": "com.StatPilot.Esm"
     }
+
   }
 }

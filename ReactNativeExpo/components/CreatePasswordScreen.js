@@ -4,6 +4,7 @@ import { Button, View, Text,TextInput,Image,AsyncStorage,Picker,StyleSheet,Activ
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Constants from 'expo-constants';
+
 interface State{userName:string;password:string;}
 
 export default class CreatePasswordScreen extends Component {
@@ -61,10 +62,10 @@ export default class CreatePasswordScreen extends Component {
         </View>
       )
     }
-      let questionIems = this.state.questions.map( (s, i) => {return <Picker.Item style={{marginLeft:60}} key={i} value={s} label={s} /> });
+      let questionIems = this.state.questions.map( (s, i) => {return <Picker.Item style={{fontSize:20}} key={i} value={s} label={s} /> });
       return (
       <View style={styles.container}>
-        <Text style={{fontSize:30}}>{resources.getString(0)}</Text>
+        <Text style={styles.label}>{resources.getString(0)}</Text>
         <TextInput
               style={styles.input}
               placeholder={resources.getString(1)}
@@ -79,7 +80,7 @@ export default class CreatePasswordScreen extends Component {
               value={this.state.confirmPassword}
               secureTextEntry
         />
-         {!this.props.navigation.state.params.reset? <View><Picker selectedValue = {this.state.question} onValueChange = {this.updateQuestion}>
+         {!this.props.navigation.state.params.reset? <View><Picker selectedValue = {this.state.question} onValueChange = {this.updateQuestion}  style={styles.zoomedPicker}>
                  {questionIems}
               </Picker>
               <TextInput
@@ -99,8 +100,11 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',padding:10
   },
+  label:{fontSize:30},
   input:{height: 40,borderWidth:1,marginBottom:4,padding:4,borderColor:'lightgray'},
-   pickerView:{
+  pickerView:{
       marginLeft:40,
     },
+  pickerItem:{marginLeft:60,},
+  zoomedPicker:{}
 });

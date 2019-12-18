@@ -24,6 +24,7 @@ export default class App extends Component<Props> {
     return (
 <View style={{flex:1, marginTop:16}}>
   <WebView
+     ref={(view) => this.webView = view}
    style={styles.webview}
    source={{uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/'}}
    javaScriptEnabled={true}
@@ -34,7 +35,12 @@ export default class App extends Component<Props> {
    renderLoading={() => {
              return this.displaySpinner();
            }}
-    onMessage={event => {
+    onNavigationStateChange ={(navState)=>{
+          if(navState.url == ""){ // You must validate url to enter or navigate
+             this.webView.stopLoading();
+          }
+       }}
+   onMessage={event => {
        if(event.nativeEvent.data=="Hello React Native!")
           this.props.navigation.navigate('Home')
 

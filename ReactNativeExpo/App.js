@@ -17,6 +17,7 @@ import RecoverPasswordScreen from './components/RecoverPasswordScreen';
 import InitialScreen from './components/InitialScreen';
 import ContactUsScreen from './components/ContactUsScreen';
 import TestScreen from './components/TestScreen';
+import SurveyResultScreen from './components/SurveyResultScreen';
 import './Resources.js';
 import './Globals.js';
 export default class App extends React.Component {
@@ -39,6 +40,7 @@ const AppNavigator = createStackNavigator({
    CurrentEQ:{screen:CurrentEQScreen},
    ContactUs:{screen:ContactUsScreen},
    Test:{screen:TestScreen},
+   SurveyResult:{screen:SurveyResultScreen}
 }
 );
 

@@ -14,7 +14,7 @@ export default class LoginScreen extends Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
        <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
         <TextInput
-                          style={{height: 40,fontSize:16,borderWidth:1,width:200, marginBottom:5,paddingLeft:4}}
+                          style={{height: 40,borderWidth:1,width:200, marginBottom:5,paddingLeft:4}}
                           placeholder={resources.getString(1)}
                           onChangeText={(text) => this.setState({password:text})}
                           value={this.state.password}

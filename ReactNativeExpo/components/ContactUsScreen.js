@@ -7,7 +7,7 @@ export default class ConatctUsScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-         <Image source={{uri: 'https://webdashboardapp.azurewebsites.net/Home/GetMoodCountImage'}} style={{width:300,height:240}} />
+         <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
          <Text style={{fontSize:30}}>Contact us:</Text>
         <Text>Statistics Canada</Text>
         <Text>Jean Talon Building, 4th floor</Text>
