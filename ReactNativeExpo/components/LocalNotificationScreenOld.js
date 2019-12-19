@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import { Notifications} from "expo";
+import { Notifications } from "expo";
 import * as Permissions from 'expo-permissions';
 
 export default class App extends React.Component {
@@ -23,7 +23,7 @@ export default class App extends React.Component {
     let notificationId = await Notifications.presentLocalNotificationAsync({
       title: "This is crazy",
       body: "Your mind will blow after reading this",
-      sound:'true'
+      sound: 'true'
     });
     console.log(notificationId); // can be saved in AsyncStorage or send to server
   };
@@ -33,7 +33,7 @@ export default class App extends React.Component {
       {
         title: "I'm Scheduled",
         body: "Wow, I can show up even when app is closed",
-        sound:'true'
+        sound: 'true'
       },
       {
         repeat: "minute",
@@ -46,7 +46,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={{fontSize:30}}>Notofication Settings:</Text>
+        <Text style={{ fontSize: 30 }}>Notofication Settings:</Text>
         <Button
           title="Please accept Notifications Permissions"
           onPress={() => this.askPermissions()}
@@ -68,9 +68,9 @@ export default class App extends React.Component {
           onPress={() => Notifications.cancelAllScheduledNotificationsAsync()}
         />
         <Button
-                          title="Back"
-                          onPress={() => this.props.navigation.navigate('Home')}
-                />
+          title="Back"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
       </View>
     );
   }
