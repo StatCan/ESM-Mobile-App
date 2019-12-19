@@ -28,9 +28,9 @@ export default class Homescreen extends Component {
   }
 }
 const styles=StyleSheet.create({
-    homeContainer:{flex: 1, alignItems: 'center', justifyContent: 'space-between' },
+    homeContainer:{flex: 1, alignItems: 'center', justifyContent: 'center' },
     logo:{width: 300,height:100},
-    homeButtonContainer:{flex: 1,flexDirection: 'row',justifyContent: 'space-between',alignContent:'space-between'},
+    homeButtonContainer:{flexDirection: 'row',justifyContent: 'center',alignContent:'center'},
     homeButtonColumn:{width: 150, height: 150,justifyContent: 'space-between',alignContent:'space-between'},
     homeButton:{width:100},
     homeSeperator:{width: 20, height: 150},

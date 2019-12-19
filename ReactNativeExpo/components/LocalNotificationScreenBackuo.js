@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text,TextInput, View, Button,Platform,Switch,Image } from "react-native";
+import { StyleSheet, Text,TextInput, View, Button,Platform,Switch } from "react-native";
 import { Notifications } from "expo";
 import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
@@ -76,9 +76,7 @@ export default class LocalNotificationScreen extends React.Component {
   };
   render() {
     return (
-    <View style={{flex:1,justifyContent:'center'}}>
-     <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
-
+    <View>
       <Text style={{fontSize:30}}>Settings:</Text>
       <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
          <Text>Notification:</Text>
@@ -100,6 +98,9 @@ export default class LocalNotificationScreen extends React.Component {
                  </View>
                  <View>
                      <Text style={{color:'red'}}>Following buttons are test only</Text>
+                     <Button title="Please accept Notifications Permissions" onPress={() => this.askPermissions()} />
+                     <Button title="Send Notification immediately" onPress={() => this.sendNotificationImmediately()} />
+                     <Button title="Dismiss All Notifications" onPress={() => Notifications.dismissAllNotificationsAsync()}/>
                      <Button title={"Schedule Notification"}   onPress={() => this.scheduleNotification()} />
                      <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
                  </View>

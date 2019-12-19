@@ -15,7 +15,7 @@ export default class RadioButtons extends Component {
 				{options.map(item => {
 					return (
 						<View key={item.key} style={styles.buttonContainer}>
-							<Text>{item.text}</Text>
+
 							<TouchableOpacity
 								style={styles.circle}
 								onPress={() => {
@@ -26,6 +26,7 @@ export default class RadioButtons extends Component {
 							>
 								{value === item.key && <View style={styles.checkedCircle} />}
 							</TouchableOpacity>
+							<Text>{item.text}</Text>
 						</View>
 					);
 				})}

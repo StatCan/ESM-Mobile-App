@@ -12,9 +12,9 @@ data:[
     {English:"The answer is:",French:"La réponse est:"},
     {English:"Create",French:"Créer"},
     {English:"Login",French:"S'identifier"},
-    {English:"Start Survey",French:"Commencer l'enquête"},    //6
+    {English:"Start my Survey",French:"Commencer l'enquête"},    //6
     {English:"Settings",French:"Paramètres"},
-    {English:"Result",French:"Résultat"},
+    {English:"My result",French:"Mon résultat"},
     {English:"About the Survey",French:"A propos de l'enquête"},
     {English:"Term & Condition",French:"Terme et condition"},
     {English:"Contact us",French:"Contactez nous"},   //11

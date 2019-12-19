@@ -25,7 +25,7 @@ export default class CreatePasswordScreen extends Component {
             AsyncStorage.setItem('EsmPassword',this.state.password);
             AsyncStorage.setItem('EsmQuestion',this.state.question);
             AsyncStorage.setItem('EsmAnswer',this.state.answer);
-            global.userToken=userToken;
+            global.userToken=userToken;console.log(global.userToken);
             global.timeStamp=Date.now();console.log(global.timeStamp);
             this.props.navigation.navigate('Home',{userToken:userToken});
     }else{
@@ -65,6 +65,7 @@ export default class CreatePasswordScreen extends Component {
       let questionIems = this.state.questions.map( (s, i) => {return <Picker.Item style={{fontSize:20}} key={i} value={s} label={s} /> });
       return (
       <View style={styles.container}>
+       <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
         <Text style={styles.label}>{resources.getString(0)}</Text>
         <TextInput
               style={styles.input}
