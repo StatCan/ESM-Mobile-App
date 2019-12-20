@@ -21,7 +21,7 @@ export default class LoginScreen extends Component {
           secureTextEntry
         />
         <Button
-          title={resources.getString('btn_create')}
+          title={resources.getString('login')}
           disabled={this.state.password == '' ? true : false}
           onPress={() => {
             if (this.state.password == global.password) { global.timeStamp = Date.now(); console.log(global.timeStamp); this.props.navigation.navigate('Home'); }

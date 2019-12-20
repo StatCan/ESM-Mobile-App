@@ -72,14 +72,14 @@ export default class CreatePasswordScreen extends Component {
         <Text style={styles.label}>{resources.getString('create_password')}</Text>
         <TextInput
           style={styles.input}
-          placeholder={resources.getString(1)}
+          placeholder={resources.getString('password')}
           onChangeText={(text) => this.setState({ password: text })}
           value={this.state.password}
           secureTextEntry
         />
         <TextInput
           style={styles.input}
-          placeholder={resources.getString(2)}
+          placeholder={resources.getString('confirm_password')}
           onChangeText={(text) => this.setState({ confirmPassword: text })}
           value={this.state.confirmPassword}
           secureTextEntry
@@ -92,7 +92,7 @@ export default class CreatePasswordScreen extends Component {
               </Picker>
               <TextInput
                 style={styles.input}
-                placeholder={resources.getString(3)}
+                placeholder={resources.getString('the_answer_is')}
                 onChangeText={(text) => this.setState({ answer: text })}
                 value={this.state.answer}
               />
@@ -101,7 +101,7 @@ export default class CreatePasswordScreen extends Component {
             <View>
             </View>}
         <Button
-          title={resources.getString(4)}
+          title={resources.getString('btn_create')}
           onPress={this.onPressButton} />
       </View>
     )

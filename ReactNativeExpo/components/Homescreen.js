@@ -14,15 +14,15 @@ export default class Homescreen extends Component {
         <Image source={require('./StatCanLogo.png')} style={styles.logo} />
         <View style={styles.homeButtonContainer}>
           <View style={styles.homeButtonColumn}>
-            <Button title={resources.getString(6)} style={styles.homeButton} onPress={() => this.props.navigation.navigate('CurrentEQ')} />
-            <Button title={resources.getString(7)} style={styles.homeButton} onPress={() => this.props.navigation.navigate('LocalNotification')} />
-            <Button title={resources.getString(8)} style={styles.homeButton} onPress={() => this.props.navigation.navigate('SurveyResult')} />
+            <Button title={resources.getString('start_survey')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('CurrentEQ')} />
+            <Button title={resources.getString('settings')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('LocalNotification')} />
+            <Button title={resources.getString('result')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('SurveyResult')} />
           </View>
           <View style={styles.homeSeperator}></View>
           <View style={styles.homeButtonColumn}>
-            <Button title={resources.getString(9)} style={styles.homeButton} onPress={() => this.props.navigation.navigate('About')} />
-            <Button title={resources.getString(10)} style={styles.homeButton} onPress={() => this.props.navigation.navigate('Term')} />
-            <Button title={resources.getString(11)} style={styles.homeButton} onPress={() => this.props.navigation.navigate('ContactUs')} />
+            <Button title={resources.getString('about_the_survey')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('About')} />
+            <Button title={resources.getString('term_and_condition')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('Term')} />
+            <Button title={resources.getString('contact_us')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('ContactUs')} />
           </View>
         </View>
       </View>

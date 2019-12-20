@@ -6,7 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 export default class Aboutscreen extends Component {
   constructor(props) {
     super(props); console.log(props);
-    this.state = { title: resources.getString(15), content: resources.getString(16) };
+    this.state = { title: resources.getString('term_and_condition'), content: resources.getString('condition_content') };
   };
   render() {
     const userToken = global.userToken;
