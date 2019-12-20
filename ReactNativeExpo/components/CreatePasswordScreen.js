@@ -16,6 +16,7 @@ export default class CreatePasswordScreen extends Component {
     );
   }
   state = { password: '', confirmPassword: '', question: '???', answer: '', isLoading: true, questions: '' };
+
   onPressButton = () => {
     if (this.state.password != '' && this.state.confirmPassword != '' && this.state.answer != '' && this.state.password == this.state.confirmPassword && this.state.qusetion != '???') {
       var userToken = Constants.deviceId;
@@ -33,10 +34,14 @@ export default class CreatePasswordScreen extends Component {
     }
 
   }
+
   updateQuestion = (question) => { this.setState({ question: question }) }
+
   componentDidMount() {
     let url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=en';
+
     if (resources.culture != 'en') url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=fr';
+
     return fetch(url)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -46,14 +51,13 @@ export default class CreatePasswordScreen extends Component {
           questions: responseJson,
           question: responseJson[0]
         }, function () {
-
         });
-
       })
       .catch((error) => {
         console.error(error);
       });
   }
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -65,7 +69,7 @@ export default class CreatePasswordScreen extends Component {
     let questionIems = this.state.questions.map((s, i) => { return <Picker.Item style={{ fontSize: 20 }} key={i} value={s} label={s} /> });
     return (
       <View style={styles.container}>
-        <Text style={styles.label}>{resources.getString(0)}</Text>
+        <Text style={styles.label}>{resources.getString('create_password')}</Text>
         <TextInput
           style={styles.input}
           placeholder={resources.getString(1)}

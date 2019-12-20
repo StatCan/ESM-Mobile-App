@@ -15,13 +15,13 @@ export default class LoginScreen extends Component {
         <Image source={require('./StatCanLogo.png')} style={{ width: 300, height: 100 }} />
         <TextInput
           style={{ height: 40, borderWidth: 1, width: 200, marginBottom: 5, paddingLeft: 4 }}
-          placeholder={resources.getString(1)}
+          placeholder={resources.getString('password')}
           onChangeText={(text) => this.setState({ password: text })}
           value={this.state.password}
           secureTextEntry
         />
         <Button
-          title={resources.getString(5)}
+          title={resources.getString('btn_create')}
           disabled={this.state.password == '' ? true : false}
           onPress={() => {
             if (this.state.password == global.password) { global.timeStamp = Date.now(); console.log(global.timeStamp); this.props.navigation.navigate('Home'); }
