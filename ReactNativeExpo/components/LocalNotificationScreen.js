@@ -71,6 +71,29 @@ export default class LocalNotificationScreen extends React.Component {
     );
     console.log(notificationId);
   };
+  scheduleNotification20s = async () => {
+    if (Platform.OS === 'android') {
+      Notifications.createChannelAndroidAsync('chat-messages', {
+        name: 'Chat messages',
+        sound: true,
+        vibrate: true,
+      });
+    }
+    let notificationId = Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "Scheduled Notification",
+        body: "Scheduled Notification Test--min--sound",
+        ios: { sound: true },
+        android: {
+          "channelId": "chat-messages"
+        }
+      },
+      {
+        time: new Date().getTime() + 20000
+      }
+    );
+    console.log(notificationId);
+  };
   handleSwitchChnaged = (v) => {
     this.setState({ notification: v });
   };
@@ -102,6 +125,7 @@ export default class LocalNotificationScreen extends React.Component {
           <Button title="Send Notification immediately" onPress={() => this.sendNotificationImmediately()} />
           <Button title="Dismiss All Notifications" onPress={() => Notifications.dismissAllNotificationsAsync()} />
           <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
+          <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
         </View>
       </View>
