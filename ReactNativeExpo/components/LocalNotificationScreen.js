@@ -82,7 +82,7 @@ export default class LocalNotificationScreen extends React.Component {
     let notificationId = Notifications.scheduleLocalNotificationAsync(
       {
         title: "Scheduled Notification",
-        body: "Scheduled Notification Test--min--sound",
+        body: "Scheduled Notification 20s",
         ios: { sound: true },
         android: {
           "channelId": "chat-messages"
