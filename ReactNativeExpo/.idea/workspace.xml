@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Resources.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resources.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Aboutscreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Aboutscreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ContactUsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ContactUsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CreatePasswordScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CreatePasswordScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Homescreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Homescreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/LocalNotificationScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LocalNotificationScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TermScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TermScreen.js" afterDir="false" />
-    </list>
+    <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +16,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
+            <state relative-caret-position="2346">
               <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
             </state>
           </provider>
@@ -160,7 +152,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3296131" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21130952" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -357,7 +349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="2346">
           <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
         </state>
       </provider>
