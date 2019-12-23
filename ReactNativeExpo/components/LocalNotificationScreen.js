@@ -1,28 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View, Button, Platform, Switch } from "react-native";
+import { StyleSheet, Text, TextInput, View, Button, Platform, Switch,Image,Picker } from "react-native";
 import { Notifications } from "expo";
 import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
 const options = [
   {
-    key: '2',
+    key: 2,
     text: '2',
   },
   {
-    key: '3',
+    key: 3,
     text: '3',
   },
   {
-    key: '4',
+    key: 4,
     text: '4',
   },
   {
-    key: '5',
+    key: 5,
     text: '5',
   },
 ];
 export default class LocalNotificationScreen extends React.Component {
-  state = { notification: false, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
+  state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
   askPermissions = async () => {
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
@@ -108,30 +108,39 @@ export default class LocalNotificationScreen extends React.Component {
   render() {
     return (
       <View>
+        <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
         <Text style={{ fontSize: 30 }}>Settings:</Text>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Text>Notification:</Text>
+          <Text style={styles.label}>Notification:</Text>
           <Switch value={this.state.notification} onValueChange={this.handleSwitchChnaged} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Text>WakeTime:</Text>
+          <Text style={styles.label}>WakeTime:</Text>
           <TextInput value={this.state.waketime} editable={this.state.notification} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Text>SleepTime:</Text>
+          <Text style={styles.label}>SleepTime:</Text>
           <TextInput value={this.state.sleeptime} editable={this.state.notification} />
         </View>
-        <Text style={{ marginLeft: 40 }}>Notification times per day:</Text>
-        <RadioButton options={options} />
+        <Text style={[styles.label,{marginLeft:60}]}>Notification number per day:</Text>
+        <RadioButton options={options} preset={this.state.notificationcount} updateParentState={this.updateRadioButtonState.bind(this)} />
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-          <Button title="Save" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
+                      <Text style={styles.label}>Language:</Text>
+                      <Picker
+                               selectedValue={this.state.culture}
+                               onValueChange={c => this.setState({culture:c})}
+                               style={{ width: 100 }}
+                               mode="dropdown">
+                               <Picker.Item label="English" value="1" />
+                               <Picker.Item label="French" value="2" />
+                             </Picker>
+                 </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+          <Button title="Save" style={{ width: 100 }} onPress={this.saveSettings} />
           <Button title="Cancel" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
         </View>
         <View>
           <Text style={{ color: 'red' }}>Following buttons are test only</Text>
-          <Button title="Please accept Notifications Permissions" onPress={() => this.askPermissions()} />
-          <Button title="Send Notification immediately" onPress={() => this.sendNotificationImmediately()} />
-          <Button title="Dismiss All Notifications" onPress={() => Notifications.dismissAllNotificationsAsync()} />
           <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
           <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />

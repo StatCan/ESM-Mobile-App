@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Resources.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resources.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Aboutscreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Aboutscreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ContactUsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ContactUsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CreatePasswordScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CreatePasswordScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Homescreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Homescreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/LocalNotificationScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LocalNotificationScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TermScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TermScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +18,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+            <state relative-caret-position="402">
+              <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="68" column="122" selection-start-line="68" selection-start-column="104" selection-end-line="68" selection-end-column="122" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/RadioButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -69,10 +81,10 @@
         <option value="$PROJECT_DIR$/components/Aboutscreen.js" />
         <option value="$PROJECT_DIR$/components/ContactUsScreen.js" />
         <option value="$PROJECT_DIR$/components/CreatePasswordScreen.js" />
-        <option value="$PROJECT_DIR$/components/LocalNotificationScreen.js" />
         <option value="$PROJECT_DIR$/components/TermScreen.js" />
         <option value="$PROJECT_DIR$/components/Homescreen.js" />
         <option value="$PROJECT_DIR$/Resources.js" />
+        <option value="$PROJECT_DIR$/components/LocalNotificationScreen.js" />
       </list>
     </option>
   </component>
@@ -160,7 +172,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3296131" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21130952" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -252,8 +264,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="82" selection-start-line="72" selection-start-column="82" selection-end-line="72" selection-end-column="82" />
+        <state relative-caret-position="138">
+          <caret line="68" column="122" selection-start-line="68" selection-start-column="104" selection-end-line="68" selection-end-column="122" />
         </state>
       </provider>
     </entry>
@@ -275,13 +287,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/RadioButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -355,10 +360,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/RadioButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="138" column="13" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
+        <state relative-caret-position="402">
+          <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
         </state>
       </provider>
     </entry>
