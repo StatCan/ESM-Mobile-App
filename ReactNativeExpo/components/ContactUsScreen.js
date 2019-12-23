@@ -15,17 +15,10 @@ export default class ConatctUsScreen extends Component {
         <Text>170 Tunney's Pasture Driveway</Text>
         <Text>OTTAWA, Ontario </Text>
         <Text>K1A 0T6</Text>
-<<<<<<< HEAD
-        <Text style={{marginBottom:50}}>Toll-free number: 1-800-263-1136</Text>
-         <Button
-                  title="Back"
-                  onPress={() => this.props.navigation.navigate('Home')}
-=======
         <Text>Toll-free number: 1-800-263-1136</Text>
         <Button
           title="Back"
           onPress={() => this.props.navigation.navigate('Home')}
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
         />
       </View>
     )

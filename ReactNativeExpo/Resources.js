@@ -4,27 +4,6 @@ culture:'en',
 getString:function(key){
     return this.data[this.culture][key];
 },
-<<<<<<< HEAD
-data:[
-    {English:"Create Password",French:"Créer un mot de passe"},   //0
-    {English:"Password",French:"Mot de passe"},
-    {English:"Confirm Password",French:"Confirmez le mot de passe"},
-    {English:"The answer is:",French:"La réponse est:"},
-    {English:"Create",French:"Créer"},
-    {English:"Login",French:"S'identifier"},
-    {English:"Start my Survey",French:"Commencer l'enquête"},    //6
-    {English:"Settings",French:"Paramètres"},
-    {English:"My result",French:"Mon résultat"},
-    {English:"About the Survey",French:"A propos de l'enquête"},
-    {English:"Term & Condition",French:"Terme et condition"},
-    {English:"Contact us",French:"Contactez nous"},   //11
-    {English:"Warning",French:"Attention"},
-    {English:"You must provide matched password and secrity question and answer !",French:"Vous devez fournir un mot de passe, une question de sécurité et une réponse correspondants!"},
-    {English:"Ok",French:"D'accord"},
-    {English:"Term and condition",French:"Avis"},  //15
-    {English:"When you continue use this app, that means you automatically agree on this Term and condition.",French:"Lorsque vous continuez à utiliser cette application, cela signifie que vous acceptez automatiquement ces conditions générales."}, //16
-]
-=======
 data: {
         en: {
             "create_password":"Create Password",
@@ -63,5 +42,4 @@ data: {
             "term_and condition_content":"Lorsque vous continuez à utiliser cette application, cela signifie que vous acceptez automatiquement ces conditions générales.",
         }
     }
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
 };

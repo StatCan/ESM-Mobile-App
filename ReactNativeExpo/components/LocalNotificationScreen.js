@@ -1,34 +1,9 @@
 import React from "react";
-<<<<<<< HEAD
-import { StyleSheet, Text,TextInput, View, Button,Platform,Switch,Image,Picker } from "react-native";
-=======
 import { StyleSheet, Text, TextInput, View, Button, Platform, Switch } from "react-native";
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
 import { Notifications } from "expo";
 import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
 const options = [
-<<<<<<< HEAD
-	{
-		key: 2,
-		text: '2',
-	},
-	{
-        key: 3,
-    	text: '3',
-    },
-    {
-    	key: 4,
-    	text: '4',
-    },
-    {
-      	key: 5,
-      	text: '5',
-   	},
-];
-export default class LocalNotificationScreen extends React.Component {
-  state={notification:true,waketime:'8:00',sleeptime:'21:00',notificationcount:4,culture:'English'};
-=======
   {
     key: '2',
     text: '2',
@@ -48,7 +23,6 @@ export default class LocalNotificationScreen extends React.Component {
 ];
 export default class LocalNotificationScreen extends React.Component {
   state = { notification: false, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
   askPermissions = async () => {
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
@@ -97,10 +71,6 @@ export default class LocalNotificationScreen extends React.Component {
     );
     console.log(notificationId);
   };
-<<<<<<< HEAD
-  handleSwitchChanged=(v)=>{
-    this.setState({notification:v});
-=======
   scheduleNotification20s = async () => {
     if (Platform.OS === 'android') {
       Notifications.createChannelAndroidAsync('chat-messages', {
@@ -126,7 +96,6 @@ export default class LocalNotificationScreen extends React.Component {
   };
   handleSwitchChnaged = (v) => {
     this.setState({ notification: v });
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
   };
   updateRadioButtonState (data) {
           console.log(data);
@@ -138,49 +107,6 @@ export default class LocalNotificationScreen extends React.Component {
    }
   render() {
     return (
-<<<<<<< HEAD
-    <View style={{flex:1,justifyContent:'center'}}>
-     <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
-
-      <Text style={{fontSize:30}}>Settings:</Text>
-      <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
-         <Text style={styles.label}>Notification:</Text>
-         <Switch value={this.state.notification} onValueChange ={this.handleSwitchChanged} />
-      </View>
-           <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
-           <Text style={styles.label}>WakeTime:</Text>
-           <TextInput value={this.state.waketime} editable={this.state.notification} style={styles.input}/>
-           </View>
-           <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
-                 <Text style={styles.label}>SleepTime:</Text>
-                 <TextInput value={this.state.sleeptime} editable={this.state.notification} style={styles.input}/>
-           </View>
-                 <Text style={styles.label}>Number of Notification per day:</Text>
-                 <RadioButton options={options} updateParentState={this.updateRadioButtonState.bind(this)} preset={this.state.notificationcount} />
-                  <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'space-around' }}>
-                     <Text style={styles.label}> Language: </Text>
-                            <Picker
-                              selectedValue={this.state.culture}
-                              onValueChange={hand => this.setState({culture:hand })}
-                              style={{ width: 100, postion: 'absolute',fontSize:10 }}
-                              mode="dropdown"
-                              itemStyle={{ color:'red', fontWeight:'900', fontSize: 18, padding:30}}>
-                              <Picker.Item label="English" value="english" />
-                              <Picker.Item label="French" value="french" />
-                            </Picker>
-                  </View>
-                 <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'space-around' }}>
-                     <Button title="Save" style={{width:100}}  onPress={this.saveSettings} />
-                     <Button title="Cancel" style={{width:100}}  onPress={() => this.props.navigation.navigate('Home')}/>
-                 </View>
-
-                 <View>
-                     <Text style={{color:'red'}}>Following buttons are test only</Text>
-                     <Button title={"Schedule Notification"}   onPress={() => this.scheduleNotification()} />
-                     <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
-                 </View>
-       </View>
-=======
       <View>
         <Text style={{ fontSize: 30 }}>Settings:</Text>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
@@ -211,7 +137,6 @@ export default class LocalNotificationScreen extends React.Component {
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
         </View>
       </View>
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
     );
   }
 }

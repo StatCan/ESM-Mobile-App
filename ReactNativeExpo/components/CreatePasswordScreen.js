@@ -15,23 +15,6 @@ export default class CreatePasswordScreen extends Component {
       </View>
     );
   }
-<<<<<<< HEAD
-    state = { password:'',confirmPassword:'',question:'???',answer:'',isLoading: true,questions:''};
-    onPressButton=()=>{
-    if(this.state.password!=''&&this.state.confirmPassword!=''&&this.state.answer!=''&&this.state.password==this.state.confirmPassword &&this.state.qusetion!='???'){
-         var userToken=Constants.deviceId;
-            var culture=resources.culture;console.log(culture);
-            AsyncStorage.setItem('EsmUserToken',userToken);
-            AsyncStorage.setItem('EsmCulture',culture);
-            AsyncStorage.setItem('EsmPassword',this.state.password);
-            AsyncStorage.setItem('EsmQuestion',this.state.question);
-            AsyncStorage.setItem('EsmAnswer',this.state.answer);
-            global.userToken=userToken;console.log(global.userToken);
-            global.timeStamp=Date.now();console.log(global.timeStamp);
-            this.props.navigation.navigate('Home',{userToken:userToken});
-    }else{
-        alert("You must provide matched password and secrity question and answer !");
-=======
   state = { password: '', confirmPassword: '', question: '???', answer: '', isLoading: true, questions: '' };
 
   onPressButton = () => {
@@ -48,7 +31,6 @@ export default class CreatePasswordScreen extends Component {
       this.props.navigation.navigate('Home', { userToken: userToken });
     } else {
       alert("You must provide matched password and secrity question and answer !");
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
     }
 
   }
@@ -87,12 +69,8 @@ export default class CreatePasswordScreen extends Component {
     let questionIems = this.state.questions.map((s, i) => { return <Picker.Item style={{ fontSize: 20 }} key={i} value={s} label={s} /> });
     return (
       <View style={styles.container}>
-<<<<<<< HEAD
        <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
-        <Text style={styles.label}>{resources.getString(0)}</Text>
-=======
         <Text style={styles.label}>{resources.getString('create_password')}</Text>
->>>>>>> 4bd45e39ddb14c3673507ca9c0bf6cd124f85d91
         <TextInput
           style={styles.input}
           placeholder={resources.getString('password')}
