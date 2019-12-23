@@ -5,7 +5,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 import Homescreen from './components/Homescreen';
 import Aboutscreen from './components/Aboutscreen';
-import Webscreen from './components/Webscreen';
+import WebScreen from './components/Webscreen';
 import WebFromAzureScreen from './components/WebFromAzureScreen';
 import LocalNotificationScreen from './components/LocalNotificationScreen';
 import LoginScreen from './components/LoginScreen';
@@ -40,7 +40,8 @@ const AppNavigator = createStackNavigator({
    CurrentEQ:{screen:CurrentEQScreen},
    ContactUs:{screen:ContactUsScreen},
    Test:{screen:TestScreen},
-   SurveyResult:{screen:SurveyResultScreen}
+   SurveyResult:{screen:SurveyResultScreen},
+   WebScreen:{screen:WebScreen}
 }
 );
 

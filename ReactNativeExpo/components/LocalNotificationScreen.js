@@ -1,28 +1,28 @@
 import React from "react";
-import { StyleSheet, Text,TextInput, View, Button,Platform,Switch,Image } from "react-native";
+import { StyleSheet, Text,TextInput, View, Button,Platform,Switch,Image,Picker } from "react-native";
 import { Notifications } from "expo";
 import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
 const options = [
 	{
-		key: '2',
+		key: 2,
 		text: '2',
 	},
 	{
-        key: '3',
+        key: 3,
     	text: '3',
     },
     {
-    	key: '4',
+    	key: 4,
     	text: '4',
     },
     {
-      	key: '5',
+      	key: 5,
       	text: '5',
    	},
 ];
 export default class LocalNotificationScreen extends React.Component {
-  state={notification:true,waketime:'8:00',sleeptime:'21:00',notificationcount:2,culture:'English'};
+  state={notification:true,waketime:'8:00',sleeptime:'21:00',notificationcount:4,culture:'English'};
   askPermissions = async () => {
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
@@ -71,9 +71,17 @@ export default class LocalNotificationScreen extends React.Component {
     );
     console.log(notificationId);
   };
-  handleSwitchChnaged=(v)=>{
+  handleSwitchChanged=(v)=>{
     this.setState({notification:v});
   };
+  updateRadioButtonState (data) {
+          console.log(data);
+          this.setState({notificationcount:data.key});
+      };
+   saveSettings=async()=>{
+        console.log(this.state.notificationcount);
+        this.props.navigation.navigate('Home');
+   }
   render() {
     return (
     <View style={{flex:1,justifyContent:'center'}}>
@@ -81,23 +89,36 @@ export default class LocalNotificationScreen extends React.Component {
 
       <Text style={{fontSize:30}}>Settings:</Text>
       <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
-         <Text>Notification:</Text>
-         <Switch value={this.state.notification} onValueChange ={this.handleSwitchChnaged} />
+         <Text style={styles.label}>Notification:</Text>
+         <Switch value={this.state.notification} onValueChange ={this.handleSwitchChanged} />
       </View>
            <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
-           <Text>WakeTime:</Text>
+           <Text style={styles.label}>WakeTime:</Text>
            <TextInput value={this.state.waketime} editable={this.state.notification} style={styles.input}/>
            </View>
            <View style={{flexDirection:'row',justifyContent: 'space-around'}}>
-                 <Text>SleepTime:</Text>
+                 <Text style={styles.label}>SleepTime:</Text>
                  <TextInput value={this.state.sleeptime} editable={this.state.notification} style={styles.input}/>
            </View>
-                 <Text style={{marginLeft:40}}>Notification times per day:</Text>
-                 <RadioButton options={options} />
+                 <Text style={styles.label}>Number of Notification per day:</Text>
+                 <RadioButton options={options} updateParentState={this.updateRadioButtonState.bind(this)} preset={this.state.notificationcount} />
+                  <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'space-around' }}>
+                     <Text style={styles.label}> Language: </Text>
+                            <Picker
+                              selectedValue={this.state.culture}
+                              onValueChange={hand => this.setState({culture:hand })}
+                              style={{ width: 100, postion: 'absolute',fontSize:10 }}
+                              mode="dropdown"
+                              itemStyle={{ color:'red', fontWeight:'900', fontSize: 18, padding:30}}>
+                              <Picker.Item label="English" value="english" />
+                              <Picker.Item label="French" value="french" />
+                            </Picker>
+                  </View>
                  <View style={{flexDirection:'row', alignItems: 'center', justifyContent: 'space-around' }}>
-                     <Button title="Save" style={{width:100}}  onPress={() => this.props.navigation.navigate('Home')} />
+                     <Button title="Save" style={{width:100}}  onPress={this.saveSettings} />
                      <Button title="Cancel" style={{width:100}}  onPress={() => this.props.navigation.navigate('Home')}/>
                  </View>
+
                  <View>
                      <Text style={{color:'red'}}>Following buttons are test only</Text>
                      <Button title={"Schedule Notification"}   onPress={() => this.scheduleNotification()} />
@@ -115,5 +136,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  input:{borderWidth:1,width:100,paddingLeft:4}
+  input:{borderWidth:1,width:100,paddingLeft:4},
+  label:{color:'black', fontWeight:'900', fontSize: 14, padding:10}
 });

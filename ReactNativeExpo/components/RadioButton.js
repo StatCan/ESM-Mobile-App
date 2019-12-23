@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default class RadioButtons extends Component {
-	state = {
-		value: null,
-	};
-
+    constructor(props) {
+         super(props);
+         this.state = {value: props.preset};
+    }
+    updateParentState(data) {
+            this.props.updateParentState(data);
+        }
 	render() {
 		const { options } = this.props;
 		const { value } = this.state;
@@ -19,9 +22,8 @@ export default class RadioButtons extends Component {
 							<TouchableOpacity
 								style={styles.circle}
 								onPress={() => {
-									this.setState({
-										value: item.key,
-									});
+									this.setState({value: item.key});
+									this.updateParentState({key: item.key});
 								}}
 							>
 								{value === item.key && <View style={styles.checkedCircle} />}
