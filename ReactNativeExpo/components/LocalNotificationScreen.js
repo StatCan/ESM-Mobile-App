@@ -5,24 +5,24 @@ import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
 const options = [
   {
-    key: '2',
+    key: 2,
     text: '2',
   },
   {
-    key: '3',
+    key: 3,
     text: '3',
   },
   {
-    key: '4',
+    key: 4,
     text: '4',
   },
   {
-    key: '5',
+    key: 5,
     text: '5',
   },
 ];
 export default class LocalNotificationScreen extends React.Component {
-  state = { notification: false, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
+  state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
   askPermissions = async () => {
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
@@ -122,9 +122,9 @@ export default class LocalNotificationScreen extends React.Component {
           <TextInput value={this.state.sleeptime} editable={this.state.notification} />
         </View>
         <Text style={{ marginLeft: 40 }}>Notification times per day:</Text>
-        <RadioButton options={options} />
+        <RadioButton options={options} preset={this.state.notificationcount} updateParentState={this.updateRadioButtonState.bind(this)} />
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-          <Button title="Save" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
+          <Button title="Save" style={{ width: 100 }} onPress={this.saveSettings} />
           <Button title="Cancel" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
         </View>
         <View>
