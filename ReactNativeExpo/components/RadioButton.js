@@ -38,7 +38,7 @@ export default class RadioButtons extends Component {
 }
 
 const styles = StyleSheet.create({
-    fcontainer:{flexDirection: 'row',justifyContent: 'space-around',marginLeft:40,marginRight:40,alignItems:'center'},
+	fcontainer: { flexDirection: 'row', justifyContent: 'space-around', marginLeft: 40, marginRight: 40, alignItems: 'center' },
 	buttonContainer: {
 		flexDirection: 'row',
 		justifyContent: 'center',
