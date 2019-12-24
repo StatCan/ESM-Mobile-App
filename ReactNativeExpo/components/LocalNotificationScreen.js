@@ -21,6 +21,7 @@ const options = [
     text: '5',
   },
 ];
+
 export default class LocalNotificationScreen extends React.Component {
   state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
   askPermissions = async () => {
@@ -101,8 +102,16 @@ export default class LocalNotificationScreen extends React.Component {
           console.log(data);
           this.setState({notificationcount:data.key});
       };
-   saveSettings=async()=>{
-        console.log(this.state.notificationcount);
+   saveSettings = async() => {
+        console.log("Platform version: " + Platform.Version);
+        console.log("Device Name: " + Expo.Constants.deviceName);
+        console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
+        console.log("Native Build Version: " + Expo.Constants.nativeBuildVersion);
+        console.log("Device Year Class: " + Expo.Constants.deviceYearClass);
+        console.log("Session ID: " + Expo.Constants.sessionId);
+        console.log("Wake Time: " + this.state.waketime);
+        console.log("Sleep Time: " + this.state.sleeptime);
+        console.log("Notification Count: " + this.state.notificationcount);
         this.props.navigation.navigate('Home');
    }
   render() {
