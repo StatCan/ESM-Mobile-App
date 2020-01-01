@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/SurveyResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SurveyResultScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/WebDashboardApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/WebDashboardApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="129" lean-forward="true" selection-start-line="19" selection-start-column="129" selection-end-line="19" selection-end-column="129" />
+            <state relative-caret-position="493">
+              <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -140,7 +116,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,6 +133,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,6 +178,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21130952" />
@@ -401,8 +378,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="129" lean-forward="true" selection-start-line="19" selection-start-column="129" selection-end-line="19" selection-end-column="129" />
+        <state relative-caret-position="493">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
         </state>
       </provider>
     </entry>

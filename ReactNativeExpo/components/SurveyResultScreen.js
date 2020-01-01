@@ -13,7 +13,7 @@ export default class SurveyResultScreen extends Component {
           <Text style={{ fontSize: 30, marginBottom: 20 }}>Survey Result:</Text>
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetThermometersWithBulletinImage' }} style={{width:350,height:350,alignSelf: 'center' }} />
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableBarImage' }} style={{width:350,height:500, resizeMode: 'stretch' }} />
-           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableLineImage' }} style={{width:350,height:240, resizeMode: 'stretch' }}  />
+           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableLineImage' }} style={{width:380,height:240, resizeMode: 'stretch' }}  />
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetBulletinImage' }} style={styles.image1} />
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetTableImage' }} style={styles.image1} />
           <Text style={styles.label}>Activity Count:</Text>
