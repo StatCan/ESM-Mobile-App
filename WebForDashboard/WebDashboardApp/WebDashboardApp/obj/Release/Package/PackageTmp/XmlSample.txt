@@ -1,0 +1,26 @@
+﻿<wellBeingGraphData xmlns="http://www.statcan.gc.ca/esm/wellbeing-graph" xmlns:xsi="http://www.w3.org/2001
+/XMLSchema-instance" xsi:schemaLocation="http://www.statcan.gc.ca/esm/wellbeing-graph wellBeing.xsd">
+<feeling>
+<happy average="5.8" timesBelow4="7" timesAbove7="4"/>
+<awake average="5.8" timesBelow4="7" timesAbove7="4"/>
+<relaxed average="5.8" timesBelow4="7" timesAbove7="4"/>
+<inControl average="5.8" timesBelow4="7" timesAbove7="4"/>
+<anxious average="5.8" timesBelow4="7" timesAbove7="4"/>
+</feeling>
+<feelingWithOthers>
+<happy withFriends="1.2" whileAlone="2" withFamily="4" />
+<relaxed withFriends="1.2" whileAlone="2" withFamily="4" />
+<inControl withFriends="1.2" whileAlone="2" withFamily="4" />
+<anxious withFriends="1.2" whileAlone="2" withFamily="4" />
+</feelingWithOthers>
+<feelingByLocation>
+<location where="BUSINESS" happy="4.0" relaxed="1.5" awake="2.0" inControl="7.0" anxious="0.3"/>
+<location where="GROCERY" happy="4.0" relaxed="1.5" awake="2.0" inControl="7.0" anxious="0.3"/>
+<location where="NEIGHBOORHOOD" happy="4.0" relaxed="1.5" awake="2.0" inControl="7.0" anxious="0.3"/>
+</feelingByLocation>
+<feelingByActivity>
+<activity what="MEDIA" numberSelected="8" anxious="2.3" relaxed="6.5" happy="4.5"/>
+<activity what="EVENTS" numberSelected="8" anxious="2.3" relaxed="6.5" happy="4.5"/>
+<activity what="HOBBIES" numberSelected="8" anxious="2.3" relaxed="6.5" happy="4.5"/>
+</feelingByActivity>
+</wellBeingGraphData>
