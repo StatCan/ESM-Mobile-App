@@ -11,6 +11,11 @@ export default class SurveyResultScreen extends Component {
         <Image source={require('./StatCanLogo.png')} style={styles.logo} />
         <ScrollView style={styles.scrollView}>
           <Text style={{ fontSize: 30, marginBottom: 20 }}>Survey Result:</Text>
+           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetThermometersWithBulletinImage' }} style={{width:350,height:350,alignSelf: 'center' }} />
+           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableBarImage' }} style={{width:350,height:500, resizeMode: 'stretch' }} />
+           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableLineImage' }} style={{width:350,height:240, resizeMode: 'stretch' }}  />
+           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetBulletinImage' }} style={styles.image1} />
+           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetTableImage' }} style={styles.image1} />
           <Text style={styles.label}>Activity Count:</Text>
           <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetActivityCountImage' }} style={styles.image} />
           <Text style={styles.label}>Mood Count:</Text>
@@ -28,7 +33,8 @@ const styles = StyleSheet.create({
     flex: 1, alignItems: 'stretch',
   },
   logo: { width: 300, height: 40 },
-  scrollView: { marginHorizontal: 0, marginTop: 10 },
+  scrollView: { marginHorizontal: 10, marginTop: 10 },
   image: { width: 300, height: 240, alignSelf: 'center' },
+  image1: { width: 350, height: 340, alignSelf: 'center' },
   label: { fontSize: 20, alignSelf: 'center', marginBottom: 10 }
 });

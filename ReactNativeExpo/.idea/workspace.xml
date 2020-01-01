@@ -2,7 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/LocalNotificationScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LocalNotificationScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SurveyResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SurveyResultScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/WebDashboardApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/WebDashboardApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,12 +38,21 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
+            <state relative-caret-position="2108">
+              <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="129" lean-forward="true" selection-start-line="19" selection-start-column="129" selection-end-line="19" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -27,7 +60,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
+            <state relative-caret-position="1156">
               <caret line="68" column="122" selection-start-line="68" selection-start-column="104" selection-end-line="68" selection-end-column="122" />
             </state>
           </provider>
@@ -36,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/RadioButton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="680">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -74,7 +107,6 @@
         <option value="$PROJECT_DIR$/Scaling.js" />
         <option value="$PROJECT_DIR$/components/Scaling.js" />
         <option value="$PROJECT_DIR$/components/InitialScreen.js" />
-        <option value="$PROJECT_DIR$/components/SurveyResultScreen.js" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/components/Webscreen.js" />
         <option value="$PROJECT_DIR$/components/RadioButton.js" />
@@ -85,6 +117,7 @@
         <option value="$PROJECT_DIR$/components/Homescreen.js" />
         <option value="$PROJECT_DIR$/Resources.js" />
         <option value="$PROJECT_DIR$/components/LocalNotificationScreen.js" />
+        <option value="$PROJECT_DIR$/components/SurveyResultScreen.js" />
       </list>
     </option>
   </component>
@@ -98,7 +131,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="61" />
-    <option name="width" value="1290" />
+    <option name="width" value="923" />
     <option name="height" value="618" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -107,6 +140,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,7 +157,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -159,7 +192,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e5009e7a-dfa5-4e73-b453-47c07dda5f47" name="Default Changelist" comment="" />
+      <changelist id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="" />
       <created>1573848407393</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -169,7 +202,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21130952" />
@@ -262,13 +294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="68" column="122" selection-start-line="68" selection-start-column="104" selection-end-line="68" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/CurrentEQScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -332,13 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -360,17 +378,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/RadioButton.js">
+    <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="2108">
+          <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
+    <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="124" column="49" selection-start-line="124" selection-start-column="49" selection-end-line="124" selection-end-column="49" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="122" selection-start-line="68" selection-start-column="104" selection-end-line="68" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/RadioButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="129" lean-forward="true" selection-start-line="19" selection-start-column="129" selection-end-line="19" selection-end-column="129" />
         </state>
       </provider>
     </entry>
