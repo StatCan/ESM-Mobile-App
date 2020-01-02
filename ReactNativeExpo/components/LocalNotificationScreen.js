@@ -21,6 +21,7 @@ const options = [
     text: '5',
   },
 ];
+
 export default class LocalNotificationScreen extends React.Component {
   state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
   askPermissions = async () => {
@@ -45,6 +46,89 @@ export default class LocalNotificationScreen extends React.Component {
       sound: true
     });
     console.log(notificationId); // can be saved in AsyncStorage or send to server
+  };
+
+  // Unit Test the Scheduling Algorithm
+  // To be moved to a Helper class on wellBeingCheck repo
+  scheduleNotificationAlgo = (awakeHour, sleepHour) => {
+
+    // Default is 22h or 10pm
+    sleepHour = 22;
+
+    // Default is 6h or 6am
+    awakeHour = 6;
+
+    numPings = this.state.notificationcount;
+
+    // Based on defaults awakeInterval is 16
+    awakeInterval = sleepHour - awakeHour;
+
+    if (numPings > 5 || numPings < 2) console.log("numPings has an invalid value")
+
+    // Safety Check
+    if (numPings > awakeInterval) numPings = awakeInterval;
+
+    if (awakeHour > sleepHour) awakeInterval = awakeHour + 24;
+
+    // Now come up with a time to set notifications to
+
+    var awakeOneHourTimeIntervalsBefore = [];
+    var awakeOneHourTimeIntervalsAfter = [];
+
+    for (i = 0; i <= awakeInterval; i++) {
+      awakeOneHourTimeIntervalsBefore[i] = awakeHour + (i - 1);
+      awakeOneHourTimeIntervalsAfter[i] = awakeHour + i;
+    }
+
+    // For testing purposes print to console
+    console.log("One Hour Time Intervals i.e. 6h to 7h");
+    console.log(awakeOneHourTimeIntervalsBefore);
+    console.log(awakeOneHourTimeIntervalsAfter);
+
+    var chosenHoursBefore = [];
+
+    // Now choose number of random hours based on number of pings
+    for (i = 0; i < numPings; i++ ){
+      chosenHoursBefore[i] = Math.floor(Math.random() * awakeOneHourTimeIntervalsBefore.length);
+    }
+
+    console.log("Chosen One Hour Time Intervals:");
+    console.log(chosenHoursBefore);
+
+    chosenHoursBefore.forEach(item => {
+      this.scheduleNotificationBasedOnTime(item);
+    });
+
+  }
+
+  scheduleNotificationBasedOnTime = async (hour) => {
+    if (Platform.OS === 'android') {
+      Notifications.createChannelAndroidAsync('chat-messages', {
+        name: 'Chat messages',
+        sound: true,
+        vibrate: true,
+      });
+    }
+
+    // TODO: Change this to an actual time not just hours in the future
+    scheduledTime = new Date().getTime() + hour * 60;
+
+    console.log("Scheduling a notification for: " + scheduledTime);
+
+    let notificationId = Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "Scheduled Notification",
+        body: "Scheduled Notification for the Survey!",
+        ios: { sound: true },
+        android: {
+          "channelId": "chat-messages"
+        }
+      },
+      {
+        time: scheduledTime
+      }
+    );
+    console.log(notificationId);
   };
 
   scheduleNotification = async () => {
@@ -101,8 +185,17 @@ export default class LocalNotificationScreen extends React.Component {
           console.log(data);
           this.setState({notificationcount:data.key});
       };
-   saveSettings=async()=>{
-        console.log(this.state.notificationcount);
+   saveSettings = async() => {
+
+        console.log("Platform version: " + Platform.Version);
+        console.log("Device Name: " + Expo.Constants.deviceName);
+        console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
+        console.log("Native Build Version: " + Expo.Constants.nativeBuildVersion);
+        console.log("Device Year Class: " + Expo.Constants.deviceYearClass);
+        console.log("Session ID: " + Expo.Constants.sessionId);
+        console.log("Wake Time: " + this.state.waketime);
+        console.log("Sleep Time: " + this.state.sleeptime);
+        console.log("Notification Count: " + this.state.notificationcount);
         this.props.navigation.navigate('Home');
    }
   render() {
@@ -126,10 +219,10 @@ export default class LocalNotificationScreen extends React.Component {
         <RadioButton options={options} preset={this.state.notificationcount} updateParentState={this.updateRadioButtonState.bind(this)} />
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
                       <Text style={styles.label}>Language:</Text>
-                      <Picker
+                      <Picker  
                                selectedValue={this.state.culture}
                                onValueChange={c => this.setState({culture:c})}
-                               style={{ width: 100 }}
+                               style={{ width: 100, height:100, marginBottom:20, justifyContent:'space-around' }}
                                mode="dropdown">
                                <Picker.Item label="English" value="1" />
                                <Picker.Item label="French" value="2" />
@@ -139,10 +232,11 @@ export default class LocalNotificationScreen extends React.Component {
           <Button title="Save" style={{ width: 100 }} onPress={this.saveSettings} />
           <Button title="Cancel" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
         </View>
-        <View>
+        <View style={{alignItems: 'center', justifyContent: 'space-around' }}>
           <Text style={{ color: 'red' }}>Following buttons are test only</Text>
           <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
           <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
+          <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(6,22)} />
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
         </View>
       </View>
