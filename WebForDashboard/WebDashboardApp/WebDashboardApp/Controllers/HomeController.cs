@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebDashboardApp.Models;
 using WebDashboardApp.Services;
 
 namespace WebDashboardApp.Controllers
@@ -15,9 +16,49 @@ namespace WebDashboardApp.Controllers
     {
         public ActionResult Index()
         {
-            string path = Server.MapPath("XmlSample.txt");
-            var s = CmpHelper.GetCmpData("111", "222", path);
-            ViewBag.UserAgentStr = HttpContext.Request.UserAgent;
+            return View();
+        }
+        public ActionResult ConductSurvey(string userToken, string notificationId, string culture = "en")
+        {
+            var context = new EsmContext();
+            var aCount = context.Answers.Count(x => x.RespondentKey == userToken && x.SurveyType == 1);
+            var bCount = 0;
+            if (notificationId == "") notificationId = DateTime.Now.ToString();
+            else bCount = context.Answers.Count(x => x.RespondentKey == userToken && x.NotificationId == notificationId && x.SurveyType == 2);
+            var question = new Questionnair();
+            if (aCount < 2)
+                question = context.Questionnairs.Where(x => x.SurveyType == SurveyType.QuestionnaireA).OrderBy(x => x.QuestionnairId).Skip(aCount).FirstOrDefault();
+            else
+                question = context.Questionnairs.Where(x => x.SurveyType == SurveyType.QuestionnairB).OrderBy(x => x.QuestionnairId).Skip(bCount).FirstOrDefault();
+
+            var model = new QuestionModel { UserToken = userToken, NotificationId = notificationId, Culture = culture };
+            if (question == null) model.Message =culture=="fr"? "Vous avez fait l'enquête pour cette fois, merci" : "You have done the survey for this time, Thanks";
+            else
+            {
+                model.Type = (int)question.QuestionType;
+                question.Choices = context.Options.Where(x => x.QuestionnairId == question.QuestionnairId).ToList();
+                model.Text = culture == "en" ? question.EnglishName : question.FrenchName; model.QuestionnairId = question.QuestionnairId;
+                model.Choices = (from c in question.Choices select new ChoiceModel { ChoiceId = c.ChoiceId, IsUserInput = c.IsUserInput, Text = culture == "en" ? c.EnglishName : c.FrenchName }).ToList();
+            }
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult SaveSurvey(string userToken, string notificationId, int questionId, int answerId, string userInput = "", string culture = "en")
+        {
+            var context = new EsmContext();
+            var q = context.Questionnairs.First(x => x.QuestionnairId == questionId);
+            int surveyType = 1; if (q != null) surveyType = (int)q.SurveyType;
+            var answer = new Answer { RespondentKey = userToken, NotificationId = notificationId, QuestionnairId = questionId, ChoiceId = answerId, ResponseDate = DateTime.Now, SurveyType = surveyType };
+            context.Answers.Add(answer);
+            context.SaveChanges();
+            return RedirectToAction("ConductSurvey", new { userToken = userToken, notificationId = notificationId, culture = culture });
+        }
+
+        public ActionResult ShowImages()
+        {
+            //string path = Server.MapPath("XmlSample.txt");
+            //var s = CmpHelper.GetCmpData("111", "222", path);
+            //ViewBag.UserAgentStr = HttpContext.Request.UserAgent;
             return View();
         }
         public ActionResult GetMoodCountImage()
