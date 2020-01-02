@@ -125,7 +125,6 @@ export default class LocalNotificationScreen extends React.Component {
         }
       },
       {
-        repeat: "minute",
         time: scheduledTime
       }
     );
@@ -220,10 +219,10 @@ export default class LocalNotificationScreen extends React.Component {
         <RadioButton options={options} preset={this.state.notificationcount} updateParentState={this.updateRadioButtonState.bind(this)} />
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
                       <Text style={styles.label}>Language:</Text>
-                      <Picker
+                      <Picker  
                                selectedValue={this.state.culture}
                                onValueChange={c => this.setState({culture:c})}
-                               style={{ width: 100 }}
+                               style={{ width: 100, height:100, marginBottom:20, justifyContent:'space-around' }}
                                mode="dropdown">
                                <Picker.Item label="English" value="1" />
                                <Picker.Item label="French" value="2" />
@@ -233,7 +232,7 @@ export default class LocalNotificationScreen extends React.Component {
           <Button title="Save" style={{ width: 100 }} onPress={this.saveSettings} />
           <Button title="Cancel" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
         </View>
-        <View>
+        <View style={{alignItems: 'center', justifyContent: 'space-around' }}>
           <Text style={{ color: 'red' }}>Following buttons are test only</Text>
           <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
           <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
