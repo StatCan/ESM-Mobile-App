@@ -1,0 +1,54 @@
+﻿@model WebDashboardApp.Models.QuestionModel
+
+@{
+    /**/
+
+    ViewBag.Title = "ConductSurvey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = Model.Culture == "fr" ? "Enquête" : "Survey";
+    var next = Model.Culture == "fr" ? "Prochain" : "Next";
+    var back = Model.Culture == "fr" ? "Retour" : "Back";
+}
+
+<h2>@title</h2>
+@if (Model.QuestionnairId == 0)
+{
+<p>@Model.Message</p><button class="btn btn-primary back-btn" onclick="btnClick()">@back</button>
+@*<p>@Model.Message</p><button class="btn btn-primary back-btn"><span class="glyphicon glyphicon-share-alt"></span></button>*@
+}
+else
+{
+<form action="/Home/SaveSurvey" method="post" id="surveyform">
+    <input name="userToken" value="@Model.UserToken" hidden />
+    <input name="notificationId" value="@Model.NotificationId" hidden />
+    <input name="questionId" value="@Model.QuestionnairId" hidden />
+    <p style="font-weight:bold;font-size:18px;">@Model.Text</p>
+    <ul style="font-weight:normal;">
+        @foreach (var c in Model.Choices)
+        {
+            var index = "answer" + Model.Choices.IndexOf(c).ToString();
+            <li style="list-style:none;font-weight:normal;font-size:14px;">
+                <input name="answerId" value="@c.ChoiceId" type="radio" data-type="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+            </li>
+        }
+    </ul>
+    <p id="info" style="color:red;"></p>
+    <div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next</button></div>
+    @*<div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next <span class="glyphicon glyphicon-arrow-right"></span></button></div>*@
+</form>
+
+}
+<script>
+    function submitanswer() {
+        if ($('input:radio:checked').length == 0) $("#info").text('You have to choose an answer!');
+        else $("#surveyform").submit();
+    }
+    function clickanswer(e) { $("#info").text(''); }
+    document.addEventListener("message", function () {
+        document.getElementById("info").innerHTML += message.data;
+    });
+    function btnClick() { window.postMessage("Hello React Native!"); }
+</script>
+
+
+

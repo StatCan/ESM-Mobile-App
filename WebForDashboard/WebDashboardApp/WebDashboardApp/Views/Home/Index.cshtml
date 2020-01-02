@@ -1,30 +1,19 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<h2>Welcome to dashbaord</h2>
-@*<div>
-        <img src="~/Images/excel-2010-basic-column-chart-after-insertion.png" width="300" /><br />
-        <img src="~/Images/piechart.gif" /><br />
-    </div>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<img src='@Url.Action("GetThermometersWithBulletinImage","Home")' width="350" height="350" /><br /><br />
-<img src='@Url.Action("GetScalableBarImage","Home")' width="350" /><br /><br />
-<img src='@Url.Action("GetScalableLineImage","Home")' /><br /><br />
-<img src='@Url.Action("GetBulletinImage","Home")' width="350" height="350" /><br /><br />
-<img src='@Url.Action("GetTableImage","Home")' width="400" /><br /><br />
-
-<img src='@Url.Action("GetActivityCountImage","Home")' width="300" height="300" />
-<img src='@Url.Action("GetMoodCountImage","Home")' width="260" height="260" />
-<img src='@Url.Action("GetMoodWeeklyImage","Home")' width="260" height="260" />
-<p id="info"></p>
-<div class="col-sm-12" align="right" style="max-width:300px;">
-    <button class="btn btn-primary" onclick="btnClick()">Back</button>
-</div>
-<br /><br />
-<label>User Agent:</label>@ViewBag.UserAgentStr<br /><br />
-<script>
-    document.addEventListener("message", function () {
-        document.getElementById("info").innerHTML += message.data;
-    });
-    function btnClick() { window.postMessage("Hello React Native!"); }
-</script>
+<h2>Index</h2>
+<form action="/Home/ConductSurvey" method="get">
+    <label>User Token:</label>
+    <input id="token" name="userToken" value="" />
+    <label>NotificationId</label>
+    <input name="notificationId" value="" />
+    <label>Culture:</label>
+    <input name="culture" value="en" type="radio" checked />English&nbsp;&nbsp;
+    <input name="culture" value="fr" type="radio" />French
+    <button type="submit" class="btn btn-primary" id="gosurvey">Start Survey</button>
+</form>

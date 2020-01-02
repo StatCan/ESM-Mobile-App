@@ -76,3 +76,7 @@ C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\obj\Release\WebDashboardApp.dll
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\obj\Release\WebDashboardApp.pdb
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\obj\Release\WebDashboardApp.csprojAssemblyReference.cache
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\bin\EntityFramework.dll
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\bin\EntityFramework.SqlServer.dll
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\bin\EntityFramework.xml
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebForDashboard\WebDashboardApp\WebDashboardApp\bin\EntityFramework.SqlServer.xml
