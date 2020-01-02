@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="" />
+    <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/components/SurveyResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SurveyResultScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +28,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="123" selection-start-line="15" selection-start-column="123" selection-end-line="15" selection-end-column="123" />
+            <state relative-caret-position="444">
+              <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/SurveyResultScreenBackup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -91,6 +103,7 @@
         <option value="$PROJECT_DIR$/components/Homescreen.js" />
         <option value="$PROJECT_DIR$/Resources.js" />
         <option value="$PROJECT_DIR$/components/LocalNotificationScreen.js" />
+        <option value="$PROJECT_DIR$/components/SurveyResultScreenBackup.js" />
         <option value="$PROJECT_DIR$/components/SurveyResultScreen.js" />
       </list>
     </option>
@@ -114,6 +127,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,8 +145,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,14 +152,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/components" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guojian\projects\ReactNavigationDemo\components" />
+      <recent name="C:\Users\guojian\projects\ReactNavigationDemo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\ReactNativeExpo\components" />
       <recent name="C:\Users\guojian\projects\ReactNavigationDemo" />
       <recent name="C:\Users\guojian\projects\ReactNavigationDemo\components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\guojian\projects\ReactNavigationDemo\components" />
-      <recent name="C:\Users\guojian\projects\ReactNavigationDemo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -176,6 +189,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21130952" />
@@ -373,10 +387,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/SurveyResultScreenBackup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="123" selection-start-line="15" selection-start-column="123" selection-end-line="15" selection-end-column="123" />
+        <state relative-caret-position="444">
+          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
         </state>
       </provider>
     </entry>
