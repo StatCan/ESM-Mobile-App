@@ -48,6 +48,90 @@ export default class LocalNotificationScreen extends React.Component {
     console.log(notificationId); // can be saved in AsyncStorage or send to server
   };
 
+  // Unit Test the Scheduling Algorithm
+  // To be moved to a Helper class on wellBeingCheck repo
+  scheduleNotificationAlgo = (awakeHour, sleepHour) => {
+
+    // Default is 22h or 10pm
+    sleepHour = 22;
+
+    // Default is 6h or 6am
+    awakeHour = 6;
+
+    numPings = this.state.notificationcount;
+
+    // Based on defaults awakeInterval is 16
+    awakeInterval = sleepHour - awakeHour;
+
+    if (numPings > 5 || numPings < 2) console.log("numPings has an invalid value")
+
+    // Safety Check
+    if (numPings > awakeInterval) numPings = awakeInterval;
+
+    if (awakeHour > sleepHour) awakeInterval = awakeHour + 24;
+
+    // Now come up with a time to set notifications to
+
+    var awakeOneHourTimeIntervalsBefore = [];
+    var awakeOneHourTimeIntervalsAfter = [];
+
+    for (i = 0; i <= awakeInterval; i++) {
+      awakeOneHourTimeIntervalsBefore[i] = awakeHour + (i - 1);
+      awakeOneHourTimeIntervalsAfter[i] = awakeHour + i;
+    }
+
+    // For testing purposes print to console
+    console.log("One Hour Time Intervals i.e. 6h to 7h");
+    console.log(awakeOneHourTimeIntervalsBefore);
+    console.log(awakeOneHourTimeIntervalsAfter);
+
+    var chosenHoursBefore = [];
+
+    // Now choose number of random hours based on number of pings
+    for (i = 0; i < numPings; i++ ){
+      chosenHoursBefore[i] = Math.floor(Math.random() * awakeOneHourTimeIntervalsBefore.length);
+    }
+
+    console.log("Chosen One Hour Time Intervals:");
+    console.log(chosenHoursBefore);
+
+    chosenHoursBefore.forEach(item => {
+      this.scheduleNotificationBasedOnTime(item);
+    });
+
+  }
+
+  scheduleNotificationBasedOnTime = async (hour) => {
+    if (Platform.OS === 'android') {
+      Notifications.createChannelAndroidAsync('chat-messages', {
+        name: 'Chat messages',
+        sound: true,
+        vibrate: true,
+      });
+    }
+
+    // TODO: Change this to an actual time not just hours in the future
+    scheduledTime = new Date().getTime() + hour * 60;
+
+    console.log("Scheduling a notification for: " + scheduledTime);
+
+    let notificationId = Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "Scheduled Notification",
+        body: "Scheduled Notification for the Survey!",
+        ios: { sound: true },
+        android: {
+          "channelId": "chat-messages"
+        }
+      },
+      {
+        repeat: "minute",
+        time: scheduledTime
+      }
+    );
+    console.log(notificationId);
+  };
+
   scheduleNotification = async () => {
     if (Platform.OS === 'android') {
       Notifications.createChannelAndroidAsync('chat-messages', {
@@ -103,6 +187,7 @@ export default class LocalNotificationScreen extends React.Component {
           this.setState({notificationcount:data.key});
       };
    saveSettings = async() => {
+
         console.log("Platform version: " + Platform.Version);
         console.log("Device Name: " + Expo.Constants.deviceName);
         console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
@@ -152,6 +237,7 @@ export default class LocalNotificationScreen extends React.Component {
           <Text style={{ color: 'red' }}>Following buttons are test only</Text>
           <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
           <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
+          <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(6,22)} />
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
         </View>
       </View>
