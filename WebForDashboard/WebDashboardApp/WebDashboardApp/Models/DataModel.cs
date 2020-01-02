@@ -9,7 +9,7 @@ namespace WebDashboardApp.Models
 {
     public enum QuestionType
     {
-        SingleChoice=1,MultipleChoice=2
+        SingleChoice=1,MultipleChoice=2,SingleInput=3,MultiInput=4,SingleChoiceWithOtherInput=5,MultipleChoiceWithOtherInput=6
     }
     public enum SurveyType
     {

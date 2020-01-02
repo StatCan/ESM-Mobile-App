@@ -18,24 +18,52 @@
 }
 else
 {
-<form action="/Home/SaveSurvey" method="post" id="surveyform">
-    <input name="userToken" value="@Model.UserToken" hidden />
-    <input name="notificationId" value="@Model.NotificationId" hidden />
-    <input name="questionId" value="@Model.QuestionnairId" hidden />
-    <p style="font-weight:bold;font-size:18px;">@Model.Text</p>
-    <ul style="font-weight:normal;">
-        @foreach (var c in Model.Choices)
-        {
-            var index = "answer" + Model.Choices.IndexOf(c).ToString();
-            <li style="list-style:none;font-weight:normal;font-size:14px;">
-                <input name="answerId" value="@c.ChoiceId" type="radio" data-type="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
-            </li>
-        }
-    </ul>
-    <p id="info" style="color:red;"></p>
-    <div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next</button></div>
-    @*<div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next <span class="glyphicon glyphicon-arrow-right"></span></button></div>*@
-</form>
+                     <form action="/Home/SaveSurvey" method="post" id="surveyform">
+                         <input name="userToken" value="@Model.UserToken" hidden />
+                         <input name="notificationId" value="@Model.NotificationId" hidden />
+                         <input name="questionId" value="@Model.QuestionnairId" hidden />
+                         <p style="font-weight:bold;font-size:18px;">@Model.Text</p>
+                         @switch (Model.Type)
+                         {
+                             case 1:
+
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <input name="answerId" value="@c.ChoiceId" type="radio" data-otherinput="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 2:
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <input name="answerId" value="@c.ChoiceId" type="checkbox" data-otherinput="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 3:
+                                 <ul style="font-weight:normal;">
+                                     <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                         <label>@Model.Choices[0].Text</label>
+                                         <input name="answerId" class="single-input" value="" />
+                                     </li>
+                                 </ul>
+                                 break;
+                         }
+
+
+
+                         <p id="info" style="color:red;"></p>
+                         <div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next</button></div>
+                         @*<div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next <span class="glyphicon glyphicon-arrow-right"></span></button></div>*@
+                     </form>
 
 }
 <script>
