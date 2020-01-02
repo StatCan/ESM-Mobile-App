@@ -12,14 +12,14 @@ export default class SurveyResultScreen extends Component {
         <ScrollView style={styles.scrollView}>
           <Text style={{ fontSize: 30, marginBottom: 20 }}>Survey Result:</Text>
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetThermometersWithBulletinImage' }} style={{width:350,height:350,alignSelf: 'center' }} />
-           <ScrollView horizontal>
+           <ScrollView horizontal showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                 <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableBarImage' }} style={{width:400,height:500, resizeMode: 'stretch' }} />
            </ScrollView>
-           <ScrollView horizontal>
+           <ScrollView horizontal showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                 <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetScalableLineImage' }} style={{width:600,height:300, resizeMode: 'stretch' }}  />
            </ScrollView>
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetBulletinImage' }} style={styles.image1} />
-           <ScrollView horizontal>
+           <ScrollView horizontal showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                  <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetTableImage' }} style={{width:500,height:300, resizeMode: 'stretch'}} />
            </ScrollView>
           <Text style={styles.label}>Activity Count:</Text>
