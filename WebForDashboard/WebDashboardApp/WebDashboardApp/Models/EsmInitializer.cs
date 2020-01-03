@@ -10,6 +10,8 @@ namespace WebDashboardApp.Models
         protected override void Seed(EsmContext context)
         {
             var questionnairs = new List<Questionnair> {
+                new Questionnair{ EnglishName="To determine which geographic region you live in,Please provide your postal code.",FrenchName="",QuestionType=QuestionType.SingleInput, SurveyType=SurveyType.QuestionnaireA,
+                 Choices=new List<Choice>{ new Choice { EnglishName="Postal Code", FrenchName="" } } },
                 new Questionnair{ EnglishName="What is your age range ?", FrenchName="", QuestionType=QuestionType.SingleChoice,
                              Choices=new List<Choice>{
                                 new Choice{ EnglishName="Less than or equal 8",FrenchName=""},

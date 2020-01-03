@@ -21,12 +21,15 @@ export default class App extends Component<Props> {
     );
   }
   render() {
+    const uri=global.surveyACode!=''?'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4':'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+
     return (
       <View style={{ flex: 1, marginTop: 16 }}>
         <WebView
           ref={(view) => this.webView = view}
           style={styles.webview}
-          source={{ uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/' }}
+        //  source={{ uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/' }}
+          source={{uri:uri}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
           startInLoadingState={false}
@@ -41,10 +44,17 @@ export default class App extends Component<Props> {
             }
           }}
           onMessage={event => {
-            if (event.nativeEvent.data == "Hello React Native!")
-              this.props.navigation.navigate('Home')
-
+        //    if (event.nativeEvent.data == "Hello React Native!")
+              console.log(event.nativeEvent.data);
+              if(!global.doneSurveyA){
+                AsyncStorage.setItem('EsmSurveyACode', event.nativeEvent.data);
+                global.surveyACode = event.nativeEvent.data;
+                this.forceUpdate();
+              }
+              else
+                this.props.navigation.navigate('Home')
           }}
+
         />
       </View>
     );
