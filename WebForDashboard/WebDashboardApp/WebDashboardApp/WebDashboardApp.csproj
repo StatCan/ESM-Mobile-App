@@ -191,6 +191,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ShowImages.cshtml" />
     <Content Include="Views\Home\ConductSurvey.cshtml" />
+    <Content Include="Views\Home\ConductSurvey - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
