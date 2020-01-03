@@ -21,34 +21,65 @@ namespace WebDashboardApp.Controllers
         public ActionResult ConductSurvey(string userToken, string notificationId, string culture = "en")
         {
             var context = new EsmContext();
-            var aCount = context.Answers.Count(x => x.RespondentKey == userToken && x.SurveyType == 1);
-            var bCount = 0;
+            var aCount = context.Answers.Count(x => x.RespondentKey == userToken && x.SurveyType==(int)SurveyType.QuestionnaireA);
+            var bCount = 0;var supportCount = context.Answers.Count(x => x.RespondentKey == userToken && x.SurveyType ==(int)SurveyType.Supportive);
             if (notificationId == "") notificationId = DateTime.Now.ToString();
-            else bCount = context.Answers.Count(x => x.RespondentKey == userToken && x.NotificationId == notificationId && x.SurveyType == 2);
-            var question = new Questionnair();
-            if (aCount < 2)
+            else bCount = context.Answers.Count(x => x.RespondentKey == userToken && x.NotificationId == notificationId && x.SurveyType ==(int)SurveyType.QuestionnairB);
+            var question = new Questionnair();string percentage = "";
+            if (aCount < 11) {
+                percentage = $"({Math.Round((double)(aCount+1)/(11+9)*100)}%)";
                 question = context.Questionnairs.Where(x => x.SurveyType == SurveyType.QuestionnaireA).OrderBy(x => x.QuestionnairId).Skip(aCount).FirstOrDefault();
-            else
+            }
+            else if (bCount < 9) {
+                percentage = $"({Math.Round((double)(aCount +bCount+ 1) / (11 + 9)*100)}%)";
                 question = context.Questionnairs.Where(x => x.SurveyType == SurveyType.QuestionnairB).OrderBy(x => x.QuestionnairId).Skip(bCount).FirstOrDefault();
-
+            }
+            else if (supportCount < 3)
+            {
+                percentage = $"(100%+Extra:{Math.Round((double)(supportCount + 1) /3*100)}%)";
+                question = context.Questionnairs.Where(x => x.SurveyType == SurveyType.Supportive).OrderBy(x => x.QuestionnairId).Skip(supportCount).FirstOrDefault();
+            }
             var model = new QuestionModel { UserToken = userToken, NotificationId = notificationId, Culture = culture };
-            if (question == null) model.Message =culture=="fr"? "Vous avez fait l'enquête pour cette fois, merci" : "You have done the survey for this time, Thanks";
+            if (question == null) { model.Message = culture == "fr" ? "Vous avez fait l'enquête pour cette fois, merci" : "You have done the survey for this time, Thanks"; model.QuestionnairId = 0; }
             else
             {
-                model.Type = (int)question.QuestionType;
+                model.Type = (int)question.QuestionType; model.HelpDesc =culture=="fr"?question.HelpDescFre: question.HelpDescEng;
                 question.Choices = context.Options.Where(x => x.QuestionnairId == question.QuestionnairId).ToList();
                 model.Text = culture == "en" ? question.EnglishName : question.FrenchName; model.QuestionnairId = question.QuestionnairId;
                 model.Choices = (from c in question.Choices select new ChoiceModel { ChoiceId = c.ChoiceId, IsUserInput = c.IsUserInput, Text = culture == "en" ? c.EnglishName : c.FrenchName }).ToList();
+                model.Percentage = percentage;
             }
             return View(model);
         }
         [HttpPost]
-        public ActionResult SaveSurvey(string userToken, string notificationId, int questionId, int answerId, string userInput = "", string culture = "en")
+        public ActionResult SaveSurvey(string userToken, string notificationId, int questionId, int answerId,string answerIdStr="",  string userInput = "", string culture = "en")
         {
-            var context = new EsmContext();
-            var q = context.Questionnairs.First(x => x.QuestionnairId == questionId);
+            var context = new EsmContext();var isOtherInput = false;
+            if (answerIdStr.EndsWith(",")) answerIdStr = answerIdStr.Substring(0,answerIdStr.Length - 1); if (userInput.EndsWith(",")) userInput = userInput.Substring(0, userInput.Length - 1);
+            var q = context.Questionnairs.First(x => x.QuestionnairId == questionId);//q never be null
+            var answer = new Answer { RespondentKey = userToken, NotificationId = notificationId, QuestionnairId = questionId, ChoiceId = answerId, ResponseDate = DateTime.Now};
+
+            switch (q.QuestionType)
+            {
+                case QuestionType.MultipleChoice:
+                    //do something later
+                    break;
+                case QuestionType.MultipleChoiceWithOtherInput:
+                    var multipleChoices =(from s in answerIdStr.Split(',') select int.Parse(s)).ToList();
+                    //do something later
+                    break;
+                case QuestionType.MultiInput:
+                    //do something later
+                    break;
+                default:
+                    //do something later
+                    break;
+            }
+           
+            if (answerId != 0) isOtherInput = context.Options.First(x => x.ChoiceId == answerId).IsUserInput; if (!isOtherInput) userInput = "";
             int surveyType = 1; if (q != null) surveyType = (int)q.SurveyType;
-            var answer = new Answer { RespondentKey = userToken, NotificationId = notificationId, QuestionnairId = questionId, ChoiceId = answerId, ResponseDate = DateTime.Now, SurveyType = surveyType };
+            answer.ChoicesIdStr = answerIdStr;answer.ChoiceId = answerId;answer.SurveyType =(int)q.SurveyType;
+            answer.TheUserInputAnswer = userInput;
             context.Answers.Add(answer);
             context.SaveChanges();
             return RedirectToAction("ConductSurvey", new { userToken = userToken, notificationId = notificationId, culture = culture });

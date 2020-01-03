@@ -9,11 +9,11 @@ namespace WebDashboardApp.Models
 {
     public enum QuestionType
     {
-        SingleChoice=1,MultipleChoice=2,SingleInput=3,MultiInput=4,SingleChoiceWithOtherInput=5,MultipleChoiceWithOtherInput=6
+        SingleChoice=1,MultipleChoice=2,SingleInput=3,MultiInput=4,SingleChoiceWithOtherInput=5,MultipleChoiceWithOtherInput=6,DatePicker=7
     }
     public enum SurveyType
     {
-        QuestionnaireA = 1, QuestionnairB = 2
+        QuestionnaireA = 1, QuestionnairB = 2,Supportive=99999
     }
     public class Questionnair
     {
@@ -24,6 +24,8 @@ namespace WebDashboardApp.Models
         public string EnglishName { get; set; }
         public string FrenchName { get; set; }
         public List<Choice> Choices { get; set; }
+        public string HelpDescEng { get; set; }
+        public string HelpDescFre { get; set; }
     }
     public class Choice
     {
@@ -46,6 +48,7 @@ namespace WebDashboardApp.Models
         public string TheUserInputAnswer { get; set; }
         public int QuestionnairId { get; set; }
         public int ChoiceId { get; set; }
+        public string ChoicesIdStr { get; set; }
         public int SurveyType { get; set; }
     }
 }

@@ -15,6 +15,8 @@ namespace WebDashboardApp.Models
         public string Message { get; set; }
         public int Type { get; set; }
         public string Culture { get; set; }
+        public string HelpDesc { get; set; }
+        public string Percentage { get; set; }
     }
     public class ChoiceModel
     {

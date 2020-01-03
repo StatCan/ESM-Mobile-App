@@ -19,7 +19,7 @@ namespace WebDashboardApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //   Database.SetInitializer(new DropCreateDatabaseAlways<EsmContext>());
-           // Database.SetInitializer(new EsmInitializer());
+            Database.SetInitializer(new EsmInitializer());
         }
     }
 }
