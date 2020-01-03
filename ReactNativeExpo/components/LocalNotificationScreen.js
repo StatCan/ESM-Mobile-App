@@ -50,13 +50,10 @@ export default class LocalNotificationScreen extends React.Component {
 
   // Unit Test the Scheduling Algorithm
   // To be moved to a Helper class on wellBeingCheck repo
-  scheduleNotificationAlgo = (awakeHour, sleepHour) => {
-
-    // Default is 22h or 10pm
-    sleepHour = 22;
-
-    // Default is 6h or 6am
-    awakeHour = 6;
+  // awakeHour: Default is 6h or 6am
+  // sleepHour: Default is 22h or 10pm
+  
+  scheduleNotificationAlgo = (awakeHour = 6, sleepHour = 22) => {
 
     numPings = this.state.notificationcount;
 
@@ -95,6 +92,11 @@ export default class LocalNotificationScreen extends React.Component {
     console.log("Chosen One Hour Time Intervals:");
     console.log(chosenHoursBefore);
 
+    // TODO:  Have randomization between 'Before' and 'After' time intervals
+    // i.e. Between 6h and 7h (currently set to on the hour above)
+
+
+
     chosenHoursBefore.forEach(item => {
       this.scheduleNotificationBasedOnTime(item);
     });
@@ -111,7 +113,7 @@ export default class LocalNotificationScreen extends React.Component {
     }
 
     // TODO: Change this to an actual time not just hours in the future
-    scheduledTime = new Date().getTime() + hour * 60;
+    scheduledTime = new Date().getTime() + hour * 60 * 1000;
 
     console.log("Scheduling a notification for: " + scheduledTime);
 
