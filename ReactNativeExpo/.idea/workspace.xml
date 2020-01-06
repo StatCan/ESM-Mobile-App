@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Globals.js" beforeDir="false" afterPath="$PROJECT_DIR$/Globals.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/CurrentEQScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CurrentEQScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/SplashScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SplashScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Global.asax.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Global.asax.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/DataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/DataModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/EsmInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/EsmInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/ConductSurvey.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/ConductSurvey.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,17 +19,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2108">
-              <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
+            <state relative-caret-position="3689">
+              <caret line="217" column="48" selection-start-line="217" selection-start-column="48" selection-end-line="217" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="109" selection-start-line="21" selection-start-column="109" selection-end-line="21" selection-end-column="109" />
+            <state relative-caret-position="255">
+              <caret line="15" column="85" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -57,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/CurrentEQScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+            <state relative-caret-position="89">
+              <caret line="23" column="61" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -87,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="23" column="56" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="56" />
+            <state relative-caret-position="391">
+              <caret line="23" column="56" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -177,8 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -195,11 +179,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -239,10 +225,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.07366072" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21875" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -384,15 +369,8 @@
     <entry file="file://$PROJECT_DIR$/components/SurveyResultScreenBackup.js" />
     <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2108">
-          <caret line="124" column="48" selection-start-line="124" selection-start-column="48" selection-end-line="124" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="109" selection-start-line="21" selection-start-column="109" selection-end-line="21" selection-end-column="109" />
+        <state relative-caret-position="3689">
+          <caret line="217" column="48" selection-start-line="217" selection-start-column="48" selection-end-line="217" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -403,10 +381,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/InitialScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -424,24 +416,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Globals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="23" column="56" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/CurrentEQScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+        <state relative-caret-position="89">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="85" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="85" />
         </state>
       </provider>
     </entry>
