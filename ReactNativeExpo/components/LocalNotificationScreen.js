@@ -55,6 +55,9 @@ export default class LocalNotificationScreen extends React.Component {
   
   scheduleNotificationAlgo = (awakeHour = 6, sleepHour = 22) => {
 
+    // Clear existing notifications
+    Notifications.cancelAllScheduledNotificationsAsync()
+
     numPings = this.state.notificationcount;
 
     // Based on defaults awakeInterval is 16
@@ -84,26 +87,31 @@ export default class LocalNotificationScreen extends React.Component {
 
     var chosenHoursBefore = [];
 
-    // Now choose number of random hours based on number of pings
-    for (i = 0; i < numPings; i++ ){
-      chosenHoursBefore[i] = Math.floor(Math.random() * awakeOneHourTimeIntervalsBefore.length);
+    // Schedule for the next 30 days
+
+    for (day = 0; day < 31; day++) {
+
+      // Now choose number of random hours based on number of pings
+      for (i = 0; i < numPings; i++ ){
+        chosenHoursBefore[i] = Math.floor(Math.random() * awakeOneHourTimeIntervalsBefore.length);
+      }
+
+      console.log("Chosen One Hour Time Intervals for Day: " + day);
+      console.log(chosenHoursBefore);
+
+      // TODO:  Have randomization between 'Before' and 'After' time intervals
+      // i.e. Between 6h and 7h (currently set to on the hour above)
+
+
+      // Now schedule for each day the chosen random hours
+      chosenHoursBefore.forEach(item => {
+        this.scheduleNotificationBasedOnTime(item, day);
+      });
     }
-
-    console.log("Chosen One Hour Time Intervals:");
-    console.log(chosenHoursBefore);
-
-    // TODO:  Have randomization between 'Before' and 'After' time intervals
-    // i.e. Between 6h and 7h (currently set to on the hour above)
-
-
-
-    chosenHoursBefore.forEach(item => {
-      this.scheduleNotificationBasedOnTime(item);
-    });
 
   }
 
-  scheduleNotificationBasedOnTime = async (hour) => {
+  scheduleNotificationBasedOnTime = async (hour, day) => {
     if (Platform.OS === 'android') {
       Notifications.createChannelAndroidAsync('chat-messages', {
         name: 'Chat messages',
@@ -113,7 +121,7 @@ export default class LocalNotificationScreen extends React.Component {
     }
 
     // TODO: Change this to an actual time not just hours in the future
-    scheduledTime = new Date().getTime() + hour * 60 * 1000;
+    scheduledTime = new Date().getTime() + day + hour * 60 * 1000;
 
     console.log("Scheduling a notification for: " + scheduledTime);
 
@@ -210,11 +218,11 @@ export default class LocalNotificationScreen extends React.Component {
           <Switch value={this.state.notification} onValueChange={this.handleSwitchChnaged} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Text style={styles.label}>WakeTime:</Text>
+          <Text style={styles.label}>Wake Time:</Text>
           <TextInput value={this.state.waketime} editable={this.state.notification} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          <Text style={styles.label}>SleepTime:</Text>
+          <Text style={styles.label}>Sleep Time:</Text>
           <TextInput value={this.state.sleeptime} editable={this.state.notification} />
         </View>
         <Text style={[styles.label,{marginLeft:60}]}>Notification number per day:</Text>
