@@ -55,6 +55,12 @@ export default class LocalNotificationScreen extends React.Component {
   
   scheduleNotificationAlgo = (awakeHour = 6, sleepHour = 22) => {
 
+    awakeHour = parseInt(awakeHour.substring(0, 2));
+    sleepHour = parseInt(sleepHour.substring(0, 2));
+
+    console.log("Awake Hour is: " + awakeHour);
+    console.log("Sleep Hour is: " + sleepHour);
+
     // Clear existing notifications
     Notifications.cancelAllScheduledNotificationsAsync()
 
@@ -246,7 +252,7 @@ export default class LocalNotificationScreen extends React.Component {
           <Text style={{ color: 'red' }}>Following buttons are test only</Text>
           <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
           <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
-          <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(6,22)} />
+          <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(this.state.waketime, this.state.sleeptime)} />
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
         </View>
       </View>
