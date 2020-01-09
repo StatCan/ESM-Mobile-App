@@ -41,8 +41,11 @@ const AppNavigator = createStackNavigator({
    ContactUs:{screen:ContactUsScreen},
    Test:{screen:TestScreen},
    SurveyResult:{screen:SurveyResultScreen},
-   WebScreen:{screen:WebScreen}
-}
+   WebScreen:{screen:WebScreen},
+},
+{defaultNavigationOptions: {
+      header: null
+    },}
 );
 
 const AppContainer = createAppContainer(AppNavigator);
