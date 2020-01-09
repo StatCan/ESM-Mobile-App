@@ -2,69 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99e7e55-8bf1-445c-8c9d-eadf6120a79c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/FixWebView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Globals.js" beforeDir="false" afterPath="$PROJECT_DIR$/Globals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CreatePasswordScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CreatePasswordScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/CurrentEQScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CurrentEQScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Homescreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Homescreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/SplashScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SplashScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Webscreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Webscreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SurveyResultScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/SurveyResultScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/.vs/WebApiForEsm/v15/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/.vs/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/.vs/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/WebApiForEsm.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/WebApiForEsm.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/WebApiForEsm.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/WebApiForEsm.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/bin/WebApiForEsm.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/bin/WebApiForEsm.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/bin/WebApiForEsm.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/bin/WebApiForEsm.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebApiForEsm/WebApiForEsm/obj/Debug/WebApiForEsm.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/.vs/WebDashboardApp/v15/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/DataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/DataModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/EsmInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/EsmInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/EsmModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Models/EsmModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/About.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/About.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/ConductSurvey.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/ConductSurvey.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/ShowImages.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Home/ShowImages.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/WebDashboardApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/WebDashboardApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/Stc.Graphics.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/bin/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Debug/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/About.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/About.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/ConductSurvey.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/ConductSurvey.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/ShowImages.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Home/ShowImages.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/Stc.Graphics.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/Package/PackageTmp/bin/WebDashboardApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../WebForDashboard/WebDashboardApp/WebDashboardApp/obj/Release/WebDashboardApp.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/Webscreen.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+            <state relative-caret-position="34">
+              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -89,26 +29,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="-107">
+              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/Homescreen.js">
+        <entry file="file://$PROJECT_DIR$/Settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="117" selection-start-line="27" selection-start-column="117" selection-end-line="27" selection-end-column="117" />
+            <state>
+              <caret column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
+        <entry file="file://$PROJECT_DIR$/Resources.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="41" column="72" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="72" />
+            <state relative-caret-position="34">
+              <caret line="2" column="7" selection-start-line="2" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -116,44 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/CurrentEQScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="77" column="3" lean-forward="true" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/LoginScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="163" selection-start-line="18" selection-start-column="141" selection-end-line="18" selection-end-column="163" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/FixWebView.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreen.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="39" />
+            <state relative-caret-position="302">
+              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -161,10 +65,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+            <state relative-caret-position="187">
+              <caret line="11" column="61" lean-forward="true" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/splash.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/icon.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -208,10 +131,10 @@
         <option value="$PROJECT_DIR$/components/Homescreen.js" />
         <option value="$PROJECT_DIR$/components/InitialScreen.js" />
         <option value="$PROJECT_DIR$/components/SplashScreen.js" />
-        <option value="$PROJECT_DIR$/components/CurrentEQScreen.js" />
         <option value="$PROJECT_DIR$/components/CreatePasswordScreen.js" />
-        <option value="$PROJECT_DIR$/components/SurveyResultScreen.js" />
         <option value="$PROJECT_DIR$/components/Webscreen.js" />
+        <option value="$PROJECT_DIR$/components/CurrentEQScreen.js" />
+        <option value="$PROJECT_DIR$/components/SurveyResultScreen.js" />
       </list>
     </option>
   </component>
@@ -234,8 +157,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -246,12 +167,19 @@
             <path>
               <item name="ReactNativeExpo" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReactNativeExpo" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReactNativeExpo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReactNativeExpo" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,9 +224,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19494048" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16964285" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -343,22 +272,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scalling.js" />
     <entry file="file://$PROJECT_DIR$/Scaling.js" />
-    <entry file="file://$PROJECT_DIR$/Settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/LocalNotificationScreenBackuo.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/ContactUsScreen.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -389,13 +304,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/SurveyResultScreenBackup.js" />
-    <entry file="file://$PROJECT_DIR$/Resources.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Globals.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -438,10 +346,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
+    <entry file="file://$PROJECT_DIR$/components/Webscreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+        <state relative-caret-position="102">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -452,9 +360,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="41" column="72" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/LoginScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="522">
           <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
@@ -475,36 +390,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/CurrentEQScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="77" column="3" lean-forward="true" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/CreatePasswordScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="41" column="72" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="72" />
+        <state relative-caret-position="302">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/SurveyResultScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="163" selection-start-line="18" selection-start-column="141" selection-end-line="18" selection-end-column="163" />
+        <state relative-caret-position="34">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Webscreen.js">
+    <entry file="file://$PROJECT_DIR$/assets/icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/splash.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        <state relative-caret-position="-107">
+          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/SplashScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="61" lean-forward="true" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
         </state>
       </provider>
     </entry>

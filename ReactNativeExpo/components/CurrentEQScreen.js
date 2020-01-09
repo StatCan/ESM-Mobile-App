@@ -38,7 +38,7 @@ export default class App extends Component<Props> {
                       style={styles.webview}
                       userAgent={global.userToken}
                     //  source={{ uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/' }}
-                      source={{uri:uri2}}
+                      source={{uri:uri}}
                       javaScriptEnabled={true}
                       domStorageEnabled={true}
                       startInLoadingState={false}
