@@ -3,5 +3,17 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
+<div class="sc-box-main">
+    <p>Use this area to provide additional information.
+     <span class="ecf-bold">W000-0001-9498</span>
+    </p>
+</div>
+<script>   
+    var button = document.createElement("button");
+    button.innerHTML = 'Back'; button.className += "btn"; button.className += " btn-primary";
+    button.onclick = function () {
+        var sac = document.querySelector("div.sc-box-main p span.ecf-bold").innerText;
+        window.postMessage(sac); return false;
+    };
+    document.body.appendChild(button);
+</script>

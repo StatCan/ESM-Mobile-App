@@ -23,7 +23,7 @@ namespace WebDashboardApp.Controllers
             var context = new EsmContext();
             var aCount = context.Answers.Count(x => x.RespondentKey == userToken && x.SurveyType==(int)SurveyType.QuestionnaireA);
             var bCount = 0;var supportCount = context.Answers.Count(x => x.RespondentKey == userToken && x.SurveyType ==(int)SurveyType.Supportive);
-            if (notificationId == "") notificationId = DateTime.Now.ToString();
+            if (string.IsNullOrEmpty(notificationId)) notificationId = DateTime.Now.ToString();
             else bCount = context.Answers.Count(x => x.RespondentKey == userToken && x.NotificationId == notificationId && x.SurveyType ==(int)SurveyType.QuestionnairB);
             var question = new Questionnair();string percentage = "";
             if (aCount < 11) {
@@ -84,37 +84,62 @@ namespace WebDashboardApp.Controllers
             context.SaveChanges();
             return RedirectToAction("ConductSurvey", new { userToken = userToken, notificationId = notificationId, culture = culture });
         }
-
-        public ActionResult ShowImages()
+        public ActionResult RemoveRespondant()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RemoveRespondant(string userToken)
+        {
+            var context = new EsmContext();
+            var list = context.Answers.Where(x => x.RespondentKey == userToken).ToList();
+            context.Answers.RemoveRange(list);context.SaveChanges();
+            return View();
+        }
+        public ActionResult DisplayResult()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DisplayResult(string userToken,string culture)
+        {
+            return RedirectToAction("ShowImages", new { userToken = userToken, culture = culture,isTesting=true });//
+        }
+        public ActionResult ShowImages(string userToken, string culture,bool isTesting=false)
+        {
+            //isTesting = true;//for test only
+            var m = new OtherModel { Culture = culture, UserToken = userToken,IsTesting=isTesting };
             //string path = Server.MapPath("XmlSample.txt");
             //var s = CmpHelper.GetCmpData("111", "222", path);
             //ViewBag.UserAgentStr = HttpContext.Request.UserAgent;
-            return View();
+            return View(m);
         }
-        public ActionResult GetMoodCountImage()
+        public ActionResult GetMoodCountImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetEmotionCountData();
-            Image img = StcGraphics.GetHalfDoughnutWithEmojiLegendGraph2D(data, 500, 500, "Mood Count", 18);
+            var title = culture == "en" ? "Mood Count" : "Compte d'humeur";
+            var data = GetEmotionCountData(userToken,culture,isTesting);
+            Image img = StcGraphics.GetHalfDoughnutWithEmojiLegendGraph2D(data, 500, 500, title, 18);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetMoodWeeklyImage()
+        public ActionResult GetMoodWeeklyImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetEmotionWeeklyData();
-            Image img = StcGraphics.GetColumnWithEmojiLegendGraph2D(data, 500, 500, "Mood Count", 18);
+            var title = culture == "en" ? "Mood Count" : "Compte d'humeur";
+            var data = GetEmotionWeeklyData(userToken, culture, isTesting);
+            Image img = StcGraphics.GetColumnWithEmojiLegendGraph2D(data, 500, 500,title, 18);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetActivityCountImage()
+        public ActionResult GetActivityCountImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetActivityData();
+            var title = culture == "en" ? "Activity Count" : "Nombre d'activités";
+            var data = GetActivityData(userToken, culture, isTesting);
             Image img = StcGraphics.GetEmojiListGraph2D(data, 500, 500, "Activity Count", 18);
             using (var ms = new MemoryStream())
             {
@@ -122,30 +147,36 @@ namespace WebDashboardApp.Controllers
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetThermometersWithBulletinImage()
+        public ActionResult GetThermometersWithBulletinImage(string userToken, string culture="en", bool isTesting = false)
         {
-            var data = GetThermometerWithBulletinData();
-            Image img = StcGraphics.GetThermometersWithBulletinGraph2D(data, 350, 350, "Feelings", 10, 10, "Number of times you reported a value less than 4:", "Number of times you reported a value greater than 7:");
+            var title0 = culture == "en" ? "Feelings" : "Sentiments";
+            var title1 = culture == "en" ? "Number of times you reported a value less than 4:" : "Nombre de fois où vous avez signalé une valeur inférieure à 4:";
+            var title2 = culture == "en" ? "Number of times you reported a value greater than 7:" : "Nombre de fois où vous avez signalé une valeur supérieure à 7:";
+            var data = GetThermometerWithBulletinData(userToken, culture, isTesting);
+            Image img = StcGraphics.GetThermometersWithBulletinGraph2D(data, 350, 350, title0, 10, 10,title1,title2);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetBulletinImage()
+        public ActionResult GetBulletinImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetBulletinData();
-            Image img = StcGraphics.GetBulletinGraph2D(data, 350, 350, "Your Feelings With Other People", 10, true);
+            var title = culture == "en" ? "Your Feelings With Other People" : "Vos sentiments avec d'autres personnes";
+            var data = GetBulletinData(userToken, culture, isTesting);
+            Image img = StcGraphics.GetBulletinGraph2D(data, 350, 350, title, 10, true);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetScalableBarImage()
+        public ActionResult GetScalableBarImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetBarData();
-            var setting = new ScalableBarGraphSetting { ChartTitle = "Your Weekly Activity Breakdown", ChartTitleFontSize = 10, IsChartTitleHighlighted = true, LabelWidthRatio = 0.24F, ChartFontSize = 8, XAxisNotchCount = 5, XAxisDesc = "Number of times your selected this activity" };
+            var title1 = culture == "en" ? "Your Weekly Activity Breakdown" : "Votre répartition d'activité hebdomadaire";
+            var title2 = culture == "en" ? "Number of times your selected this activity" : "Nombre de fois où vous avez sélectionné cette activité";
+            var data = GetBarData(userToken, culture, isTesting);
+            var setting = new ScalableBarGraphSetting { ChartTitle = title1, ChartTitleFontSize = 10, IsChartTitleHighlighted = true, LabelWidthRatio = 0.24F, ChartFontSize = 8, XAxisNotchCount = 5, XAxisDesc =title2};
             Image img = StcGraphics.GetScalableBarGraph2D(data, 350, 40, setting);
             using (var ms = new MemoryStream())
             {
@@ -153,19 +184,22 @@ namespace WebDashboardApp.Controllers
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetScalableLineImage()
+        public ActionResult GetScalableLineImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetChartDataForScalableLine();
+            var title1 = culture == "en" ? "Your Feelings by Activity Type" : "Vos sentiments par type d'activité";
+            var title2 = culture == "en" ? "ActivityType" : "Type d'activité";
+            var title3 = culture == "en" ? "Anverage Score" : "Score moyen";
+            var data = GetChartDataForScalableLine(userToken, culture, isTesting);
             var setting = new ScalabelLineGraphSetting
             {
-                ChartTitle = "Your Feelings by Activity Type",
+                ChartTitle = title1,
                 ChartTitleFontSize = 8,
                 ChartFontSize = 8,
                 IsChartTitleHighlighted = true,
                 LegendIcon = LegendIconType.Rectangle,
-                XAxisTitle = "ActivityType",
+                XAxisTitle =title2,
                 XAxisTitleFontSize = 8,
-                YAxisTitle = "Anverage Score",
+                YAxisTitle = title3,
                 YAxisTitleFontSize = 8,
                 NotchCount = 5
             };
@@ -176,17 +210,27 @@ namespace WebDashboardApp.Controllers
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-        public ActionResult GetTableImage()
+        public ActionResult GetTableImage(string userToken, string culture = "en", bool isTesting = false)
         {
-            var data = GetTableData();
-            Image img = StcGraphics.GetTableGraph2D(data, 400, 40, "Your Feeling by Location", 10, true);
+            var title = culture == "en" ? "Your Feeling by Location" : "Votre sentiment par emplacement";
+            var data = GetTableData(userToken, culture, isTesting);
+            Image img = StcGraphics.GetTableGraph2D(data, 400, 40, title, 10, true);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
                 return File(ms.ToArray(), "image/jpeg");
             }
         }
-
+        public ActionResult GetMacaroniImage()
+        {
+            var data = GetMacaroniData();
+            Image img = StcGraphics.GetMacaroniGraph2D(data, 12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Jpeg);
+                return File(ms.ToArray(), "image/jpeg");
+            }
+        }
 
 
         public ActionResult GetSecurityQuestions(string culture)
@@ -219,7 +263,7 @@ namespace WebDashboardApp.Controllers
 
             return View();
         }
-        private List<EmojiCountData> GetEmotionCountData()
+        private List<EmojiCountData> GetEmotionCountData(string userToken, string culture = "en", bool isTesting = false)
         {
             return new List<EmojiCountData> {
                 new EmojiCountData{ Emotion=EmotionType.Excellent,Count=1,Label="rad"},
@@ -229,7 +273,7 @@ namespace WebDashboardApp.Controllers
                 new EmojiCountData{ Emotion=EmotionType.Poor,Count=1,Label="frustrated"},
             };
         }
-        private List<EmojiWeekData> GetEmotionWeeklyData()
+        private List<EmojiWeekData> GetEmotionWeeklyData(string userToken, string culture = "en", bool isTesting = false)
         {
             var list = new List<EmojiWeekData> {
                 new EmojiWeekData{ WeekDay=WeekDay.Sun,WeekDayLabel="Sun", Value=0.7F, Group=EmojiWeekGroup.Individual,GroupLabel="Individual"},
@@ -253,7 +297,7 @@ namespace WebDashboardApp.Controllers
             }
             return list;
         }
-        private List<EmojiCustomData> GetActivityData()
+        private List<EmojiCustomData> GetActivityData(string userToken, string culture = "en", bool isTesting = false)
         {
             return new List<EmojiCustomData> {
                 new EmojiCustomData{ Label="work",Count=4, EmojiChar="🔨"},
@@ -267,17 +311,29 @@ namespace WebDashboardApp.Controllers
                 new EmojiCustomData{ Label="transit",Count=3, EmojiChar="🚕"},
             };
         }
-        private List<ThermometerExData> GetThermometerWithBulletinData()
+        private List<ThermometerExData> GetThermometerWithBulletinData(string userToken, string culture = "en", bool isTesting = false)
         {
+            float hv = 4.5f, av = 3.5f, rv = 6.5f, iv = 7.5f, xv = 2.5f;
+            if (isTesting)
+            {
+                var context = new EsmContext();
+                hv =(float) (from a in context.Answers join b in context.Options on a.ChoiceId equals b.ChoiceId join c in context.Questionnairs on a.QuestionnairId equals c.QuestionnairId where a.RespondentKey == userToken && c.QuestionairCode=="B01"  select b.Value).Average();
+                av = (float)(from a in context.Answers join b in context.Options on a.ChoiceId equals b.ChoiceId join c in context.Questionnairs on a.QuestionnairId equals c.QuestionnairId where a.RespondentKey == userToken && c.QuestionairCode == "B02" select b.Value).Average();
+                rv = (float)(from a in context.Answers join b in context.Options on a.ChoiceId equals b.ChoiceId join c in context.Questionnairs on a.QuestionnairId equals c.QuestionnairId where a.RespondentKey == userToken && c.QuestionairCode == "B03" select b.Value).Average();
+                iv = (float)(from a in context.Answers join b in context.Options on a.ChoiceId equals b.ChoiceId join c in context.Questionnairs on a.QuestionnairId equals c.QuestionnairId where a.RespondentKey == userToken && c.QuestionairCode == "B04" select b.Value).Average();
+                xv = (float)(from a in context.Answers join b in context.Options on a.ChoiceId equals b.ChoiceId join c in context.Questionnairs on a.QuestionnairId equals c.QuestionnairId where a.RespondentKey == userToken && c.QuestionairCode == "B05" select b.Value).Average();
+
+            }
+
             return new List<ThermometerExData> {
-                new ThermometerExData{ Label="Happy", Color=Color.LightGreen, Value=4.5f, ExtraHigh=36,ExtraLow=63},
-                new ThermometerExData{ Label="Awake", Color=Color.LightPink, Value=3.5f, ExtraHigh=39,ExtraLow=54},
-                new ThermometerExData{ Label="Relaxed", Color=Color.LightSalmon, Value=6.5f, ExtraHigh=54,ExtraLow=47},
-                new ThermometerExData{ Label="InControl", Color=Color.LightSkyBlue, Value=7.5f, ExtraHigh=43,ExtraLow=27},
-                new ThermometerExData{ Label="Anxious", Color=Color.LightPink, Value=2.5f, ExtraHigh=37,ExtraLow=58}
-            };
+                    new ThermometerExData{ Label="Happy", Color=Color.LightGreen, Value=hv, ExtraHigh=36,ExtraLow=63},
+                    new ThermometerExData{ Label="Awake", Color=Color.LightPink, Value=av, ExtraHigh=39,ExtraLow=54},
+                    new ThermometerExData{ Label="Relaxed", Color=Color.LightSalmon, Value=rv, ExtraHigh=54,ExtraLow=47},
+                    new ThermometerExData{ Label="InControl", Color=Color.LightSkyBlue, Value=iv, ExtraHigh=43,ExtraLow=27},
+                    new ThermometerExData{ Label="Anxious", Color=Color.LightPink, Value=xv, ExtraHigh=37,ExtraLow=58}
+                };
         }
-        private List<BulletinData> GetBulletinData()
+        private List<BulletinData> GetBulletinData(string userToken, string culture = "en", bool isTesting = false)
         {
             return new List<BulletinData> {
                 new BulletinData{ Label="Feeling Happy", Color=Color.LightCoral, Data=new List<KeyValuePair<string, float>>{new KeyValuePair<string, float>("While With Friend",3.08F),new KeyValuePair<string, float>("While Alone",4.08F),new KeyValuePair<string, float>("While With Family",5.67F)}},
@@ -286,8 +342,15 @@ namespace WebDashboardApp.Controllers
                 new BulletinData{ Label="Feeling Anxious", Color=Color.LightPink, Data=new List<KeyValuePair<string, float>>{new KeyValuePair<string, float>("While With Friend",3.08F),new KeyValuePair<string, float>("While Alone",4.08F),new KeyValuePair<string, float>("While With Family",5.67F)}},
             };
         }
-        private List<BarDataSingle> GetBarData()
+        private List<BarDataSingle> GetBarData(string userToken, string culture = "en", bool isTesting = false)
         {
+            if (isTesting)
+            {
+                var context = new EsmContext();
+                var list = (from a in context.Answers join b in context.Questionnairs on a.QuestionnairId equals b.QuestionnairId join c in context.Options on a.ChoiceId equals c.ChoiceId where b.QuestionairCode == "B06" select c).ToList();
+                
+            }
+            
             return new List<BarDataSingle> {
                 new BarDataSingle{ Label="Media Consumption", Color=Color.Aqua, Value=8},
                 new BarDataSingle{ Label="Attending a ciname,exhibition,libray,concert,Theretre,entertainment event", Color=Color.Aquamarine, Value=6},
@@ -300,8 +363,21 @@ namespace WebDashboardApp.Controllers
                 new BarDataSingle{ Label="Personal care", Color=Color.Gold, Value=4},
             };
         }
-        private List<GridChartData> GetChartDataForScalableLine()
+        private List<GridChartData> GetChartDataForScalableLine(string userToken, string culture = "en", bool isTesting = false)
         {
+            if (isTesting)
+            {
+                var context = new EsmContext();
+                //B07:Activity  B01:Feel ;1:Very happy+ 2:Happy
+                var listHappy = (from a in context.Answers                                
+                                 join b in context.Questionnairs on a.QuestionnairId equals b.QuestionnairId
+                                 join c in context.Options on a.ChoiceId equals c.ChoiceId
+                                 join d in context.Answers on a.NotificationId equals d.NotificationId
+                                 join e in context.Questionnairs on d.QuestionnairId equals e.QuestionnairId
+                                 join f in context.Options on d.ChoiceId equals f.ChoiceId
+                                 where b.QuestionairCode == "B07" && e.QuestionairCode=="B01" && (f.Value==1 ||f.Value==2)  select c).ToList();
+
+            }
             return new List<GridChartData>
             {
                  new GridChartData
@@ -354,8 +430,22 @@ namespace WebDashboardApp.Controllers
                  }
             };
         }
-        private TableData GetTableData()
+        private TableData GetTableData(string userToken, string culture = "en", bool isTesting = false)
         {
+            if (isTesting)
+            {
+                var context = new EsmContext();
+                //B06:Location  B01:Feel ;1:Very happy+ 2:Happy
+                var listHappy = (from a in context.Answers
+                                 join b in context.Questionnairs on a.QuestionnairId equals b.QuestionnairId
+                                 join c in context.Options on a.ChoiceId equals c.ChoiceId
+                                 join d in context.Answers on a.NotificationId equals d.NotificationId
+                                 join e in context.Questionnairs on d.QuestionnairId equals e.QuestionnairId
+                                 join f in context.Options on d.ChoiceId equals f.ChoiceId
+                                 where b.QuestionairCode == "B06" && e.QuestionairCode == "B01" && (f.Value == 1 || f.Value == 2)
+                                 select c).ToList();
+
+            }
             return new TableData
             {
                 Header = new List<TableHeader> {
@@ -372,5 +462,16 @@ namespace WebDashboardApp.Controllers
                 }
             };
         }
+        private List<KeyValuePair<string, float>> GetMacaroniData()
+        {
+            return new List<KeyValuePair<string, float>> {
+               new KeyValuePair<string, float>("Your Happiness Score",4.71F),
+               new KeyValuePair<string, float>("Your Relaxed Score",2.71F),
+               new KeyValuePair<string, float>("Your Awake Score",8.71F),
+               new KeyValuePair<string, float>("Your In Control Score",6.71F),
+               new KeyValuePair<string, float>("Your Anxious Score",5.71F),
+            };
+        }
+
     }
 }

@@ -13,7 +13,10 @@
     <label>NotificationId</label>
     <input name="notificationId" value="" />
     <label>Culture:</label>
-    <input name="culture" value="en" type="radio" checked />English&nbsp;&nbsp;
-    <input name="culture" value="fr" type="radio" />French
+    <input name="culture" value="en" type="radio" checked id="ee" /><label for="ee">English&nbsp;&nbsp;</label>
+    <input name="culture" value="fr" type="radio" id="ff" /><label for="ff">French</label>
     <button type="submit" class="btn btn-primary" id="gosurvey">Start Survey</button>
 </form>
+<label>Other Tasks:</label>
+@Html.ActionLink("Remove respondant", "RemoveRespondant")<br/>
+@Html.ActionLink("Display Result","DisplayResult")

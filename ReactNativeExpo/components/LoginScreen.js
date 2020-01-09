@@ -29,7 +29,7 @@ export default class LoginScreen extends Component {
           }}
         />
         <Text style={{ margin: 30 }} onPress={() => this.props.navigation.navigate('RecoverPassword')}>Forget Password</Text>
-        <Text style={{ margin: 30 }} onPress={() => { AsyncStorage.removeItem('EsmUserToken'); AsyncStorage.removeItem('EsmCulture') }}>Delete DeviceId(Test only)</Text>
+        <Text style={{ margin: 30 }} onPress={() => { AsyncStorage.removeItem('EsmUserToken');AsyncStorage.setItem('EsmSurveyACode','none'); AsyncStorage.removeItem('EsmCulture') }}>Delete DeviceId(Test only)</Text>
 
       </View>
     )

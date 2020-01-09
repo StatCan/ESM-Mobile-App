@@ -80,3 +80,5 @@ C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebApiForEsm\WebApiForEsm\obj\D
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebApiForEsm\WebApiForEsm\obj\Debug\WebApiForEsm.csproj.CopyComplete
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebApiForEsm\WebApiForEsm\obj\Debug\WebApiForEsm.dll
 C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebApiForEsm\WebApiForEsm\obj\Debug\WebApiForEsm.pdb
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebApiForEsm\WebApiForEsm\bin\Stc.Graphics.dll
+C:\Users\guojian\Documents\GitHub\ESM-Mobile-App\WebApiForEsm\WebApiForEsm\bin\Stc.Graphics.pdb

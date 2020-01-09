@@ -1,4 +1,4 @@
-﻿
+﻿@model WebDashboardApp.Models.OtherModel
 @{
     ViewBag.Title = "ShowImages";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,16 +10,16 @@
         <img src="~/Images/excel-2010-basic-column-chart-after-insertion.png" width="300" /><br />
         <img src="~/Images/piechart.gif" /><br />
     </div>*@
+<img src='@Url.Action("GetMacaroniImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' /><br /><br />
+<img src='@Url.Action("GetThermometersWithBulletinImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="350" height="350" /><br /><br />
+<img src='@Url.Action("GetScalableBarImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="350" /><br /><br />
+<img src='@Url.Action("GetScalableLineImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' /><br /><br />
+<img src='@Url.Action("GetBulletinImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="350" height="350" /><br /><br />
+<img src='@Url.Action("GetTableImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="400" /><br /><br />
 
-<img src='@Url.Action("GetThermometersWithBulletinImage","Home")' width="350" height="350" /><br /><br />
-<img src='@Url.Action("GetScalableBarImage","Home")' width="350" /><br /><br />
-<img src='@Url.Action("GetScalableLineImage","Home")' /><br /><br />
-<img src='@Url.Action("GetBulletinImage","Home")' width="350" height="350" /><br /><br />
-<img src='@Url.Action("GetTableImage","Home")' width="400" /><br /><br />
-
-<img src='@Url.Action("GetActivityCountImage","Home")' width="300" height="300" />
-<img src='@Url.Action("GetMoodCountImage","Home")' width="260" height="260" />
-<img src='@Url.Action("GetMoodWeeklyImage","Home")' width="260" height="260" />
+<img src='@Url.Action("GetActivityCountImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="300" height="300" />
+<img src='@Url.Action("GetMoodCountImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="260" height="260" />
+<img src='@Url.Action("GetMoodWeeklyImage","Home",new {userToken=Model.UserToken,Culture=Model.Culture,isTesting=Model.IsTesting})' width="260" height="260" />
 <p id="info"></p>
 <div class="col-sm-12" align="right" style="max-width:300px;">
     <button class="btn btn-primary" onclick="btnClick()">Back</button>

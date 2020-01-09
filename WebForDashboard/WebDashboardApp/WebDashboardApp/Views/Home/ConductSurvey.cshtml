@@ -24,12 +24,12 @@ else
         <input name="notificationId" value="@Model.NotificationId" hidden />
         <input name="questionId" value="@Model.QuestionnairId" hidden />
         <input name="culture" value="@Model.Culture" hidden id="culture" />
-        <p style="font-weight:bold;font-size:18px;">@Model.Text</p>
-        <label class="help-desc" style="margin-left:40px;font-weight:lighter;font-size:9px;">@Model.HelpDesc</label>
+        <p style="font-weight:bold;font-size:14px;">@Model.Text</p>
+        <label class="help-desc" style="margin-left:40px;font-weight:lighter;font-size:12px;">@Model.HelpDesc</label>
         @switch (Model.Type)
         {
             case 1:
-                <ul style="font-weight:normal;">
+                <ul style="font-weight:normal;font-size:14px;">
                     @foreach (var c in Model.Choices)
                     {
                         var index = "answer" + Model.Choices.IndexOf(c).ToString();

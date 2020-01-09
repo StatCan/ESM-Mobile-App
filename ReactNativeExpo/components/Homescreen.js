@@ -25,6 +25,7 @@ export default class Homescreen extends Component {
             <Button title={resources.getString('contact_us')} style={styles.homeButton} onPress={() => this.props.navigation.navigate('ContactUs')} />
           </View>
         </View>
+         <Button title={"Test"} style={styles.homeButton} onPress={() => this.props.navigation.navigate('WebScreen')} />
       </View>
     )
   }
