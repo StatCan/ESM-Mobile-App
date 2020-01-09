@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "DisplayResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DisplayResult</h2>
+<form action="/Home/DisplayResult" method="post" id="displayform">
+    <label>UserToken:</label>
+    <input name="userToken" value="" />
+    <label>Culture:</label>
+    <input name="culture" value="en" type="radio" checked id="ee" /><label for="ee">English&nbsp;&nbsp;</label>
+    <input name="culture" value="fr" type="radio" id="ff" /><label for="ff">French</label>
+    <button type="submit" class="btn btn-primary">Display</button>
+</form>

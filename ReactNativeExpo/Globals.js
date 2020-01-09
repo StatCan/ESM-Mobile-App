@@ -5,5 +5,5 @@ global.password='';
 global.question='';
 global.answer='';
 global.timeStamp=0;
-global.surveyACode='';
+global.surveyACode='none';
 global.doneSurveyA=false;

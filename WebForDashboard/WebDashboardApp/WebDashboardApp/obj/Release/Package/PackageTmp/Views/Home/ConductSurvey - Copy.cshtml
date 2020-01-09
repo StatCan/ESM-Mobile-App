@@ -1,0 +1,160 @@
+﻿@model WebDashboardApp.Models.QuestionModel
+
+@{
+    /**/
+
+    ViewBag.Title = "ConductSurvey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = Model.Culture == "fr" ? "Enquête" : "Survey";
+    var next = Model.Culture == "fr" ? "Prochain" : "Next";
+    var back = Model.Culture == "fr" ? "Retour" : "Back";
+}
+
+<h2>@title</h2>
+@if (Model.QuestionnairId == 0)
+{
+<p>@Model.Message</p><button class="btn btn-primary back-btn" onclick="btnClick()">@back</button>
+@*<p>@Model.Message</p><button class="btn btn-primary back-btn"><span class="glyphicon glyphicon-share-alt"></span></button>*@
+}
+else
+{
+                     <form action="/Home/SaveSurvey" method="post" id="surveyform">
+                         <input name="userToken" value="@Model.UserToken" hidden />
+                         <input name="notificationId" value="@Model.NotificationId" hidden />
+                         <input name="questionId" value="@Model.QuestionnairId" hidden />
+                         <p style="font-weight:bold;font-size:18px;">@Model.Text</p>
+                         <label class="help-desc" style="margin-left:40px;font-weight:lighter;font-size:9px;">@Model.HelpDesc</label><input name="answerId" value="0" hidden />
+                         @switch (Model.Type)
+                         {
+                             case 1:
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <input name="answerId" value="@c.ChoiceId" type="radio" data-otherinput="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 2:
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <input name="answerId" value="@c.ChoiceId" type="checkbox" data-otherinput="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 3:
+                                 <ul style="font-weight:normal;">
+                                     <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                         <label>@Model.Choices[0].Text</label>
+                                         <input name="userInput" class="single-input" value="" />
+                                     </li>
+                                 </ul>
+                                 break;
+                             case 4:
+                                 <input name="userInput" value="" id="multipleinput" hidden />
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <label>@c.Text</label>
+                                             <input class="multiple-input" value="" />
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 5:
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <input name="answerId" value="@c.ChoiceId" type="radio" data-otherinput="@c.IsUserInput" class="choice-radio" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+                                             @if (c.IsUserInput)
+                                             {<input name="userInput" value="" class="other-input" />}
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 6:
+                                 <input name="answerId" value="=" hidden /><input name="answerIdStr" value="" hidden id="multiplechoise"/>
+                                 <ul style="font-weight:normal;">
+                                     @foreach (var c in Model.Choices)
+                                     {
+                                         var index = "answer" + Model.Choices.IndexOf(c).ToString();
+                                         <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                             <input value="@c.ChoiceId" type="checkbox" data-otherinput="@c.IsUserInput" class="multiple-choice" onclick="clickanswer(this)" id="@index" /><label for="@index">@c.Text</label>
+                                             @if (c.IsUserInput)
+                                             {<input name="userInput" value="" class="other-input" />}
+                                         </li>
+                                     }
+                                 </ul>
+                                 break;
+                             case 7:
+                                 <ul style="font-weight:normal;">
+                                     <li style="list-style:none;font-weight:normal;font-size:14px;">
+                                         <label>@Model.Choices[0].Text</label>
+                                         <input name="userInput" class="date-picker" value="" type="date" />
+                                     </li>
+                                 </ul>
+                                 break;
+                         }
+
+
+
+                         <p id="info" style="color:red;"></p>
+                         <div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next</button></div>
+                         @*<div align="center"><button class="btn btn-primary next-btn" id="nextbtn" type="button" onclick="submitanswer()">@next <span class="glyphicon glyphicon-arrow-right"></span></button></div>*@
+                     </form>
+
+}
+<script>
+    function submitanswer() {
+        var type =@Model.Type; var valid = false; 
+        switch (type) {
+            case 1:
+                valid = true;
+              //  valid = $('input:radio:checked').length != 0;
+                break;
+            case 2: break;
+            case 3: valid = $('input.single-input').val() != ''; break;
+            case 4:
+                var str = '';
+                $('input.multiple-input').each(function () {
+                    var t = $(this).val(); if (t != '') valid = true;
+                    str += t + ',';
+                });
+                if (valid)$('#multipleinput').val(str);
+                break;
+            case 5: valid = $('input:radio:checked').length != 0; break;
+            case 6:
+                var str = ''; 
+                $('input.multiple-choice:checked').each(function () {
+                    str += $(this).val() + ',';
+                });
+                valid = $('input.multiple-choice:checked').length > 0;
+                if (valid) $("#multiplechoise").val(str);
+                break;
+            case 7: valid = $('input.date-picker').val() != ''; alert($('input.date-picker').val()); break;
+        }
+        if (!valid) $("#info").text('You have to choose an answer!');
+        else $("#surveyform").submit();
+    }
+    function clickanswer(e) {
+        $("#info").text(''); 
+        if ($(e).data('otherinput') == 'False') $(e).parent().parent().find('.other-input').val('');
+    }
+    document.addEventListener("message", function () {
+        document.getElementById("info").innerHTML += message.data;
+    });
+    function btnClick() { window.postMessage("Hello React Native!"); }
+</script>
+
+
+

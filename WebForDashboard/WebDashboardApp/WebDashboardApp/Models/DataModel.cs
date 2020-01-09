@@ -8,8 +8,8 @@ using System.Web;
 namespace WebDashboardApp.Models
 {
     public enum QuestionType
-    {
-        SingleChoice=1,MultipleChoice=2,SingleInput=3,MultiInput=4,SingleChoiceWithOtherInput=5,MultipleChoiceWithOtherInput=6,DatePicker=7
+    {//DatePicker is not working for React Native Android API under 24
+        SingleChoice =1,MultipleChoice=2,SingleInput=3,MultiInput=4,SingleChoiceWithOtherInput=5,MultipleChoiceWithOtherInput=6,DatePicker=7
     }
     public enum SurveyType
     {
@@ -19,6 +19,7 @@ namespace WebDashboardApp.Models
     {
         [Key]
         public int QuestionnairId { get; set; }
+        public string QuestionairCode { get; set; }
         public QuestionType QuestionType { get; set; }
         public SurveyType SurveyType { get; set; }
         public string EnglishName { get; set; }
@@ -37,6 +38,7 @@ namespace WebDashboardApp.Models
         [ForeignKey("QuestionnairId")]
         public Questionnair Questionnair { get; set; }
         public bool IsUserInput { get; set; }
+        public int Value { get; set; }
     }
     public class Answer
     {

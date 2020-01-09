@@ -55,7 +55,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Stc.Graphics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Downloads\2 (1)\2\d\Stc.Graphics.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Downloads\1\1\Stc.Graphics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -192,6 +192,9 @@
     <Content Include="Views\Home\ShowImages.cshtml" />
     <Content Include="Views\Home\ConductSurvey.cshtml" />
     <Content Include="Views\Home\ConductSurvey - Copy.cshtml" />
+    <Content Include="Views\Home\RemoveRespondant.cshtml" />
+    <Content Include="Views\Home\ShowTestingImages.cshtml" />
+    <Content Include="Views\Home\DisplayResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
