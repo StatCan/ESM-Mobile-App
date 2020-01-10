@@ -38,8 +38,8 @@ export default class CreatePasswordScreen extends Component {
   updateQuestion = (question) => { this.setState({ question: question }) }
 
   componentDidMount() {
-   // let url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=en';
- let url= 'http://localhost:49159/Home/GetSecurityQuestions?culture=en';
+    let url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=en';
+ //let url= 'http://localhost:49159/Home/GetSecurityQuestions?culture=en';
     if (resources.culture != 'en') url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=fr';
 
     return fetch(url)

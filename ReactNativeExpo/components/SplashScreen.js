@@ -31,7 +31,7 @@ export default class SplashScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={require('./StatCanLogo.png')} style={{ width: 300, height: 100 }} />
+        <Image source={require('../assets/splashx1.png')} style={{ width: 300, height: 300 }} />
         <ActivityIndicator />
       </View>
     )
