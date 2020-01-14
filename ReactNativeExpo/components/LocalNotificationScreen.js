@@ -119,15 +119,29 @@ export default class LocalNotificationScreen extends React.Component {
 
   scheduleNotificationBasedOnTime = async (hour, day) => {
     if (Platform.OS === 'android') {
-      Notifications.createChannelAndroidAsync('chat-messages', {
-        name: 'Chat messages',
+      Notifications.createChannelAndroidAsync('survey-messages', {
+        name: 'Survey messages',
         sound: true,
         vibrate: true,
       });
     }
 
     // TODO: Change this to an actual time not just hours in the future
-    scheduledTime = new Date().getTime() + day + hour * 60 * 1000;
+
+    console.log("The current date is: " + Date.now());
+
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+    var currentDay = currentDate.getDate();
+    var currentHour = currentDate.getHours();
+
+    // Round up the minutes, seconds and milliseconds as per requirements
+    // Add day and hour offset
+    scheduledTime = new Date(currentYear, currentMonth, currentDay + day, currentHour + hour, 0, 0, 0);
+
+    //We can do it this way as well but less control
+    //scheduledTime = new Date().getTime() + 1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * day + 1000 * 60 * hour;
 
     console.log("Scheduling a notification for: " + scheduledTime);
 
@@ -137,7 +151,7 @@ export default class LocalNotificationScreen extends React.Component {
         body: "Scheduled Notification for the Survey!",
         ios: { sound: true },
         android: {
-          "channelId": "chat-messages"
+          "channelId": "survey-messages"
         }
       },
       {
