@@ -161,30 +161,6 @@ export default class LocalNotificationScreen extends React.Component {
     console.log(notificationId);
   };
 
-  scheduleNotification = async () => {
-    if (Platform.OS === 'android') {
-      Notifications.createChannelAndroidAsync('chat-messages', {
-        name: 'Chat messages',
-        sound: true,
-        vibrate: true,
-      });
-    }
-    let notificationId = Notifications.scheduleLocalNotificationAsync(
-      {
-        title: "Scheduled Notification",
-        body: "Scheduled Notification Test--min--sound",
-        ios: { sound: true },
-        android: {
-          "channelId": "chat-messages"
-        }
-      },
-      {
-        repeat: "minute",
-        time: new Date().getTime() + 10000
-      }
-    );
-    console.log(notificationId);
-  };
   scheduleNotification20s = async () => {
     if (Platform.OS === 'android') {
       Notifications.createChannelAndroidAsync('chat-messages', {
@@ -264,7 +240,6 @@ export default class LocalNotificationScreen extends React.Component {
         </View>
         <View style={{alignItems: 'center', justifyContent: 'space-around' }}>
           <Text style={{ color: 'red' }}>Following buttons are test only</Text>
-          <Button title={"Schedule Notification"} onPress={() => this.scheduleNotification()} />
           <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
           <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(this.state.waketime, this.state.sleeptime)} />
           <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
