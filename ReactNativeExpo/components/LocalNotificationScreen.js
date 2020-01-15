@@ -22,6 +22,8 @@ const options = [
   },
 ];
 
+var scheduledDateArray = new Array();
+
 export default class LocalNotificationScreen extends React.Component {
   state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
   askPermissions = async () => {
@@ -126,8 +128,6 @@ export default class LocalNotificationScreen extends React.Component {
       });
     }
 
-    // TODO: Change this to an actual time not just hours in the future
-
     console.log("The current date is: " + Date.now());
 
     var currentDate = new Date();
@@ -144,6 +144,8 @@ export default class LocalNotificationScreen extends React.Component {
     //scheduledTime = new Date().getTime() + 1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * day + 1000 * 60 * hour;
 
     console.log("Scheduling a notification for: " + scheduledTime);
+
+    scheduledDateArray.push(scheduledTime);
 
     let notificationId = Notifications.scheduleLocalNotificationAsync(
       {
@@ -202,6 +204,7 @@ export default class LocalNotificationScreen extends React.Component {
         console.log("Wake Time: " + this.state.waketime);
         console.log("Sleep Time: " + this.state.sleeptime);
         console.log("Notification Count: " + this.state.notificationcount);
+        console.log("Scheduled Notification Times: " + scheduledDateArray);
         this.props.navigation.navigate('Home');
    }
   render() {
