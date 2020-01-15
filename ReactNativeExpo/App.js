@@ -18,6 +18,8 @@ import InitialScreen from './components/InitialScreen';
 import ContactUsScreen from './components/ContactUsScreen';
 import TestScreen from './components/TestScreen';
 import SurveyResultScreen from './components/SurveyResultScreen';
+import ResultScreen from './components/ResultScreen';
+
 import './Resources.js';
 import './Globals.js';
 export default class App extends React.Component {
@@ -41,6 +43,7 @@ const AppNavigator = createStackNavigator({
    ContactUs:{screen:ContactUsScreen},
    Test:{screen:TestScreen},
    SurveyResult:{screen:SurveyResultScreen},
+   Result:{screen:ResultScreen},
    WebScreen:{screen:WebScreen},
 },
 {defaultNavigationOptions: {

@@ -8,11 +8,10 @@ export default class SurveyResultScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('./StatCanLogo.png')} style={styles.logo} />
         <ScrollView style={styles.scrollView}>
-          <Text style={{ fontSize: 30, marginBottom: 20 }}>Survey Result:</Text>
+          <Text style={{ fontSize: 30, marginBottom: 20 }}>Personal Result:</Text>
            <ScrollView horizontal showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
-              <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetMacaroniImage' }} style={{width:600,height:200, resizeMode: 'stretch' }} />
+              <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetMacaroniImage' }} style={{width:380,height:500, resizeMode: 'stretch',alignSelf: 'center'  }} />
            </ScrollView>
            <Image source={{ uri: 'https://webdashboardapp.azurewebsites.net/Home/GetThermometersWithBulletinImage' }} style={{width:350,height:350,alignSelf: 'center' }} />
            <ScrollView horizontal showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
