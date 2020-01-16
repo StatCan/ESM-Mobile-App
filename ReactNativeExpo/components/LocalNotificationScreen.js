@@ -36,9 +36,30 @@ export default class LocalNotificationScreen extends React.Component {
       finalStatus = status;
     }
     if (finalStatus !== "granted") {
+      if (global.debugMode) console.log("Notifications Permission Not Granted");
       return false;
     }
+    if (global.debugMode) console.log("Notifications Permission Granted");
     return true;
+  };
+
+  componentDidMount() {
+
+    // Handle notifications that are received or selected while the app
+    // is open. If the app was closed and then opened by tapping the
+    // notification (rather than just tapping the app icon to open it),
+    // this function will fire on the next tick after the app starts
+    // with the notification data.
+
+    if (global.debugMode) console.log("DEBUGMODE ON - Outputting Console Logs");
+    if (global.debugMode) console.log("Settings Screen Component Mounted");
+    this.askPermissions();
+    this._notificationSubscription = Notifications.addListener(this._handleNotification);
+  }
+
+  _handleNotification = (notification) => {
+    if (global.debugMode) console.log("Notification was clicked - navigating to Survey");
+    this.props.navigation.navigate('CurrentEQ');
   };
 
   sendNotificationImmediately = async () => {
@@ -47,7 +68,7 @@ export default class LocalNotificationScreen extends React.Component {
       body: "Immediate Notification--sound",
       sound: true
     });
-    console.log(notificationId); // can be saved in AsyncStorage or send to server
+    if (global.debugMode) console.log(notificationId);
   };
 
   // Unit Test the Scheduling Algorithm
@@ -60,8 +81,8 @@ export default class LocalNotificationScreen extends React.Component {
     awakeHour = parseInt(awakeHour.substring(0, 2));
     sleepHour = parseInt(sleepHour.substring(0, 2));
 
-    console.log("Awake Hour is: " + awakeHour);
-    console.log("Sleep Hour is: " + sleepHour);
+    if (global.debugMode) console.log("Awake Hour is: " + awakeHour);
+    if (global.debugMode) console.log("Sleep Hour is: " + sleepHour);
 
     // Clear existing notifications
     Notifications.cancelAllScheduledNotificationsAsync()
@@ -71,7 +92,10 @@ export default class LocalNotificationScreen extends React.Component {
     // Based on defaults awakeInterval is 16
     awakeInterval = sleepHour - awakeHour;
 
-    if (numPings > 5 || numPings < 2) console.log("numPings has an invalid value")
+    if (numPings > 5 || numPings < 2) {
+      if (global.debugMode) console.log("numPings has an invalid value");
+      return;
+    }
 
     // Safety Check
     if (numPings > awakeInterval) numPings = awakeInterval;
@@ -89,23 +113,23 @@ export default class LocalNotificationScreen extends React.Component {
     }
 
     // For testing purposes print to console
-    console.log("One Hour Time Intervals i.e. 6h to 7h");
-    console.log(awakeOneHourTimeIntervalsBefore);
-    console.log(awakeOneHourTimeIntervalsAfter);
+    if (global.debugMode) console.log("One Hour Time Intervals i.e. 6h to 7h");
+    if (global.debugMode) console.log(awakeOneHourTimeIntervalsBefore);
+    if (global.debugMode) console.log(awakeOneHourTimeIntervalsAfter);
 
     var chosenHoursBefore = [];
 
     // Schedule for the next 30 days
-
-    for (day = 0; day < 31; day++) {
+    // For testing purposes, day set to a few days
+    for (day = 0; day < 2; day++) {
 
       // Now choose number of random hours based on number of pings
       for (i = 0; i < numPings; i++ ){
         chosenHoursBefore[i] = Math.floor(Math.random() * awakeOneHourTimeIntervalsBefore.length);
       }
 
-      console.log("Chosen One Hour Time Intervals for Day: " + day);
-      console.log(chosenHoursBefore);
+      if (global.debugMode) console.log("Chosen One Hour Time Intervals for Day: " + day);
+      if (global.debugMode) console.log(chosenHoursBefore);
 
       // TODO:  Have randomization between 'Before' and 'After' time intervals
       // i.e. Between 6h and 7h (currently set to on the hour above)
@@ -128,7 +152,7 @@ export default class LocalNotificationScreen extends React.Component {
       });
     }
 
-    console.log("The current date is: " + Date.now());
+    if (global.debugMode) console.log("The current date is: " + Date.now());
 
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
@@ -143,7 +167,7 @@ export default class LocalNotificationScreen extends React.Component {
     //We can do it this way as well but less control
     //scheduledTime = new Date().getTime() + 1000 /*sec*/ * 60 /*min*/ * 60 /*hour*/ * 24 /*day*/ * day + 1000 * 60 * hour;
 
-    console.log("Scheduling a notification for: " + scheduledTime);
+    if (global.debugMode) console.log("Scheduling a notification for: " + scheduledTime);
 
     scheduledDateArray.push(scheduledTime);
 
@@ -160,7 +184,7 @@ export default class LocalNotificationScreen extends React.Component {
         time: scheduledTime
       }
     );
-    console.log(notificationId);
+    if (global.debugMode) console.log(notificationId);
   };
 
   scheduleNotification20s = async () => {
@@ -184,27 +208,27 @@ export default class LocalNotificationScreen extends React.Component {
         time: new Date().getTime() + 20000
       }
     );
-    console.log(notificationId);
+    if (global.debugMode) console.log(notificationId);
   };
-  handleSwitchChnaged = (v) => {
+  handleSwitchChanged = (v) => {
     this.setState({ notification: v });
   };
   updateRadioButtonState (data) {
-          console.log(data);
+          if (global.debugMode) console.log(data);
           this.setState({notificationcount:data.key});
       };
    saveSettings = async() => {
 
-        console.log("Platform version: " + Platform.Version);
-        console.log("Device Name: " + Expo.Constants.deviceName);
-        console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
-        console.log("Native Build Version: " + Expo.Constants.nativeBuildVersion);
-        console.log("Device Year Class: " + Expo.Constants.deviceYearClass);
-        console.log("Session ID: " + Expo.Constants.sessionId);
-        console.log("Wake Time: " + this.state.waketime);
-        console.log("Sleep Time: " + this.state.sleeptime);
-        console.log("Notification Count: " + this.state.notificationcount);
-        console.log("Scheduled Notification Times: " + scheduledDateArray);
+        if (global.debugMode) console.log("Platform version: " + Platform.Version);
+        if (global.debugMode) console.log("Device Name: " + Expo.Constants.deviceName);
+        if (global.debugMode) console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
+        if (global.debugMode) console.log("Native Build Version: " + Expo.Constants.nativeBuildVersion);
+        if (global.debugMode) console.log("Device Year Class: " + Expo.Constants.deviceYearClass);
+        if (global.debugMode) console.log("Session ID: " + Expo.Constants.sessionId);
+        if (global.debugMode) console.log("Wake Time: " + this.state.waketime);
+        if (global.debugMode) console.log("Sleep Time: " + this.state.sleeptime);
+        if (global.debugMode) console.log("Notification Count: " + this.state.notificationcount);
+        if (global.debugMode) console.log("Scheduled Notification Times: " + scheduledDateArray);
         this.props.navigation.navigate('Home');
    }
   render() {
@@ -214,7 +238,7 @@ export default class LocalNotificationScreen extends React.Component {
         <Text style={{ fontSize: 30 }}>Settings:</Text>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <Text style={styles.label}>Notification:</Text>
-          <Switch value={this.state.notification} onValueChange={this.handleSwitchChnaged} />
+          <Switch value={this.state.notification} onValueChange={this.handleSwitchChanged} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <Text style={styles.label}>Wake Time:</Text>
