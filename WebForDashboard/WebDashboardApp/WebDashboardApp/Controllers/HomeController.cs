@@ -224,7 +224,7 @@ namespace WebDashboardApp.Controllers
         public ActionResult GetMacaroniImage()
         {
             var data = GetMacaroniData();
-            Image img = StcGraphics.GetMacaroniGraph2D(data, 12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen);
+            Image img = StcGraphics.GetMacaroniGraph2D(data, 12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen,true);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);

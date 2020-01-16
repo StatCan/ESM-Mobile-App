@@ -143,7 +143,7 @@ namespace WebApiForEsm.Controllers
         public HttpResponseMessage GetMacaroniImage(string userToken, string culture = "en")
         {
             var data = GetMacaroniData(userToken,culture);
-            Image img = StcGraphics.GetMacaroniGraph2D(data, 12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen);
+            Image img = StcGraphics.GetMacaroniGraph2D(data, 12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen,true);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);
