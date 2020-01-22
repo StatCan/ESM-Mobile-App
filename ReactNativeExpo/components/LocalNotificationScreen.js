@@ -3,6 +3,8 @@ import { StyleSheet, Text, TextInput, View, Button, Platform, Switch,Image,Picke
 import { Notifications } from "expo";
 import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
+import TimePicker from './TimePicker'
+
 const options = [
   {
     key: 2,
@@ -26,6 +28,25 @@ var scheduledDateArray = new Array();
 
 export default class LocalNotificationScreen extends React.Component {
   state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
+
+  constructor(props) {
+    super(props);
+    this.wakeTimeHandler = this.wakeTimeHandler.bind(this);
+    this.sleepTimeHandler = this.sleepTimeHandler.bind(this);
+  }
+
+  wakeTimeHandler(time) {
+    this.setState({
+      waketime: time
+    })
+  }
+
+  sleepTimeHandler(time) {
+    this.setState({
+      sleeptime: time
+    })
+  }
+
   askPermissions = async () => {
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
@@ -242,11 +263,11 @@ export default class LocalNotificationScreen extends React.Component {
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <Text style={styles.label}>Wake Time:</Text>
-          <TextInput value={this.state.waketime} editable={this.state.notification} />
+          <TimePicker time={this.state.waketime} timeType="wakeTime" handler = {this.wakeTimeHandler} />
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <Text style={styles.label}>Sleep Time:</Text>
-          <TextInput value={this.state.sleeptime} editable={this.state.notification} />
+          <TimePicker time={this.state.sleeptime} timeType="sleepTime" handler = {this.sleepTimeHandler} />
         </View>
         <Text style={[styles.label,{marginLeft:60}]}>Notification number per day:</Text>
         <RadioButton options={options} preset={this.state.notificationcount} updateParentState={this.updateRadioButtonState.bind(this)} />
