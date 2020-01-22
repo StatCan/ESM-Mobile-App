@@ -5,6 +5,7 @@ import * as Permissions from 'expo-permissions';
 import RadioButton from './RadioButton'
 import TimePicker from './TimePicker'
 
+// Num Pings
 const options = [
   {
     key: 2,
@@ -23,6 +24,35 @@ const options = [
     text: '5',
   },
 ];
+
+// Methodology: Selection Probabilities
+// For Weekdays and Weekends
+const primeTimeAwakeIntervals = [
+{ 
+  awakeHourBefore: 16,
+  weekDayPercentage: 5,  // A
+  weekendPercentage: 5   // F
+},
+{ 
+  awakeHourBefore: 17,
+  weekDayPercentage: 10, // B
+  weekendPercentage: 10   // G
+},
+{ 
+  awakeHourBefore: 18,
+  weekDayPercentage: 10, // C
+  weekendPercentage: 10  // H
+},
+{ 
+  awakeHourBefore: 19,
+  weekDayPercentage: 25, // D
+  weekendPercentage: 20  // I
+},
+{ 
+  awakeHourBefore: 20,
+  weekDayPercentage: 25, // E
+  weekendPercentage: 20  // J
+}];
 
 var scheduledDateArray = new Array();
 
