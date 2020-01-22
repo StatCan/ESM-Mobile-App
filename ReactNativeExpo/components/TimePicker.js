@@ -5,13 +5,9 @@ import { Appearance } from 'react-native-appearance'
 
 const TimePicker = (props) => {
 
-  console.log("The time is: " + props.time);
-
   const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
 
   isDarkModeEnabled = Appearance.getColorScheme() === 'dark'
-
-  isDarkModeEnabled = true;
 
  const showTimePicker = () => {
     setTimePickerVisibility(true);
@@ -23,6 +19,10 @@ const TimePicker = (props) => {
 
   const handleConfirm = time => {
     if (global.debugMode) console.log("A time has been picked: ", time);
+
+    // Round up the hours then set minutes to 0
+    time.setHours(time.getHours() + Math.round(time.getMinutes()/60));
+    time.setMinutes(0);
 
     var options = { hour12: false, hour: '2-digit', minute:'2-digit'};
    
