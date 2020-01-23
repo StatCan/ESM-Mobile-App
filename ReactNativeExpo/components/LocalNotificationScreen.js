@@ -36,7 +36,7 @@ const primeTimeAwakeIntervals = [
 { 
   awakeHourBefore: 17,
   weekDayPercentage: 10, // B
-  weekendPercentage: 10   // G
+  weekendPercentage: 10  // G
 },
 { 
   awakeHourBefore: 18,
@@ -184,6 +184,8 @@ export default class LocalNotificationScreen extends React.Component {
 
       // TODO:  Have randomization between 'Before' and 'After' time intervals
       // i.e. Between 6h and 7h (currently set to on the hour above)
+
+      // 
 
 
       // Now schedule for each day the chosen random hours
