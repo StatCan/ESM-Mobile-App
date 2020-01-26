@@ -18,11 +18,11 @@ class FirstPage extends React.Component {
     super(props);
     console.log(global.surveyACode);
   }
-  componentWillReceiveProps() {
-          console.log('rerender here')
+ // componentWillReceiveProps() {
+   //       console.log('rerender here')
           //this.yourFunction()
           //this.setState({})
-      }
+     // }
   componentDidMount() {
               //    this.props.onFinish();
     }
