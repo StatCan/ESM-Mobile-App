@@ -272,6 +272,20 @@ export default class LocalNotificationScreen extends React.Component {
       };
    saveSettings = async() => {
 
+//<<<<<<< HEAD
+  //      console.log("Platform version: " + Platform.Version);
+    //    console.log("Device Name: " + Expo.Constants.deviceName);
+      //  console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
+//        console.log("Native Build Version: " + Expo.Constants.nativeBuildVersion);
+//        console.log("Device Year Class: " + Expo.Constants.deviceYearClass);
+//        console.log("Session ID: " + Expo.Constants.sessionId);
+//        console.log("Wake Time: " + this.state.waketime);
+//        console.log("Sleep Time: " + this.state.sleeptime);
+//        console.log("Notification Count: " + this.state.notificationcount);
+//        console.log("Culture:"+this.state.culture);
+        if(this.state.culture==2)resources.culture ='fr';
+        else resources.culture ='en';
+
         if (global.debugMode) console.log("Platform version: " + Platform.Version);
         if (global.debugMode) console.log("Device Name: " + Expo.Constants.deviceName);
         if (global.debugMode) console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
@@ -282,6 +296,7 @@ export default class LocalNotificationScreen extends React.Component {
         if (global.debugMode) console.log("Sleep Time: " + this.state.sleeptime);
         if (global.debugMode) console.log("Notification Count: " + this.state.notificationcount);
         if (global.debugMode) console.log("Scheduled Notification Times: " + scheduledDateArray);
+
         this.props.navigation.navigate('Home');
    }
   render() {

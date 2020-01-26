@@ -5,8 +5,8 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 import Homescreen from './components/Homescreen';
 import Aboutscreen from './components/Aboutscreen';
-import WebScreen from './components/Webscreen';
-import WebFromAzureScreen from './components/WebFromAzureScreen';
+//import WebScreen from './components/Webscreen';
+//import WebFromAzureScreen from './components/WebFromAzureScreen';
 import LocalNotificationScreen from './components/LocalNotificationScreen';
 import LoginScreen from './components/LoginScreen';
 import CurrentEQScreen from './components/CurrentEQScreen';
@@ -16,10 +16,10 @@ import CreatePasswordScreen from './components/CreatePasswordScreen';
 import RecoverPasswordScreen from './components/RecoverPasswordScreen';
 import InitialScreen from './components/InitialScreen';
 import ContactUsScreen from './components/ContactUsScreen';
-import TestScreen from './components/TestScreen';
-import SurveyResultScreen from './components/SurveyResultScreen';
-import ResultScreen from './components/ResultScreen';
-
+//import TestScreen from './components/TestScreen';
+//import SurveyResultScreen from './components/SurveyResultScreen';
+//import ResultScreen from './components/ResultScreen';
+import Result2Screen from './components/Result2Screen';
 import './Resources.js';
 import './Globals.js';
 export default class App extends React.Component {
@@ -37,14 +37,15 @@ const AppNavigator = createStackNavigator({
    CreatePassword:{screen:CreatePasswordScreen},
    RecoverPassword:{screen:RecoverPasswordScreen},
    Home: {screen: Homescreen},
-   WebFromAzure: {screen: WebFromAzureScreen},
+ //  WebFromAzure: {screen: WebFromAzureScreen},
    LocalNotification:{screen:LocalNotificationScreen},
    CurrentEQ:{screen:CurrentEQScreen},
    ContactUs:{screen:ContactUsScreen},
-   Test:{screen:TestScreen},
-   SurveyResult:{screen:SurveyResultScreen},
-   Result:{screen:ResultScreen},
-   WebScreen:{screen:WebScreen},
+ //  Test:{screen:TestScreen},
+ //  SurveyResult:{screen:SurveyResultScreen},
+ //  Result:{screen:ResultScreen},
+   Result2:{screen:Result2Screen},
+//   WebScreen:{screen:WebScreen},
 },
 {defaultNavigationOptions: {
       header: null

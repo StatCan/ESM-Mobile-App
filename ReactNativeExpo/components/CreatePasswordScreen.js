@@ -38,9 +38,9 @@ export default class CreatePasswordScreen extends Component {
   updateQuestion = (question) => { this.setState({ question: question }) }
 
   componentDidMount() {
-    let url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=en';
+    let url = 'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/GetSecurityQuestions/en';
  //let url= 'http://localhost:49159/Home/GetSecurityQuestions?culture=en';
-    if (resources.culture != 'en') url = 'https://webdashboardapp.azurewebsites.net/Home/GetSecurityQuestions?culture=fr';
+    if (resources.culture != 'en') url = 'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/GetSecurityQuestions/fr';
 
     return fetch(url)
       .then((response) => response.json())
@@ -101,9 +101,10 @@ export default class CreatePasswordScreen extends Component {
             :
             <View>
             </View>}
-        <Button
-          title={resources.getString('btn_create')}
-          onPress={this.onPressButton} />
+             <View style={{ width: 200,alignSelf:'center',marginTop:40}}>
+                    <Button title={resources.getString('btn_create')} color='blue'
+                      onPress={this.onPressButton}
+                    /></View>
       </View>
     )
   }
@@ -113,10 +114,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center', padding: 10
   },
   label: { fontSize: 30 },
-  input: { height: 40, borderWidth: 1, marginBottom: 4, padding: 4, borderColor: 'lightgray' },
+  input: { height: 40, borderWidth: 1, marginBottom: 4, padding: 4, borderColor: 'lightgray',borderRadius:4 },
   pickerView: {
     marginLeft: 40,
   },
   pickerItem: { marginLeft: 60, },
   zoomedPicker: {}
 });
+
+// <Button
+  //        title={resources.getString('btn_create')}
+    //      onPress={this.onPressButton} />

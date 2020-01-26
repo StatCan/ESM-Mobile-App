@@ -5,3 +5,38 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+<section class="lng-ofr">
+    <h3>Language selection</h3>
+    <ul class="list-inline">
+        <li><a class="sc-js-langchange" lang="fr" href="/anonymous-anonyme/q/fr/eqgs0a8c12086319496aadc23bacf80cba8b/p0" data-hotkey="<div class='text-center'><kbd>F12</kbd></div>">Français</a></li>
+    </ul>
+    <button onclick="createlang()" >Test</button>
+    <button onclick="test()">Test</button>
+</section>
+<script>
+    function test() {
+        document.getElementById("langtest").click();
+    }
+    function createlang() {
+        document.addEventListener("message", function (message) { document.getElementById("langtest").click(); });
+        var btn = document.createElement("button");
+        btn.style.visibility ="hidden";
+        btn.onclick = switchlang;
+        btn.setAttribute("id", "langtest");
+        document.body.appendChild(btn);
+    }
+    function switchlang() {
+        var a = document.querySelector("a.sc-js-langchange");
+        var href = a.href;
+        if (href.indexOf("/q/fr")>0) {
+            var res = href.replace("/q/fr", "/q/en");
+            a.setAttribute("href", res);
+            a.click();
+        }
+        else if (href.indexOf("/q/en")>0) {
+            var res = href.replace("/q/en", "/q/fr");
+            a.setAttribute("href", res);
+            a.click();
+        }     
+    }
+</script>
