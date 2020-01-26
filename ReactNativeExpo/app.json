@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "EsmDemo",
-    "slug": "EsmDemo",
+    "name": "Well-Being Check",
+    "slug": "WellBeingCheck",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
@@ -30,6 +30,5 @@
     "android": {
       "package": "com.StatPilot.Esm"
     }
-
   }
 }
