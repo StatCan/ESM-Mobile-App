@@ -30,7 +30,7 @@ export default class InitialScreen extends Component {
 }
 const styles = StyleSheet.create({
   logo: { width: moderateScale(300), height: verticalScale(100) },
-  container1: { width: moderateScale(150), height: verticalScale(50) },
+  container1: { width: moderateScale(150), height: verticalScale(50),borderRadius:4 },
   button: { width: moderateScale(100), fontSize: moderateScale(16) },
   textL: { marginLeft: moderateScale(20), fontSize: moderateScale(14) },
   textR: { marginLeft: moderateScale(50), fontSize: moderateScale(14) },

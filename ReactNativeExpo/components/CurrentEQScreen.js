@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,Image,
-  View, Button,ScrollView,
+  View, Button,ScrollView,TouchableOpacity,
   Dimensions
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { WebView, ActivityIndicator } from 'react-native';
+import { Ionicons,EvilIcons,Feather } from '@expo/vector-icons';
 //import FixWebView from './FixWebView'
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
@@ -23,28 +24,49 @@ export default class App extends Component<Props> {
   state={jsCode:''};
   render() {
     const dt=new Date();console.log(dt.toISOString());console.log(global.surveyACode);console.log(global.userToken);
-    const uri=global.surveyACode==''?'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4':'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+    let uri=global.surveyACode==''?'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4':'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+    if(global.surveyACode==''){
+       if(resources.culture=='en')
+            uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4';
+       else
+            uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/fr/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4';
+
+    }
+    else{
+           if(resources.culture=='en')
+                uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+           else
+                uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/fr/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+    }
+
     const uri1='https://webdashboardapp.azurewebsites.net/Home/ConductSurvey?userToken='+global.userToken+'&notificationId='+dt.toISOString()+'&culture='+resources.culture;
     const uri2='http://localhost:56761/Home/ConductSurvey?userToken='+global.userToken+'&notificationId='+dt.toISOString()+'&culture='+resources.culture;
     console.log(uri);
-     let jsCode='';
+     let jsCode='document.addEventListener("message", function (message) { document.getElementById("langtest").click(); });var btn = document.createElement("button");btn.style.visibility ="hidden";btn.onclick = switchlang;btn.setAttribute("id", "langtest");document.body.appendChild(btn);    function switchlang() { var a = document.querySelector("a.sc-js-langchange");var href = a.href;if (href.indexOf("/q/fr")>0) {var res = href.replace("/q/fr", "/q/en");a.setAttribute("href", res);a.click();} else if (href.indexOf("/q/en")>0) {var res = href.replace("/q/en", "/q/fr");a.setAttribute("href", res);a.click();} }';
     return (
 
-      <View style={{ flex: 1, marginTop: 16 }}>
-       <Image source={require('./StatCanLogo.png')} style={styles.logo} />
-       <ScrollView>
+   //   <View style={{ flex: 1, marginTop: 16 }}>
+
+       <ScrollView style={{marginTop:30}}>
+       <View style={{height:80}}>
+              <Image source={require('./StatCanLogo.png')} style={styles.logo} />
+              <View style={{flexDirection:'row',alignSelf:'flex-end'}}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('LocalNotification')} style={{alignSelf:'flex-end'}}><EvilIcons name="gear" size={32} color="black" /></TouchableOpacity>
+                <TouchableOpacity onPress={() => this.webView.postMessage('test')} style={{alignSelf:'flex-end'}}><EvilIcons name="gear" size={32} color="black" /></TouchableOpacity>
+                </View>
+                </View>
             <WebView
                       ref={(view) => this.webView = view}
                       style={styles.webview}
                       userAgent={global.userToken}
-                    //  source={{ uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/' }}
+                   //   source={{ uri: 'https://www68.statcan.gc.ca/ecp-pce/en/load-init/Test_Test/' }}
                       source={{uri:uri}}
                       javaScriptEnabled={true}
                       domStorageEnabled={true}
                       startInLoadingState={false}
                       scalesPageToFit={true}
                       startInLoadingState={true}
-                      injectedJavaScript={this.state.jsCode}
+                      injectedJavaScript={jsCode}
                       renderLoading={() => {
                         return this.displaySpinner();
                       }}
@@ -73,7 +95,7 @@ export default class App extends Component<Props> {
 
                     />
        </ScrollView>
-      </View>
+ //     </View>
     );
   }
 }
@@ -82,7 +104,7 @@ const styles = StyleSheet.create({
   webview: {
     flex: 1,
     width: deviceWidth,
-    height: deviceHeight - 40
+    height: deviceHeight-110
   },
   logo: { width: 300, height: 40 },
 });

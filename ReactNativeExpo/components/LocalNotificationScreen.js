@@ -212,6 +212,9 @@ export default class LocalNotificationScreen extends React.Component {
         console.log("Wake Time: " + this.state.waketime);
         console.log("Sleep Time: " + this.state.sleeptime);
         console.log("Notification Count: " + this.state.notificationcount);
+        console.log("Culture:"+this.state.culture);
+        if(this.state.culture==2)resources.culture ='fr';
+        else resources.culture ='en';
         this.props.navigation.navigate('Home');
    }
   render() {

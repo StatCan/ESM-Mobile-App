@@ -25,11 +25,10 @@ export default class Homescreen extends Component {
                    </View>
                </View>
             </TouchableOpacity>
-            <View style={[styles.homeContainer,{marginBottom:10,},{flexDirection:'row',flex:1}]}>
-                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Result')} style={{marginLeft:20,marginRight:20}}><EvilIcons name="chart" size={40} color="black" /><Text style={{fontSize:20}}>Result</Text></TouchableOpacity>
-                 <TouchableOpacity onPress={() => this.props.navigation.navigate('About')} style={{marginLeft:20,marginRight:20}}><EvilIcons name="tag" size={40} color="black" /><Text style={{fontSize:20}}>About</Text></TouchableOpacity>
-                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Term')} style={{marginLeft:20,marginRight:20}}><EvilIcons name="bell" size={40} color="black" /><Text style={{fontSize:20}}>Term</Text></TouchableOpacity>
-                 <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactUs')} style={{marginLeft:20,marginRight:20}}><Feather name="phone" size={40} color="black" /><Text style={{fontSize:20}}>Contact</Text></TouchableOpacity>
+            <View style={[styles.homeContainer,{marginBottom:10,},{flexDirection:'row',flex:1,justifyContent:'space-around',alignItems:'space-around'}]}>
+               <TouchableOpacity onPress={() => this.props.navigation.navigate('Result2')} style={styles.smallButton}><EvilIcons name="chart" size={40} color="black" /><Text style={{fontSize:20}}>Result</Text></TouchableOpacity>
+               <TouchableOpacity onPress={() => this.props.navigation.navigate('About')} style={styles.smallButton}><EvilIcons name="tag" size={40} color="black" /><Text style={{fontSize:20}}>About</Text></TouchableOpacity>
+               <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactUs')} style={styles.smallButton}><Feather name="phone" size={40} color="black" /><Text style={{fontSize:20}}>Contact</Text></TouchableOpacity>
             </View>
         </View>
       </ImageBackground>
@@ -52,17 +51,29 @@ const styles = StyleSheet.create({
 
       width:190,height:190,
       alignSelf:'center',
-      backgroundColor:'cyan'
+      backgroundColor:'#66cc99'
     },
-   outer: {
+  outer: {
       alignItems: 'center',
       justifyContent: 'center',
-
-      borderRadius:100,
-      borderWidth:2,
-      width:200,height:200,
+      borderColor:'lightgray',
+      borderRadius:110,
+      borderWidth:1,
+      width:220,height:220,
       alignSelf:'center',
-      backgroundColor:'gray'
+
+      shadowColor: "gray",
+      shadowOffset:{
+      width: 10,
+      height: 8,
+      },
+      shadowOpacity: 0.8,
+      shadowRadius: 5,
+      elevation: 16,
+
+     // boxShadow:15px 5px 10px grey;
+      backgroundColor:'lightgray'
     },
+  smallButton:{width:100,height:100,borderRadius:50, backgroundColor:'lightcyan',justifyContent:'center',alignItems:'center',margin:10}
 
 });
