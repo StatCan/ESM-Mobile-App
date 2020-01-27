@@ -79,12 +79,31 @@ class ForthPage extends React.Component {
   }
 }
 class FifthPage extends React.Component {
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0
+          };
+      }
+      _onLayout(event) {
+                  Image.getSize(this.props.source.uri, (width, height) => {
+                      this.setState({
+                          width: width,
+                          height: height
+                      });
+                  });
+              }
   render() {
     return (
       <View style={{ flex: 1 }}>
              <Text style={{ fontSize: 30, marginBottom: 20 }}>Activity Result:</Text>
              <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} style={{width:450,height:100, resizeMode: 'cover',overflow:'visible' }}/>
+                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} style={{
+                                                                                                                                        width: this.state.width,
+                                                                                                                                        height: this.state.height
+                                                                                                                                    }}/>
              </ScrollView>
       </View>
     );
