@@ -127,7 +127,7 @@ namespace WebApiForEsm.Controllers
         {
             var title = EsmResource.GetString("Your Feelings by Location", culture);
             var data = GetTableData(userToken, culture);
-            Image img = StcGraphics.GetTableGraph2D(data, 400, 40, title, 6, true);
+            Image img = StcGraphics.GetTableGraph2D(data, 400, 40, title, 8, true);
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, ImageFormat.Jpeg);

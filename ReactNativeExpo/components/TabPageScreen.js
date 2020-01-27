@@ -42,11 +42,6 @@ class SecondPage extends React.Component {
     super(props);
     console.log(global.surveyACode);
   }
-  componentWillReceiveProps() {
-          console.log('rerender here')
-          //this.yourFunction()
-          //this.setState({})
-      }
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -89,7 +84,7 @@ class FifthPage extends React.Component {
       <View style={{ flex: 1 }}>
              <Text style={{ fontSize: 30, marginBottom: 20 }}>Activity Result:</Text>
              <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} style={{width:800,aspectRatio: 1,resizeMode:'stretch'}}/>
+                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} style={{width:450,height:100, resizeMode: 'cover',overflow:'visible' }}/>
              </ScrollView>
       </View>
     );

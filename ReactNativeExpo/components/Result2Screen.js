@@ -3,7 +3,7 @@ import { Text, View,StyleSheet,Image,TouchableOpacity,Dimensions,ActivityIndicat
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabPage from './TabPageScreen';
-import Loader from './Loader'
+//import Loader from './Loader'
 
 
 const deviceHeight = Dimensions.get('window').height;
