@@ -57,7 +57,7 @@ const primeTimeAwakeIntervals = [
 var scheduledDateArray = new Array();
 
 export default class LocalNotificationScreen extends React.Component {
-  state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
+  state = { notification: true, waketime: '08:00', sleeptime: '21:00', notificationcount: 5, culture: 'English' };
 
   constructor(props) {
     super(props);
@@ -151,6 +151,8 @@ export default class LocalNotificationScreen extends React.Component {
     // Safety Check
     if (numPings > awakeInterval) numPings = awakeInterval;
 
+    // Handle awakeHour == sleepHour
+
     if (awakeHour > sleepHour) awakeInterval = awakeHour + 24;
 
     // Now come up with a time to set notifications to
@@ -185,6 +187,7 @@ export default class LocalNotificationScreen extends React.Component {
       // TODO:  Have randomization between 'Before' and 'After' time intervals
       // i.e. Between 6h and 7h (currently set to on the hour above)
 
+      // 1st version of selection probabilities
       // 
 
 
