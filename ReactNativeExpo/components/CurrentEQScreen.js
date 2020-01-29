@@ -6,10 +6,10 @@ import {
   Dimensions
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import { WebView, ActivityIndicator } from 'react-native';
-//import { Ionicons,EvilIcons,Feather } from '@expo/vector-icons';
+import { ActivityIndicator } from 'react-native';
+import { Ionicons,EvilIcons,Feather } from '@expo/vector-icons';
 //import { ActivityIndicator } from 'react-native';
-//import WebView from 'react-native-webview';
+import WebView from 'react-native-webview';
 //import FixWebView from './FixWebView'
 const deviceHeight = Dimensions.get('window').height;
 const deviceWidth = Dimensions.get('window').width;
