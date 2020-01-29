@@ -31,14 +31,26 @@ export default class App extends React.Component {
 const AppNavigator = createStackNavigator({
    Splash:{screen:SplashScreen},
    Initial:{screen:InitialScreen},
-   Login:{screen:LoginScreen},
+   Login:{screen:LoginScreen,     navigationOptions: {
+    header: null,
+  }},
    Term:{screen:TermScreen},
    About:{screen:Aboutscreen},
    CreatePassword:{screen:CreatePasswordScreen},
    RecoverPassword:{screen:RecoverPasswordScreen},
-   Home: {screen: Homescreen},
+   Home: {
+     screen: Homescreen,
+     navigationOptions: {
+      header: null,
+    }
+    },
  //  WebFromAzure: {screen: WebFromAzureScreen},
-   LocalNotification:{screen:LocalNotificationScreen},
+   LocalNotification:{
+     screen:LocalNotificationScreen,
+     navigationOptions: ({ navigation }) => ({
+      title: "Settings",
+    }),
+    },
    CurrentEQ:{screen:CurrentEQScreen},
    ContactUs:{screen:ContactUsScreen},
  //  Test:{screen:TestScreen},
@@ -46,10 +58,7 @@ const AppNavigator = createStackNavigator({
  //  Result:{screen:ResultScreen},
    Result2:{screen:Result2Screen},
 //   WebScreen:{screen:WebScreen},
-},
-{defaultNavigationOptions: {
-      header: null
-    },}
+}
 );
 
 const AppContainer = createAppContainer(AppNavigator);

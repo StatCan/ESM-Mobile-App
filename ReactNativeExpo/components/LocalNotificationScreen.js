@@ -57,7 +57,7 @@ const primeTimeAwakeIntervals = [
 var scheduledDateArray = new Array();
 
 export default class LocalNotificationScreen extends React.Component {
-  state = { notification: true, waketime: '8:00', sleeptime: '21:00', notificationcount: 2, culture: 'English' };
+  state = { notification: true, waketime: '08:00', sleeptime: '21:00', notificationcount: 5, culture: 'English' };
 
   constructor(props) {
     super(props);
@@ -272,17 +272,6 @@ export default class LocalNotificationScreen extends React.Component {
       };
    saveSettings = async() => {
 
-//<<<<<<< HEAD
-  //      console.log("Platform version: " + Platform.Version);
-    //    console.log("Device Name: " + Expo.Constants.deviceName);
-      //  console.log("Native App Version: " + Expo.Constants.nativeAppVersion);
-//        console.log("Native Build Version: " + Expo.Constants.nativeBuildVersion);
-//        console.log("Device Year Class: " + Expo.Constants.deviceYearClass);
-//        console.log("Session ID: " + Expo.Constants.sessionId);
-//        console.log("Wake Time: " + this.state.waketime);
-//        console.log("Sleep Time: " + this.state.sleeptime);
-//        console.log("Notification Count: " + this.state.notificationcount);
-//        console.log("Culture:"+this.state.culture);
         if(this.state.culture==2)resources.culture ='fr';
         else resources.culture ='en';
 
@@ -299,12 +288,26 @@ export default class LocalNotificationScreen extends React.Component {
 
         this.props.navigation.navigate('Home');
    }
+
+
+
   render() {
+
+    let debugButtons;
+
+    if (global.debugMode){
+      debugButtons =         
+      (<View style={{alignItems: 'center', marginTop: 20, justifyContent: 'space-around' }}>
+      <Text style={{ color: 'red' }}>Following buttons are test only</Text>
+      <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
+      <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(this.state.waketime, this.state.sleeptime)} />
+      <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
+      </View>);
+    }
+
     return (
       <View>
-        <Image source={require('./StatCanLogo.png')} style={{width: 300,height:100}}/>
-        <Text style={{ fontSize: 30 }}>Settings:</Text>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <View style={{ flexDirection: 'row', marginTop: 50, justifyContent: 'space-around' }}>
           <Text style={styles.label}>Notification:</Text>
           <Switch value={this.state.notification} onValueChange={this.handleSwitchChanged} />
         </View>
@@ -328,17 +331,14 @@ export default class LocalNotificationScreen extends React.Component {
                                <Picker.Item label="English" value="1" />
                                <Picker.Item label="French" value="2" />
                              </Picker>
-                 </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
+        </View>
+        <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center', justifyContent: 'space-around' }}>
           <Button title="Save" style={{ width: 100 }} onPress={this.saveSettings} />
           <Button title="Cancel" style={{ width: 100 }} onPress={() => this.props.navigation.navigate('Home')} />
         </View>
-        <View style={{alignItems: 'center', justifyContent: 'space-around' }}>
-          <Text style={{ color: 'red' }}>Following buttons are test only</Text>
-          <Button title="Schedule 20s Notification" onPress={() => this.scheduleNotification20s()} />
-          <Button title="Test Notification Algorithm" onPress={() => this.scheduleNotificationAlgo(this.state.waketime, this.state.sleeptime)} />
-          <Button title="Cancel Scheduled Notifications" onPress={() => Notifications.cancelAllScheduledNotificationsAsync()} />
-        </View>
+
+        {debugButtons}
+
       </View>
     );
   }
