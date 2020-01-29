@@ -29,16 +29,16 @@ export default class App extends Component<Props> {
     let uri=global.surveyACode==''?'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4':'http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
     if(global.surveyACode==''){
        if(resources.culture=='en')
-            uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4';
+            uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsa6fb4330c26e463f94b8342cc1fb9d8b';
        else
-            uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/fr/login-connexion/load-charger/eqgsab4602447bbc45ad8e85328d21f6c1b4';
+            uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/fr/login-connexion/load-charger/eqgsa6fb4330c26e463f94b8342cc1fb9d8b';
 
     }
     else{
            if(resources.culture=='en')
-                uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+                uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/en/login-connexion/load-charger/eqgsd0ed709a7df0465da7cb4881b290ff22';
            else
-                uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/fr/login-connexion/load-charger/eqgs0a8c12086319496aadc23bacf80cba8b';
+                uri='http://barabasy.eastus.cloudapp.azure.com/anonymous-anonyme/fr/login-connexion/load-charger/eqgsd0ed709a7df0465da7cb4881b290ff22';
     }
 
     const uri1='https://webdashboardapp.azurewebsites.net/Home/ConductSurvey?userToken='+global.userToken+'&notificationId='+dt.toISOString()+'&culture='+resources.culture;
@@ -47,15 +47,14 @@ export default class App extends Component<Props> {
      let jsCode='document.addEventListener("message", function (message) { document.getElementById("langtest").click(); });var btn = document.createElement("button");btn.style.visibility ="hidden";btn.onclick = switchlang;btn.setAttribute("id", "langtest");document.body.appendChild(btn);    function switchlang() { var a = document.querySelector("a.sc-js-langchange");var href = a.href;if (href.indexOf("/q/fr")>0) {var res = href.replace("/q/fr", "/q/en");a.setAttribute("href", res);a.click();} else if (href.indexOf("/q/en")>0) {var res = href.replace("/q/en", "/q/fr");a.setAttribute("href", res);a.click();} }';
     return (
 
-   //   <View style={{ flex: 1, marginTop: 16 }}>
+ //    <View style={{ flex: 1, marginTop: 16 }}>
 
        <ScrollView style={{marginTop:30}}>
        <View style={{height:80}}>
               <Image source={require('./StatCanLogo.png')} style={styles.logo} />
               <View style={{flexDirection:'row',alignSelf:'flex-end'}}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('LocalNotification')} style={{alignSelf:'flex-end'}}><EvilIcons name="gear" size={32} color="black" /></TouchableOpacity>
-                <TouchableOpacity onPress={() => this.webView.postMessage('test')} style={{alignSelf:'flex-end'}}><EvilIcons name="gear" size={32} color="black" /></TouchableOpacity>
-                </View>
+                      </View>
                 </View>
             <WebView
                       ref={(view) => this.webView = view}
@@ -97,7 +96,7 @@ export default class App extends Component<Props> {
 
                     />
        </ScrollView>
- //     </View>
+  //    </View>
     );
   }
 }
@@ -106,7 +105,10 @@ const styles = StyleSheet.create({
   webview: {
     flex: 1,
     width: deviceWidth,
-    height: deviceHeight-110
+    height: deviceHeight+500
   },
   logo: { width: 300, height: 40 },
 });
+
+
+//          <TouchableOpacity onPress={() => this.webView.postMessage('test')} style={{alignSelf:'flex-end'}}><EvilIcons name="gear" size={32} color="black" /></TouchableOpacity>

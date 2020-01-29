@@ -11,6 +11,7 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import { Ionicons,EvilIcons,Feather } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 //import ViewPagerAdapter from 'react-native-tab-view-viewpager-adapter';
+import FullWidthImage from './TestImage';
 const height=Dimensions.get('window').height-100;
 
 class FirstPage extends React.Component {
@@ -99,11 +100,8 @@ class FifthPage extends React.Component {
     return (
       <View style={{ flex: 1 }}>
              <Text style={{ fontSize: 30, marginBottom: 20 }}>Activity Result:</Text>
-             <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} style={{
-                                                                                                                                        width: this.state.width,
-                                                                                                                                        height: this.state.height
-                                                                                                                                    }}/>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: 'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} />
              </ScrollView>
       </View>
     );
@@ -218,3 +216,7 @@ const App = createStackNavigator({
 });
 
 export default createAppContainer(App);
+
+
+
+//<Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}}  style={{width: this.state.width,height: this.state.height }}/>

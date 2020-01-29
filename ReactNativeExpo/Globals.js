@@ -7,4 +7,4 @@ global.answer='';
 global.timeStamp=0;
 global.surveyACode='none';
 global.doneSurveyA=false;
-global.debugMode=true;
+global.debugMode=false;
