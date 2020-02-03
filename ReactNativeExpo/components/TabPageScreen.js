@@ -11,68 +11,271 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import { Ionicons,EvilIcons,Feather } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 //import ViewPagerAdapter from 'react-native-tab-view-viewpager-adapter';
+import FullWidthImage from './TestImage';
 const height=Dimensions.get('window').height-100;
-
+const width=Dimensions.get('window').width;
+let timeStamp='';
+let d=new Date();console.log('timeOld:'+timeStamp);
+timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+console.log('timeNew:'+timeStamp);
 class FirstPage extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(global.surveyACode);
-  }
- // componentWillReceiveProps() {
-   //       console.log('rerender here')
-          //this.yourFunction()
-          //this.setState({})
-     // }
-  componentDidMount() {
-              //    this.props.onFinish();
-    }
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0,
+              timeStamp:timeStamp
+          };
+
+      }
+      _onLayout(event) {
+
+              }
+      componentDidMount() {
+          this._navListener = this.props.navigation.addListener('didFocus', () => {
+          // console.log('check need reload:'+global.needReload);
+           if(global.needReload1){
+                d=new Date();
+                timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                global.needReload1=false;
+                this.setState({timeStamp:timeStamp});
+           }
+
+      });
+      }
   render() {
+      // let uri=$'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Macaroni/aaa/en/'+width;
+         let uri='http://localhost:49159/MacaroniFW/aaa/'+this.state.timeStamp+'/en/'+width; console.log(uri);
+     console.log(uri);
+     console.log(timeStamp);
     return (
-      <View style={{ flex: 1 }}>
-             <Text style={{ fontSize: 30, marginBottom: 20 }}>Your Feeling:</Text>
-             <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={3} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Macaroni/aaa/en'}} style={{ aspectRatio: 1,resizeMode:'stretch'}}/>
+      <View style={{ flex: 1,marginTop:10 }}>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: uri}} />
              </ScrollView>
       </View>
     );
   }
 }
 class SecondPage extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(global.surveyACode);
-  }
-  render() {
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0,
+              timeStamp:timeStamp
+          };
+      }
+   _onLayout(event) {
+                  Image.getSize(this.props.source.uri, (width, height) => {
+                      this.setState({
+                          width: width,
+                          height: height
+                      });
+                  });
+              }
+   componentDidMount() {
+             this._navListener = this.props.navigation.addListener('didFocus', () => {
+             // console.log('check need reload:'+global.needReload);
+              if(global.needReload2){
+                   d=new Date();
+                   timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                   console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                   global.needReload2=false;
+                   this.setState({timeStamp:timeStamp});
+              }
+
+         });
+         }
+   render() {
+   //  let uri='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/ScalableBar/aaa/en/'+width;
+         let uri='http://localhost:49159/ScalableBarFW/aaa/'+this.state.timeStamp+'/en/'+width;
+     console.log(uri);
+
     return (
-      <View style={{ flex: 1 }}>
-             <Text style={{ fontSize: 30, marginBottom: 20 }}>Your Feeling:</Text>
-             <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={3} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/ScalableBar/aaa/en'}} style={{width:400, aspectRatio: 1,resizeMode:'stretch',marginBottom:40}}/>
+      <View style={{ flex: 1,marginTop:10 }}>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: uri}} />
+             </ScrollView>
+      </View>
+    );
+  }
+}
+class ThirdPage extends React.Component {
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0, timeStamp:timeStamp
+          };
+      }
+      _onLayout(event) {
+                  Image.getSize(this.props.source.uri, (width, height) => {
+                      this.setState({
+                          width: width,
+                          height: height
+                      });
+                  });
+              }
+   componentDidMount() {
+             this._navListener = this.props.navigation.addListener('didFocus', () => {
+             // console.log('check need reload:'+global.needReload);
+              if(global.needReload3){
+                   d=new Date();
+                   timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                   console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                   global.needReload3=false;
+                   this.setState({timeStamp:timeStamp});
+              }
+
+         });
+         }
+  render() {
+    //  let uri='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/ScalableLine/aaa/en/'+width;
+         let uri='http://localhost:49159/ScalableLineFW/aaa/'+this.state.timeStamp+'/en/'+width;
+     console.log(uri);
+
+    return (
+      <View style={{ flex: 1,marginTop:10 }}>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: uri}} />
+             </ScrollView>
+      </View>
+    );
+  }
+}
+class ThirdAPage extends React.Component {
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0, timeStamp:timeStamp
+          };
+      }
+      _onLayout(event) {
+                  Image.getSize(this.props.source.uri, (width, height) => {
+                      this.setState({
+                          width: width,
+                          height: height
+                      });
+                  });
+              }
+   componentDidMount() {
+             this._navListener = this.props.navigation.addListener('didFocus', () => {
+             // console.log('check need reload:'+global.needReload);
+              if(global.needReload4){
+                   d=new Date();
+                   timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                   console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                   global.needReload4=false;
+                   this.setState({timeStamp:timeStamp});
+              }
+
+         });
+         }
+  render() {
+    //  let uri='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/ScalableLine/aaa/en/'+width;
+         let uri='http://localhost:49159/ScalableLine/aaa/'+this.state.timeStamp+'/en/';
+     console.log(uri);
+
+    return (
+      <View style={{ flex: 1,marginTop:10 }}>
+              <ScrollView horizontal  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
+                <Image source={{uri: uri}} style={{width:600,height:300, resizeMode: 'stretch' }} />
+             </ScrollView>
+      </View>
+    );
+  }
+}
+class ThirdBPage extends React.Component {
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0, timeStamp:timeStamp
+          };
+      }
+      _onLayout(event) {
+                  Image.getSize(this.props.source.uri, (width, height) => {
+                      this.setState({
+                          width: width,
+                          height: height
+                      });
+                  });
+              }
+   componentDidMount() {
+             this._navListener = this.props.navigation.addListener('didFocus', () => {
+             // console.log('check need reload:'+global.needReload);
+              if(global.needReload7){
+                   d=new Date();
+                   timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                   console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                   global.needReload7=false;
+                   this.setState({timeStamp:timeStamp});
+              }
+
+         });
+         }
+  render() {
+    //  let uri='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/ScalableLine/aaa/en/'+width;
+         let uri='http://localhost:49159/ScalableCBarFW/aaa/'+this.state.timeStamp+'/en/'+width;
+     console.log(uri);
+
+    return (
+      <View style={{ flex: 1,marginTop:10 }}>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: uri}} />
              </ScrollView>
       </View>
     );
   }
 }
 
-class ThirdPage extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-             <Text style={{ fontSize: 30, marginBottom: 20 }}>Where Result:</Text>
-             <ScrollView horizontal  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/ScalableLine/aaa/en'}} style={{width:600,height:300, resizeMode: 'stretch' }} />
-             </ScrollView>
-      </View>
-    );
-  }
-}
 class ForthPage extends React.Component {
+   constructor() {
+          super();
+
+          this.state = {
+              width: 0,
+              height: 0, timeStamp:timeStamp
+          };
+      }
+      _onLayout(event) {
+                  Image.getSize(this.props.source.uri, (width, height) => {
+                      this.setState({
+                          width: width,
+                          height: height
+                      });
+                  });
+              }
+   componentDidMount() {
+             this._navListener = this.props.navigation.addListener('didFocus', () => {
+             // console.log('check need reload:'+global.needReload);
+              if(global.needReload5){
+                   d=new Date();
+                   timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                   console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                   global.needReload5=false;
+                   this.setState({timeStamp:timeStamp});
+              }
+
+         });
+         }
   render() {
+    //  let uri='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Bulletin/aaa/en/'+width;
+         let uri='http://localhost:49159/BulletinFW/aaa/'+this.state.timeStamp+'/en/'+width;
+     console.log(uri);
+
     return (
-      <View style={{ flex: 1 }}>
-             <Text style={{ fontSize: 30, marginBottom: 20 }}>When Result:</Text>
-             <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Bulletin/aaa/en'}} style={{ aspectRatio: 1,resizeMode:'stretch'}}/>
+      <View style={{ flex: 1,marginTop:10 }}>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: uri}} />
              </ScrollView>
       </View>
     );
@@ -84,7 +287,7 @@ class FifthPage extends React.Component {
 
           this.state = {
               width: 0,
-              height: 0
+              height: 0, timeStamp:timeStamp
           };
       }
       _onLayout(event) {
@@ -95,72 +298,105 @@ class FifthPage extends React.Component {
                       });
                   });
               }
+   componentDidMount() {
+             this._navListener = this.props.navigation.addListener('didFocus', () => {
+             // console.log('check need reload:'+global.needReload);
+              if(global.needReload6){
+                   d=new Date();
+                   timeStamp=d.getFullYear().toString()+d.getMonth()+d.getDay()+d.getHours()+d.getMinutes()+d.getSeconds();
+                   console.log('inside:'+timeStamp);console.log('global:'+global.needReload);
+                   global.needReload6=false;
+                   this.setState({timeStamp:timeStamp});
+              }
+
+         });
+         }
   render() {
+   //  let uri='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en/'+width;
+    let uri='http://localhost:49159/TableFW/aaa/'+this.state.timeStamp+'/en/'+width;
+     console.log(uri);
+
     return (
-      <View style={{ flex: 1 }}>
-             <Text style={{ fontSize: 30, marginBottom: 20 }}>Activity Result:</Text>
-             <ScrollView  style={{height:height,padding:10}}  maximumZoomScale={2} minimumZoomScale={1}  bouncesZoom={true}>
-                    <Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}} style={{
-                                                                                                                                        width: this.state.width,
-                                                                                                                                        height: this.state.height
-                                                                                                                                    }}/>
+      <View style={{ flex: 1,marginTop:10 }}>
+             <ScrollView  maximumZoomScale={4} minimumZoomScale={1}  bouncesZoom={true}>
+                <FullWidthImage source={{uri: uri}} />
              </ScrollView>
       </View>
     );
   }
 }
 
-const TabScreen = createMaterialTopTabNavigator(
+let TabScreen = createMaterialTopTabNavigator(
   {
-    Home: {
-        screen: FirstPage,
-        navigationOptions: {
-                tabBarLabel:"Mood",
-                tabBarIcon: ({ tintColor }) => (
-                  <Feather name="airplay" size={20} color="black" />
-                 // <AntDesign name="meh" size={25} color="green" />
-                ),
-                tabBarOnPress:({navigation,defaultHandler})=>{
-                alert(navigation)
-                }
+        Home: {
+            screen: FirstPage,
+            navigationOptions: {
+                    tabBarLabel:"☹",
+                    tabBarIcon: ({ tintColor }) => (
+                      <Feather name="airplay" size={20} color="black" />
+                     // <AntDesign name="meh" size={25} color="green" />
+                    ),
+                    tabBarOnPress:({navigation,defaultHandler})=>{
+                       //alert(navigation)
+                    }
 
-              },
+                  },
 
-         },
-    Settings: {
-         screen: SecondPage,
-         navigationOptions: {
-                                           tabBarLabel:"Population",
-                                           tabBarIcon: ({ tintColor }) => (
-                                           //  <Icon name="users" size={30} color="black" />
-                                           // <EvilIcons name="gear" size={32} color="green" />
-                                           <Feather name="bar-chart" size={20} color="black" />
-                                           )
-                                         } },
-    Mood: {
-             screen: ThirdPage,
+             },
+        Settings: {
+             screen: SecondPage,
              navigationOptions: {
-                                               tabBarLabel:"Mood",
+                                               tabBarLabel:"◻",
                                                tabBarIcon: ({ tintColor }) => (
                                                //  <Icon name="users" size={30} color="black" />
                                                // <EvilIcons name="gear" size={32} color="green" />
-                                               <Feather name="crosshair" size={20} color="black" />
+                                               <Feather name="bar-chart" size={20} color="black" />
                                                )
                                              } },
-    Activity: {
-                                                          screen: ForthPage,
-                                                          navigationOptions: {
-                                                                                            tabBarLabel:"Activity",
-                                                                                            tabBarIcon: ({ tintColor }) => (
-                                                                                            //  <Icon name="users" size={30} color="black" />
-                                                                                            // <EvilIcons name="gear" size={32} color="green" />
-                                                                                            <Feather name="activity" size={20} color="black" />
-                                                                                            )
-                                                                                          } },
-    Table: {
+        Mood: {
+                 screen: ThirdPage,
+                 navigationOptions: {
+                                                   tabBarLabel:"⚕",
+                                                   tabBarIcon: ({ tintColor }) => (
+                                                   //  <Icon name="users" size={30} color="black" />
+                                                   // <EvilIcons name="gear" size={32} color="green" />
+                                                   <Feather name="crosshair" size={20} color="black" />
+                                                   )
+                                                 } },
+        MoodA: {
+                                                                  screen: ThirdAPage,
+                                                                  navigationOptions: {
+                                                                                                    tabBarLabel:"⚕",
+                                                                                                    tabBarIcon: ({ tintColor }) => (
+                                                                                                    //  <Icon name="users" size={30} color="black" />
+                                                                                                    // <EvilIcons name="gear" size={32} color="green" />
+                                                                                                    <Feather name="crosshair" size={20} color="black" />
+                                                                                                    )
+                                                                                                  } },
+        MoodB: {
+                         screen: ThirdBPage,
+                         navigationOptions: {
+                                                           tabBarLabel:"⚕",
+                                                           tabBarIcon: ({ tintColor }) => (
+                                                           //  <Icon name="users" size={30} color="black" />
+                                                           // <EvilIcons name="gear" size={32} color="green" />
+                                                           <Feather name="crosshair" size={20} color="black" />
+                                                           )
+                                                         } },
+        Activity: {
+                                                              screen: ForthPage,
+                                                              navigationOptions: {
+                                                                                                tabBarLabel:"⛯",
+                                                                                                tabBarIcon: ({ tintColor }) => (
+                                                                                                //  <Icon name="users" size={30} color="black" />
+                                                                                                // <EvilIcons name="gear" size={32} color="green" />
+                                                                                                <Feather name="activity" size={20} color="black" />
+                                                                                                )
+                                                                                              } },
+        Table: {
                                                               screen: FifthPage,
                                                               navigationOptions: {
-                                                                                                tabBarLabel:"table",
+                                                                                                tabBarLabel:"⛏",
                                                                                                 tabBarIcon: ({ tintColor }) => (
                                                                                                 //  <Icon name="users" size={30} color="black" />
                                                                                                 // <EvilIcons name="gear" size={32} color="green" />
@@ -181,7 +417,7 @@ const TabScreen = createMaterialTopTabNavigator(
             tabStyle: {
                 height: 60
             },
-        showIcon: true,
+        showIcon: false,
        //  activeTintColor: '#e91e63',
          upperCaseLabel:false,
       activeTintColor: 'red',
@@ -190,7 +426,7 @@ const TabScreen = createMaterialTopTabNavigator(
         backgroundColor: 'lightblue',
       },
       labelStyle: {
-        textAlign: 'center',
+        textAlign: 'center',fontSize:26,
       },
       indicatorStyle: {
         borderBottomColor: '#87B56A',
@@ -201,7 +437,7 @@ const TabScreen = createMaterialTopTabNavigator(
 );
 
 //making a StackNavigator to export as default
-const App = createStackNavigator({
+let App = createStackNavigator({
   TabScreen: {
     screen: TabScreen,
     navigationOptions: {
@@ -218,3 +454,7 @@ const App = createStackNavigator({
 });
 
 export default createAppContainer(App);
+
+
+
+//<Image source={{uri:'http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Table/aaa/en'}}  style={{width: this.state.width,height: this.state.height }}/>

@@ -2,9 +2,94 @@
     ViewBag.Title = "Home Page";
 }
 
-<img src='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm//Macaroni/aaa/en' /><br /><br />
-<img src='http://localhost:49159/Thermometers/aaa/en' /><br /><br />
-<img src='http://localhost:49159/Bulletin/aaa/fr' /><br /><br />
-<img src='http://localhost:49159/ScalableBar/aaa/en' /><br /><br />
-<img src='http://localhost:49159/ScalableLine/aaa/en' /><br /><br />
-<img src='http://localhost:49159/Table/aaa/en' /><br />
+@*<img src='http://barabasy.eastus.cloudapp.azure.com/WebApiForEsm/Macaroni/aaa/en' /><br /><br />*@
+<img src='http://localhost:49159/Macaroni/aaa/1213/en' /><br /><br />
+<img src='http://localhost:49159/Thermometers/aaa/123/en' /><br /><br />
+<img src='http://localhost:49159/Bulletin/aaa/234/fr' /><br /><br />
+<img src='http://localhost:49159/ScalableBar/aaa/123/en' /><br /><br />
+<img src='http://localhost:49159/ScalableLine/aaa/123/en' /><br /><br />
+<img src='http://localhost:49159/Table/aaa/123/en' /><br />
+<label>Second group</label><br /><br />
+<img src='http://localhost:49159/MacaroniFW/aaa/123/en/450' /><br /><br />
+<img src='http://localhost:49159/BulletinFW/aaa/123/fr/450' /><br /><br />
+<img src='http://localhost:49159/ScalableBarFW/123/aaa/en/450' /><br /><br />
+<img src='http://localhost:49159/ScalableLineFW/123/aaa/en/450' /><br /><br />
+<img src='http://localhost:49159/ScalableCBarFW/123/aaa/en/450' /><br /><br />
+<img src='http://localhost:49159/TableFW/aaa/123/en/450' /><br />
+<img src='http://localhost:49159/WarnFW/en/450' /><br /><br />
+<button onclick="sendParadata()">Send ParaData</button>
+<button onclick="sendParadataf()">Send ParaData f</button>
+<button onclick="sendParadataS()">Send ParaData f</button>
+<script>
+    function sendParadata() {
+        var snt = ["2020/02/01 08:10:00", "2020/02/01 12:10:00", "2020/02/01 18:10:00"];
+        var paraData = {
+            "PlatFormVersion": "1.2",
+            "DeviceName": "Andoird",
+            "NativeAppVersion": "2.2",
+            "NativeBuildVersion": "3.2",
+            "DeviceYearClass": "4.2",
+            "SessionID": "5.2",
+            "WakeTime": "07:12",
+            "SleepTime": "21.2",
+            "NotificationCount": "2",
+            "NotificationEnable": true,
+            "ScheduledNotificationTimes": snt
+        };
+        $.post("http://localhost:49159/SaveParaData/aaa",
+            paraData,
+            function (data, status) {
+                debugger;
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+    }
+    function sendParadataf() {
+        var snt = ["2020/02/01 08:10:00", "2020/02/01 12:10:00", "2020/02/01 18:10:00"];
+        var paraData = JSON.stringify({
+            "PlatFormVersion": "1.2",
+            "DeviceName": "Andoird",
+            "NativeAppVersion": "2.2",
+            "NativeBuildVersion": "3.2",
+            "DeviceYearClass": "4.2",
+            "SessionID": "5.2",
+            "WakeTime": "07:12",
+            "SleepTime": "21.2",
+            "NotificationCount": "2",
+            "NotificationEnable": "true",
+            "ScheduledNotificationTimes": snt
+        });
+
+        $.ajax({
+            URL: 'http://localhost:49159/SaveParaData/aaa',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: paraData,
+            success: function (data, status, xhr) {
+                debugger;
+                alert('Success!');
+            },
+            error: function (xhr, status, error) {
+                alert('Update Error occurred - ' + error);
+            }
+        });
+
+    }
+    function sendParadataS() {
+        fetch('http://localhost:49159/SaveParaDataS/aaa', {
+            method: 'post',
+            headers: {
+                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            body: 'name=bar&sex=ipsum'
+        })
+            .then(json)
+            .then(function (data) {
+                console.log('Request succeeded with JSON response', data);
+            })
+            .catch(function (error) {
+                console.log('Request failed', error);
+            });
+
+    }
+</script>

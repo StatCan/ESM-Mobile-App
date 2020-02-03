@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Web.Http;
 using WebApiForEsm.Helpers;
 using WebApiForEsm.Resources;
+using WebApiForEsm.Models;
 
 namespace WebApiForEsm.Controllers
 {
@@ -17,6 +18,16 @@ namespace WebApiForEsm.Controllers
     {
         string path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("/"), "XmlSample.txt");
 
+
+        [Route("SaveParaData/{userToken}")]
+        [HttpPost]
+        public bool SaveParaData(string userToken, [FromBody]ParaData paraData)
+        {
+            string path = Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("/"), "test.txt");
+            File.WriteAllText(path, paraData.ToString());           
+            return true;          
+        }
+      
         [Route("GetSecurityQuestions/{culture}")]
         [HttpGet]
         public IEnumerable<string> GetSecurityQuestions(string culture)
@@ -38,9 +49,9 @@ namespace WebApiForEsm.Controllers
             if (culture == "fr") return dataF;
             else return dataE;
         }
-        [Route("Thermometers/{userToken}/{culture}")]
+        [Route("Thermometers/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetThermometersWithBulletinImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetThermometersWithBulletinImage(string userToken, string timeStamp,string culture = "en")
         {
             var title0 = EsmResource.GetString("Feelings", culture);
             var title1 = EsmResource.GetString("Number of times you reported a value less than 4", culture);
@@ -49,124 +60,285 @@ namespace WebApiForEsm.Controllers
             Image img = StcGraphics.GetThermometersWithBulletinGraph2D(data, 410, 350, title0, 12, 12, title1, title2);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
-        [Route("Bulletin/{userToken}/{culture}")]
+        [Route("Bulletin/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetBulletinImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetBulletinImage(string userToken, string timeStamp, string culture = "en")
         {
             var title = EsmResource.GetString("Your Feelings with Other People", culture);
             var data = GetBulletinData(userToken, culture);
-            Image img = StcGraphics.GetBulletinGraph2D(data, 410, 350, title, 12, true);
+            Image img = StcGraphics.GetBulletinGraph2D(data, 410, 350, title, 12, true, Color.LightSalmon);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
-        [Route("ScalableBar/{userToken}/{culture}")]
+        [Route("ScalableBar/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetScalableBarImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetScalableBarImage(string userToken, string timeStamp, string culture = "en")
         {
             var title1 = EsmResource.GetString("Your Weekly Activity Breakdown", culture);
             var title2 = EsmResource.GetString("Number of times your selected this activity", culture);
             var data = GetBarData(userToken, culture);
-            var setting = new ScalableBarGraphSetting { ChartTitle = title1, ChartTitleFontSize = 10, IsChartTitleHighlighted = true, LabelWidthRatio = 0.24F, ChartFontSize = 8, XAxisNotchCount = 5, XAxisDesc = title2 };
-            Image img = StcGraphics.GetScalableBarGraph2D(data, 410, 350, setting);
+            var setting = new ScalableBarGraphSetting { ChartTitle = title1, ChartTitleFontSize = 14, IsChartTitleHighlighted = true, LabelWidthRatio = 0.24F, ChartFontSize = 8, XAxisNotchCount = 5, XAxisDesc = title2 };
+            Image img = StcGraphics.GetScalableBarGraph2D(data, 410, 450, setting);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
-        [Route("ScalableLine/{userToken}/{culture}")]
+        [Route("ScalableLine/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetScalableLineImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetScalableLineImage(string userToken, string timeStamp, string culture = "en")
         {
             var title1 = EsmResource.GetString("Your Feelings by Activity Type", culture);
             var title2 =EsmResource.GetString("ActivityType",culture);
-            var title3 =EsmResource.GetString("Anverage Score",culture);
+            var title3 =EsmResource.GetString("Average Score",culture);
             var data = GetChartDataForScalableLine(userToken, culture);
             var setting = new ScalabelLineGraphSetting
             {
                 ChartTitle = title1,
-                ChartTitleFontSize = 8,
-                ChartFontSize = 8,
+                ChartTitleFontSize = 14,
+                ChartFontSize = 12,
                 IsChartTitleHighlighted = true,
                 LegendIcon = LegendIconType.Rectangle,
                 XAxisTitle = title2,
-                XAxisTitleFontSize = 8,
+                XAxisTitleFontSize =12,
                 YAxisTitle = title3,
-                YAxisTitleFontSize = 8,
+                YAxisTitleFontSize = 12,
                 NotchCount = 5
             };
-            Image img = StcGraphics.GetScalableLineGraph2D(data, 410, 350, setting);
+            Image img = StcGraphics.GetScalableLineGraph2D(data, 410, 450, setting);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
-        [Route("Table/{userToken}/{culture}")]
+        [Route("Table/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetTableImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetTableImage(string userToken, string timeStamp, string culture = "en")
         {
             var title = EsmResource.GetString("Your Feelings by Location", culture);
             var data = GetTableData(userToken, culture);
-            Image img = StcGraphics.GetTableGraph2D(data, 400, 40, title, 8, true);
+            Image img = StcGraphics.GetTableGraph2D(data, 400, 40, title, 12, true,Color.LightSlateGray);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
 
-        [Route("Macaroni/{userToken}/{culture}")]
+        [Route("Macaroni/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetMacaroniImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetMacaroniImage(string userToken, string timeStamp, string culture = "en")
         {
             var data = GetMacaroniData(userToken,culture);
             Image img = StcGraphics.GetMacaroniGraph2D(data, 12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen,true);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
 
-        [Route("MoodCount/{userToken}/{culture}")]
+        [Route("MoodCount/{userToken}/{timeStamp}/{culture}")]
         [HttpGet]
-        public HttpResponseMessage GetMoodCountImage(string userToken, string culture = "en")
+        public HttpResponseMessage GetMoodCountImage(string userToken, string timeStamp, string culture = "en")
         {
             var title = culture == "en" ? "Mood Count" : "Compte d'humeur";
             var data = GetEmotionCountData(userToken, culture);
             Image img = StcGraphics.GetHalfDoughnutWithEmojiLegendGraph2D(data, 500, 500, title, 18);
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, ImageFormat.Jpeg);
+                img.Save(ms, ImageFormat.Png);
                 var result = new HttpResponseMessage(HttpStatusCode.OK);
                 result.Content = new ByteArrayContent(ms.ToArray());
-                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+
+
+        [System.Web.Mvc.OutputCache(Duration = 10, VaryByParam = "none", Location = System.Web.UI.OutputCacheLocation.Any)]
+        [Route("MacaroniFW/{userToken}/{timeStamp}/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetMacaroniImage(string userToken, string timeStamp, string culture = "en",int width=400)
+        {
+            var data = GetMacaroniData(userToken, culture);
+            Image img = StcGraphics.GetMacaroniVGraph2D(data, width,12, 14, 0F, 10F, Color.Plum, Color.LightSeaGreen, true);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+        [System.Web.Mvc.OutputCache(Duration = 10, VaryByParam = "none", Location = System.Web.UI.OutputCacheLocation.Any)]
+        [Route("BulletinFW/{userToken}/{timeStamp}/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetBulletinImage(string userToken, string timeStamp, string culture = "en",int width=400)
+        {
+            var title = EsmResource.GetString("Your Feelings with Other People", culture);
+            var data = GetBulletinData(userToken, culture);
+            Image img = StcGraphics.GetVBulletinGraph2D(data,width,title, 12, true, Color.Gray);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+        [System.Web.Mvc.OutputCache(Duration = 10, VaryByParam = "none", Location = System.Web.UI.OutputCacheLocation.Any)]
+        [Route("ScalableBarFW/{userToken}/{timeStamp}/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetScalableBarImage(string userToken, string timeStamp, string culture = "en",int width=400)
+        {
+            var title1 = EsmResource.GetString("Your Weekly Activity Breakdown", culture);
+            var title2 = EsmResource.GetString("Number of times your selected this activity", culture);
+            var data = GetBarData(userToken, culture);
+            var setting = new ScalableBarGraphSetting { ChartTitle = title1, ChartTitleFontSize = 13, IsChartTitleHighlighted = true, LabelWidthRatio = 0.24F, ChartFontSize = 8, XAxisNotchCount = 5, XAxisDesc = title2 , TitleBackgroundColor = Color.Gray };
+            Image img = StcGraphics.GetScalableVBarGraph2D(data,width,setting);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+        [System.Web.Mvc.OutputCache(Duration = 10, VaryByParam = "none", Location = System.Web.UI.OutputCacheLocation.Any)]
+        [Route("ScalableLineFW/{userToken}/{timeStamp}/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetScalableLineImage(string userToken, string timeStamp, string culture = "en",int width=400)
+        {
+            var title1 = EsmResource.GetString("Your Feelings by Activity Type", culture);
+            var title2 = EsmResource.GetString("ActivityType", culture);
+            var title3 = EsmResource.GetString("Average Score", culture);
+            var data = GetChartDataForScalableLine(userToken, culture);
+            var setting = new ScalabelLineGraphSetting
+            {
+                ChartTitle = title1,
+                ChartTitleFontSize =14,
+                ChartFontSize = 12,
+                IsChartTitleHighlighted = true,
+                LegendIcon = LegendIconType.Rectangle,
+                XAxisTitle = title3,
+                XAxisTitleFontSize = 12,
+                YAxisTitle = title2,
+                YAxisTitleFontSize = 12,
+                NotchCount = 5,
+                TitleBackgroundColor = Color.Gray
+            };
+            Image img = StcGraphics.GetScalableVLineGraph2D(data,width,setting);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+
+        [System.Web.Mvc.OutputCache(Duration = 10, VaryByParam = "none", Location = System.Web.UI.OutputCacheLocation.Any)]
+        [Route("ScalableCBarFW/{userToken}/{timeStamp}/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetScalableCBarImage(string userToken, string timeStamp, string culture = "en", int width = 400)
+        {
+            var title1 = EsmResource.GetString("Your Feelings by Activity Type", culture);
+            var title2 = EsmResource.GetString("ActivityType", culture);
+            var title3 = EsmResource.GetString("Average Score", culture);
+            var data = GetChartDataForScalableLine(userToken, culture);
+            var setting = new ScalabelLineGraphSetting
+            {
+                ChartTitle = title1,
+                ChartTitleFontSize = 14,
+                ChartFontSize = 12,
+                IsChartTitleHighlighted = true,
+                LegendIcon = LegendIconType.Rectangle,
+                XAxisTitle = title3,
+                XAxisTitleFontSize = 12,
+                YAxisTitle = title2,
+                YAxisTitleFontSize = 12,
+                NotchCount = 5,
+                TitleBackgroundColor = Color.Gray
+            };
+            Image img = StcGraphics.GetScalableVCBarGraph2D(data, width, setting);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+
+
+
+
+
+
+        [System.Web.Mvc.OutputCache(Duration = 10, VaryByParam = "none", Location = System.Web.UI.OutputCacheLocation.Any)]
+        [Route("TableFW/{userToken}/{timeStamp}/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetTableImage(string userToken, string timeStamp, string culture = "en",int width=400)
+        {
+            var title = EsmResource.GetString("Your Feelings by Location", culture);
+            var data = GetTableData(userToken, culture);
+            Image img = StcGraphics.GetVTableGraph2D(data,width, title, 13, true, Color.Gray);
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                return result;
+            }
+        }
+        [Route("WarnFW/{culture}/{width}")]
+        [HttpGet]
+        public HttpResponseMessage GetWarnImage(string culture = "en", int width = 400)
+        {
+            var title = EsmResource.GetString("Data not found", culture);
+            var text = EsmResource.GetString("You have to complete the survey at least once",culture);
+            Image img = StcGraphics.GetVMessageGraph2D("Data not found", "You have to complete the survey at least once", 340, Color.LightSeaGreen);
+
+            using (var ms = new MemoryStream())
+            {
+                img.Save(ms, ImageFormat.Png);
+                var result = new HttpResponseMessage(HttpStatusCode.OK);
+                result.Content = new ByteArrayContent(ms.ToArray());
+                result.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
                 return result;
             }
         }
@@ -221,53 +393,53 @@ namespace WebApiForEsm.Controllers
                  new GridChartData
                  {
                       RowHeader=new Legend{ Text=EsmResource.GetString("Feeling Happy",culture), Color=Color.Green},
-                      //Columns=new List<ColumnData>
-                      //{
-                      //    new ColumnData{ ColumnHeader="Chores", Value=2.3},
-                      //    new ColumnData{ ColumnHeader="Personal Care", Value=1.4},
-                      //    new ColumnData{ ColumnHeader="Creative Hobbies", Value=3.4},
-                      //    new ColumnData{ ColumnHeader="Work and School", Value=2.8},
-                      //    new ColumnData{ ColumnHeader="Going to Places and Events",Value=8.4},
-                      //    new ColumnData{ ColumnHeader="Socializing", Value=4.1},
-                      //    new ColumnData{ColumnHeader="Being Active", Value=5.2},
-                      //    new ColumnData{ColumnHeader="Media Consumption",Value=3.7},
-                      //    new ColumnData{ColumnHeader="Other",Value=7.4}
-                      //}
-                      Columns=(from a in s.feelingByActivity select new ColumnData{ ColumnHeader=a.what, Value=a.happy }).ToList()
+                      Columns=new List<ColumnData>
+                      {
+                          new ColumnData{ ColumnHeader="Chores", Value=2.3},
+                          new ColumnData{ ColumnHeader="Personal Care", Value=1.4},
+                          new ColumnData{ ColumnHeader="Creative Hobbies", Value=3.4},
+                          new ColumnData{ ColumnHeader="Work and School", Value=2.8},
+                          new ColumnData{ ColumnHeader="Going to Places and Events",Value=8.4},
+                          new ColumnData{ ColumnHeader="Socializing", Value=4.1},
+                          new ColumnData{ColumnHeader="Being Active", Value=5.2},
+                          new ColumnData{ColumnHeader="Media Consumption",Value=3.7},
+                          new ColumnData{ColumnHeader="Other",Value=7.4}
+                      }
+                     // Columns=(from a in s.feelingByActivity select new ColumnData{ ColumnHeader=a.what, Value=a.happy }).ToList()
                  },
                  new GridChartData
                  {
                       RowHeader=new Legend{ Text=EsmResource.GetString("Feeling Relax",culture), Color=Color.BlueViolet},
-                      //Columns=new List<ColumnData>
-                      //{
-                      //    new ColumnData{ ColumnHeader="Chores", Value=3.3},
-                      //    new ColumnData{ ColumnHeader="Personal Care", Value=4.4},
-                      //    new ColumnData{ ColumnHeader="Creative Hobbies", Value=5.4},
-                      //    new ColumnData{ ColumnHeader="Work and School", Value=1.0},
-                      //    new ColumnData{ ColumnHeader="Going to Places and Events",Value=2.4},
-                      //    new ColumnData{ ColumnHeader="Socializing", Value=6.1},
-                      //    new ColumnData{ColumnHeader="Being Active", Value=7.2},
-                      //    new ColumnData{ColumnHeader="Media Consumption",Value=8.8},
-                      //    new ColumnData{ColumnHeader="Other",Value=9.4}
-                      //}
-                        Columns=(from a in s.feelingByActivity select new ColumnData{ ColumnHeader=a.what, Value=a.relaxed }).ToList()
+                      Columns=new List<ColumnData>
+                      {
+                          new ColumnData{ ColumnHeader="Chores", Value=3.3},
+                          new ColumnData{ ColumnHeader="Personal Care", Value=4.4},
+                          new ColumnData{ ColumnHeader="Creative Hobbies", Value=5.4},
+                          new ColumnData{ ColumnHeader="Work and School", Value=1.0},
+                          new ColumnData{ ColumnHeader="Going to Places and Events",Value=2.4},
+                          new ColumnData{ ColumnHeader="Socializing", Value=6.1},
+                          new ColumnData{ColumnHeader="Being Active", Value=7.2},
+                          new ColumnData{ColumnHeader="Media Consumption",Value=8.8},
+                          new ColumnData{ColumnHeader="Other",Value=9.4}
+                      }
+                      //  Columns=(from a in s.feelingByActivity select new ColumnData{ ColumnHeader=a.what, Value=a.relaxed }).ToList()
                  },
                  new GridChartData
                  {
                       RowHeader=new Legend{ Text=EsmResource.GetString("Feeling Anxious",culture), Color=Color.Red},
-                      //Columns=new List<ColumnData>
-                      //{
-                      //    new ColumnData{ ColumnHeader="Chores", Value=7.3},
-                      //    new ColumnData{ ColumnHeader="Personal Care", Value=8.4},
-                      //    new ColumnData{ ColumnHeader="Creative Hobbies", Value=6.4},
-                      //    new ColumnData{ ColumnHeader="Work and School", Value=5.2},
-                      //    new ColumnData{ ColumnHeader="Going to Places and Events",Value=4.4},
-                      //    new ColumnData{ ColumnHeader="Socializing", Value=3.1},
-                      //    new ColumnData{ColumnHeader="Being Active", Value=2.2},
-                      //    new ColumnData{ColumnHeader="Media Consumption",Value=1.8},
-                      //    new ColumnData{ColumnHeader="Other",Value=2.4}
-                      //}
-                        Columns=(from a in s.feelingByActivity select new ColumnData{ ColumnHeader=a.what, Value=a.anxious }).ToList()
+                      Columns=new List<ColumnData>
+                      {
+                          new ColumnData{ ColumnHeader="Chores", Value=7.3},
+                          new ColumnData{ ColumnHeader="Personal Care", Value=8.4},
+                          new ColumnData{ ColumnHeader="Creative Hobbies", Value=6.4},
+                          new ColumnData{ ColumnHeader="Work and School", Value=5.2},
+                          new ColumnData{ ColumnHeader="Going to Places and Events",Value=4.4},
+                          new ColumnData{ ColumnHeader="Socializing", Value=3.1},
+                          new ColumnData{ColumnHeader="Being Active", Value=2.2},
+                          new ColumnData{ColumnHeader="Media Consumption",Value=1.8},
+                          new ColumnData{ColumnHeader="Other",Value=2.4}
+                      }
+                      //  Columns=(from a in s.feelingByActivity select new ColumnData{ ColumnHeader=a.what, Value=a.anxious }).ToList()
                  }
             };
         }
@@ -310,7 +482,6 @@ namespace WebApiForEsm.Controllers
                new KeyValuePair<string, float>("Your Anxious Score",s.feeling.anxious.average),
             };
         }
-
         private List<EmojiCountData> GetEmotionCountData(string userToken, string culture = "en")
         {
             return new List<EmojiCountData> {

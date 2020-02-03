@@ -3,6 +3,7 @@ import { Text, View,StyleSheet,Image,TouchableOpacity,Dimensions,ActivityIndicat
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import TabPage from './TabPageScreen';
+import TabPage1 from './TabPageScreen';
 //import Loader from './Loader'
 
 
@@ -18,7 +19,7 @@ export default class App extends React.Component {
         { cat_id: '2', cat_name: 'Population', backgroundcolor: 'lightgray' },
       ],
       change: false,
-      isPopulation:false,loading: false,
+      isPopulation:false,loading: false,timeStamp:0
     };console.log(global.surveyACode);
   }
 
@@ -47,13 +48,15 @@ export default class App extends React.Component {
         if (this.state.isPopulation) {
             return <Text> The survey is not done yet,please check resule after 6 months! </Text>;
         } else {
-            return <TabPage param={this.state.isPopulation} onFinish={this.onFinish.bind(this)} />;
-
+            if(this.state.timeStamp==0)
+               return <TabPage param={this.state.isPopulation} onFinish={this.onFinish.bind(this)} timeStamp={this.state.timeStamp} />;
+            else
+               return <TabPage1 param={this.state.isPopulation} onFinish={this.onFinish.bind(this)} timeStamp={this.state.timeStamp} />;
         }
     }
   render() {
     return (
-     <View style={{ flex: 1 }}>
+     <View style={{ flex: 1 }} timeStamp={this.state.timeStamp}>
       <Image source={require('./StatCanLogo.png')} style={{width: null, height: 100 }} />
           <View style={styles.container}>
               {this.state.categes.map((item, key) => (

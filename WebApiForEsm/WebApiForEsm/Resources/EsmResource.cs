@@ -40,10 +40,13 @@ namespace WebApiForEsm.Resources
 
             {"Your Feelings by Activity Type",new Meaning("Your Feelings by Activity Type","Vos sentiments par type d’activité")  },
             {"ActivityType",new Meaning("ActivityType","Type d'activité")  },
-            {"Anverage Score",new Meaning("Anverage Score","Score moyen")  },
+            {"Average Score",new Meaning("Average Score","Score moyen")  },
 
             {"Your Feelings by Location",new Meaning("Your Feelings by Location","Vos sentiments selon l’endroit")  },
             {"Location",new Meaning("Location","Emplacement")  },
+
+            {"Data not found",new Meaning("Data not found","Données non trouvées") },
+            {"You have to complete the survey at least once",new Meaning("You have to complete the survey at least once","Vous devez remplir l'enquête au moins une fois") }
         };
         class Meaning
         {

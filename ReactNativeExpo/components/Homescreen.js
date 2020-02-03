@@ -11,6 +11,23 @@ const deviceWidth = Dimensions.get('window').width;
 
 export default class Homescreen extends Component {
   checkTimeOut = () => { if (Date.now() - global.timeStamp > 10000) return true; else return false; }
+  sendParaData(){
+         console.log("asdfgasdfasdfasdfasd");
+        let paraData = {
+                        "PlatFormVersion": "1.2",
+                        "DeviceName": "Andoird",
+                        "NativeAppVersion": "2.2",
+                        "NativeBuildVersion": "3.2",
+                        "DeviceYearClass": "4.2",
+                        "SessionID": "5.2",
+                        "WakeTime": "07:12",
+                        "SleepTime": "21.2",
+                        "NotificationCount": "2",
+                        "NotificationEnable":true,
+                        "ScheduledNotificationTimes": snt
+                    };
+this.props.navigation.navigate('ContactUs');
+  }
   render() {
     return (
     <ImageBackground resizeMode="repeat" source={require('./background.png')} style={styles.background} resizeMode='stretch'>
@@ -18,7 +35,7 @@ export default class Homescreen extends Component {
        <TouchableOpacity onPress={() => this.props.navigation.navigate('LocalNotification')} style={{alignSelf:'flex-end'}}><EvilIcons name="gear" size={32} color="black" /></TouchableOpacity>
 
       <View style={styles.homeContainer}>
-           <TouchableOpacity onPress={() => this.props.navigation.navigate('CurrentEQ')} style={{flex:2,justifyContent:'center'}}>
+           <TouchableOpacity onPress={() =>{global.needReload1=true;global.needReload2=true;global.needReload3=true;global.needReload4=true;global.needReload5=true;global.needReload6=true;globa7.needReload1=true;  this.props.navigation.navigate('CurrentEQ');} } style={{flex:2,justifyContent:'center'}}>
                <View style={styles.outer}>
                    <View style={styles.inner}>
                         <Feather name="check-square" size={100} color="blue" /><Text style={{fontSize:50}}>Start</Text>
@@ -28,9 +45,49 @@ export default class Homescreen extends Component {
             <View style={[styles.homeContainer,{marginBottom:10,},{flexDirection:'row',flex:1,justifyContent:'space-around',alignItems:'space-around'}]}>
                <TouchableOpacity onPress={() => this.props.navigation.navigate('Result2')} style={styles.smallButton}><EvilIcons name="chart" size={40} color="black" /><Text style={{fontSize:20}}>Result</Text></TouchableOpacity>
                <TouchableOpacity onPress={() => this.props.navigation.navigate('About')} style={styles.smallButton}><EvilIcons name="tag" size={40} color="black" /><Text style={{fontSize:20}}>About</Text></TouchableOpacity>
-               <TouchableOpacity onPress={() => this.props.navigation.navigate('ContactUs')} style={styles.smallButton}><Feather name="phone" size={40} color="black" /><Text style={{fontSize:20}}>Contact</Text></TouchableOpacity>
+               <TouchableOpacity onPress={() =>this.props.navigation.navigate('ContactUs')} style={styles.smallButton}><Feather name="phone" size={40} color="black" /><Text style={{fontSize:20}}>Contact</Text></TouchableOpacity>
             </View>
         </View>
+         <TouchableOpacity onPress={() =>{
+         console.log("asdfgasdfasdfasdfasd");
+         var snt = ["2020/02/01 08:10:00", "2020/02/01 12:10:00", "2020/02/01 18:10:00"];
+         let paraData = {
+                                 "PlatFormVersion": "1.2",
+                                 "DeviceName": "Andoird",
+                                 "NativeAppVersion": "2.2",
+                                 "NativeBuildVersion": "3.2",
+                                 "DeviceYearClass": "4.2",
+                                 "SessionID": "5.2",
+                                 "WakeTime": "07:12",
+                                 "SleepTime": "21.2",
+                                 "NotificationCount": "2",
+                                 "NotificationEnable":true,
+                                 "ScheduledNotificationTimes": snt
+                             };
+              fetch('http://localhost:49159/SaveParaData/aaa', {
+                  method: 'POST',
+                                 headers: {
+                                   Accept: 'application/json',
+                                   'Content-Type': 'application/json',
+                                 },
+                                 body:JSON.stringify(paraData),
+
+                  }).then((response) => {
+                         return response.json();
+                       })
+                       .then((myJson) => {
+                         console.log(myJson);
+                       }).catch((error)=>{
+                         console.log(error.message);
+                      });
+
+         }
+          }
+
+
+
+
+         style={styles.smallButton}><Text style={{fontSize:20}}>Test</Text></TouchableOpacity>
       </ImageBackground>
     )
   }
